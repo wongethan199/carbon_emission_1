@@ -1,6 +1,6 @@
 #run first and make sure the files are in the colab first
 from setuptools import setup, find_packages
-
+from streamlit import st
 from os import path
 here = path.abspath(path.dirname(__file__))
 
