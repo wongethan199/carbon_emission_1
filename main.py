@@ -1,43 +1,5 @@
-#run first and make sure the files are in the colab first
-from setuptools import setup, find_packages
+
 import streamlit as st
-from os import path
-here = path.abspath(path.dirname(__file__))
-
-classifiers = [
-    'Development Status :: 5 - Production/Stable',
-    'Intended Audience :: Education',
-    'Intended Audience :: Customer Service',
-    'Intended Audience :: Developers',
-    'Intended Audience :: Information Technology',
-    'Intended Audience :: Science/Research',
-    'Intended Audience :: Telecommunications Industry',
-    'Operating System :: OS Independent',
-    'License :: OSI Approved :: Apache Software License',
-    'Programming Language :: Python :: 3'
-]
-
-setup(
-    name='searoute',
-    version='1.4.2',
-    description='A python package for generating the shortest sea route between two points on Earth.',
-    #long_description=open('README.md').read() + '\n\n' +
-    #open('CHANGELOG.txt').read(),
-    long_description_content_type="text/markdown",
-    url='',
-    author='Gent Halili',
-    author_email='genthalili@users.noreply.github.com',
-    license='Apache License 2.0',
-    classifiers=classifiers,
-    keywords='searoute map sea route ocean ports',
-    packages=find_packages(),
-    install_requires=['geojson', 'networkx'],
-    project_urls={
-        "Documentation": "https://github.com/genthalili/searoute-py/blob/main/README.md",
-        "Source": "https://github.com/genthalili/searoute-py",
-    },
-    include_package_data=True,
-)
 import searoute as sr
 import pandas
 import csv
@@ -93,9 +55,10 @@ def check_same_country(airport_code1, airport_code2):
     return country1==country2
   else:
     return 0
-choice=int(input("1 for sea and 0 for air"))
+st.header("Carbon Emission Calculator")
+choice=int(st.text_input("Enter 0 for air and 1 for sea: "))
 if choice:
-  database=int(input("Enter mode:\n0: Database\n1: Coordinates\n"))
+  database=st.text_input("Enter mode:\n0: Database\n1: Coordinates\n")
   if not database:
   #sea route if data in csv
     seaports0=y[y.columns[2]].values.tolist()
@@ -104,7 +67,7 @@ if choice:
     seaports1=[str(i[8:]) for i in seaports1]
     y["Codes_Starting"]=seaports0
     y["Codes_Ending"]=seaports1
-    start=input("Enter start country ")
+    start=st.text_input("Enter start country ")
     end="Vietnam"#input("Enter country 2 ")# currently only vietnam because limited database
     #target=x[(x.Starting_Point==start and x.Ending_Point==end) or (x.Starting_Point==end and x.Ending_Point==start)]
     ef1=[0,0,0]
@@ -120,8 +83,8 @@ if choice:
       code1=target.iloc[0][9]
       code2=target.iloc[0][10]
     else:
-      code1=input("Enter port code 1: choose 1 from Codes_Starting ")
-      code2=input("Enter port code 2: choose 1 from Codes_Ending ")
+      code1=st.text_input("Enter port code 1: choose 1 from Codes_Starting ")
+      code2=st.text_input("Enter port code 2: choose 1 from Codes_Ending ")
     target=target[target["Codes_Starting"]==code1]
     target=target[target["Codes_Ending"]==code2]
     if target.empty:
@@ -130,11 +93,11 @@ if choice:
     distance=target.iloc[0][8]
     print("Distance:",distance)
     try:
-      teu=int(input("Enter TEU capacity: "))
+      teu=int(st.text_input("Enter TEU capacity: "))
     except:
       teu=-1
     try:
-      percent=float(input("Enter % of capacity, do not include % sign: Default 70: "))
+      percent=float(st.text_input("Enter % of capacity, do not include % sign: Default 70: "))
     except:
       percent=70
     if teu==-1:#unknown
@@ -150,13 +113,13 @@ if choice:
     else:
       ef2=0.0125
     try:
-      ref_teu=int(input("Enter refrigerated teu capacity, default 800: "))
+      ref_teu=int(st.text_input("Enter refrigerated teu capacity, default 800: "))
     except:
       ref_teu=800
-    days_operated=min(int(input("Enter days operated out of 365: ")),365)
+    days_operated=min(int(st.text_input("Enter days operated out of 365: ")),365)
     weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
     try:
-      speed=float(input("Enter speed, default is 21 knots: "))#slow steaming
+      speed=float(st.text_input("Enter speed, default is 21 knots: "))#slow steaming
     except:
       speed=21.00
     print("CO2 Emission:",weight*distance*ef2*(speed/21)**2/1000,"kg")#fuel burned per km squares with speed
@@ -167,19 +130,19 @@ if choice:
     ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
     print("Refrigerated Container Emission Intensity",ref_intensity)
   else:
-    lat1=float(input("Latitude 1 (-90 to 90): "))
-    long1=float(input("Longitude 1 (-180 to 180): "))
-    lat2=float(input("Latitude 2 (-90 to 90): "))
-    long2=float(input("Longitude 2 (-180 to 180): "))
+    lat1=float(st.text_input("Latitude 1 (-90 to 90): "))
+    long1=float(st.text_input("Longitude 1 (-180 to 180): "))
+    lat2=float(st.text_input("Latitude 2 (-90 to 90): "))
+    long2=float(st.text_input("Longitude 2 (-180 to 180): "))
     origin=[long1,lat1]
     dest=[long2,lat2]
     route=sr.searoute(origin,dest)
     #print(route)
     distance=route.properties['length']
     print("Distance:",distance)
-    teu=int(input("Enter TEU capacity: "))
+    teu=int(st.text_input("Enter TEU capacity: "))
     try:
-      percent=float(input("Enter % of capacity, do not include % sign (Default 70): "))
+      percent=float(st.text_input("Enter % of capacity, do not include % sign (Default 70): "))
     except:
       percent=70
     if teu<1000:
@@ -193,14 +156,14 @@ if choice:
     else:
       ef2=0.0125
     try:
-      ref_teu=int(input("Enter refrigerated teu capacity, default 800: "))
+      ref_teu=int(st.text_input("Enter refrigerated teu capacity, default 800: "))
     except:
       ref_teu=800
-    days_operated=min(int(input("Enter days operated out of 365: ")),365)
+    days_operated=min(int(st.text_input("Enter days operated out of 365: ")),365)
     # if more than 365 days, assume user means 365
     weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
     try:
-      speed=float(input("Enter speed, default is 21 knots: "))
+      speed=float(st.text_input("Enter speed, default is 21 knots: "))
     except:
       speed=21.00
     print("CO2 Emission:",weight*distance*ef2*(speed/21)**2,"kg")#fuel burned per km squares with speed
@@ -219,8 +182,8 @@ else:
   airports1=[str(i[-4:-1]) for i in airports1]
   x["Codes_Starting"]=airports0
   x["Codes_Ending"]=airports1
-  start=input("Enter country 1 ")
-  end=input("Enter country 2 ")#may be domestic flight
+  start=st.text_input("Enter country 1 ")
+  end=st.text_input("Enter country 2 ")#may be domestic flight
   #target=x[(x.Starting_Point==start and x.Ending_Point==end) or (x.Starting_Point==end and x.Ending_Point==start)]
   ef1=0
   target=x[(x["Starting_Point"]==start)|(x["Starting_Point"]==end)]
@@ -237,8 +200,8 @@ else:
       print("only one entry exists, using this entry")
       code1=target.iloc[0][6]
       code2=target.iloc[0][7]
-      code1=input("Enter port code 1: choose 1 from Codes_Starting ")
-      code2=input("Enter port code 2: choose 1 from Codes_Ending ")
+      code1=st.text_input("Enter port code 1: choose 1 from Codes_Starting ")
+      code2=st.text_input("Enter port code 2: choose 1 from Codes_Ending ")
     target=target[target["Codes_Starting"]==code1]
     target=target[target["Codes_Ending"]==code2]
     if target.empty:
@@ -255,8 +218,8 @@ else:
       else:ef1=ef.iloc[2][5]
   else:
     if code1=="" or code2=="":
-      code1=input("Enter port code 1: ")
-      code2=input("Enter port code 2: ")
+      code1=st.text_input("Enter port code 1: ")
+      code2=st.text_input("Enter port code 2: ")
     airport_code1 = code1.strip().upper()
     airport_code2 = code2.strip().upper()
     try:
@@ -270,7 +233,7 @@ else:
       print("Timed out or error extracting data of one or both airports, or airport doesn't exist")
       #it seems that codes like MAA will time out the processor although MAA is Chennai International Airport in India
   try:
-    weight=int(input("Enter weight in kg: Default 6804: "))
+    weight=int(st.text_input("Enter weight in kg: Default 6804: "))
   except:
     weight=6804 #weight of p6p assumed if no or invalid input
   co2=weight*distance*ef1
