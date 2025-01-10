@@ -1,4 +1,7 @@
-
+# before running the program make sure that you have run
+# pip install searoute
+# and
+# pip install geopy
 import streamlit as st
 import searoute as sr
 import pandas
@@ -7,10 +10,10 @@ import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)# remove iloc warnings when getting distance
 import sys
 pandas.set_option('display.max_rows', None)
-x=pandas.read_csv("ESG - Data sheet air freight shipping hubs.xlsx - Main - Air shipping.csv")#distance
+x=pandas.read_csv("https://raw.githubusercontent.com/wongethan199/carbon_emission_1/main/ESG%20-%20Data%20sheet%20air%20freight%20shipping%20hubs.xlsx%20-%20Main%20-%20Air%20shipping.csv")#distance
 x=x[:670]
-y=pandas.read_csv("ESG - Data sheet sea freight.xlsx - Carbon footprints counting.csv")
-ef=pandas.read_csv("ESG - Data sheet air freight shipping hubs.xlsx - Sheet1.csv")
+y=pandas.read_csv("https://raw.githubusercontent.com/wongethan199/carbon_emission_1/refs/heads/main/ESG%20-%20Data%20sheet%20sea%20freight.xlsx%20-%20Carbon%20footprints%20counting.csv")
+ef=pandas.read_csv("https://raw.githubusercontent.com/wongethan199/carbon_emission_1/refs/heads/main/ESG%20-%20Data%20sheet%20air%20freight%20shipping%20hubs.xlsx%20-%20Sheet1.csv")
 import searoute as sr
 from geopy.distance import geodesic
 from geopy.geocoders import Nominatim
@@ -42,10 +45,10 @@ def calculate_distance(airport_code1, airport_code2):
 
   if coords1 and coords2:
     distance = geodesic(coords1, coords2).kilometers
-    print("Distance:",distance)
+    st.write("Distance:",distance)
     return distance
   else:
-    print("Unable to calculate distance due to missing coordinates.")
+    st.write("Unable to calculate distance due to missing coordinates.")
 def check_same_country(airport_code1, airport_code2):
   country1 = get_airport_country(airport_code1)
   country2 = get_airport_country(airport_code2)
@@ -58,7 +61,7 @@ def check_same_country(airport_code1, airport_code2):
 st.header("Carbon Emission Calculator")
 choice=int(st.text_input("Enter 0 for air and 1 for sea: "))
 if choice:
-  database=st.text_input("Enter mode:\n0: Database\n1: Coordinates\n")
+  database=int(st.text_input("Enter mode:\n0: Database\n1: Coordinates\n"))
   if not database:
   #sea route if data in csv
     seaports0=y[y.columns[2]].values.tolist()
@@ -74,12 +77,11 @@ if choice:
     target=y[y["Starting_Point"]==start]
     target=target[target["Ending_Point"]==end]
     if target.empty:
-      print("Not Found, exiting, please try mode 1 for coordinates")
-      sys.exit()
-    print("Available Seaport codes:")
-    print(target[["Codes_Starting","Codes_Ending"]])
+      st.write("Not Found, exiting, please try mode 1 for coordinates")
+    st.write("Available Seaport codes:")
+    st.write(target[["Codes_Starting","Codes_Ending"]])
     if len(target)==1:
-      print("only one entry exists, using this entry")
+      st.write("only one entry exists, using this entry")
       code1=target.iloc[0][9]
       code2=target.iloc[0][10]
     else:
@@ -88,10 +90,9 @@ if choice:
     target=target[target["Codes_Starting"]==code1]
     target=target[target["Codes_Ending"]==code2]
     if target.empty:
-      print("Not Found, exiting, please run and enter again")
-      sys.exit()
+      st.write("Not Found, exiting, please run and enter again")
     distance=target.iloc[0][8]
-    print("Distance:",distance)
+    st.write("Distance:",distance)
     try:
       teu=int(st.text_input("Enter TEU capacity: "))
     except:
@@ -122,13 +123,13 @@ if choice:
       speed=float(st.text_input("Enter speed, default is 21 knots: "))#slow steaming
     except:
       speed=21.00
-    print("CO2 Emission:",weight*distance*ef2*(speed/21)**2/1000,"kg")#fuel burned per km squares with speed
+    st.write("CO2 Emission:",weight*distance*ef2*(speed/21)**2/1000,"kg")#fuel burned per km squares with speed
     ref_consum=ref_teu*1.9*1914/365*days_operated
-    print("Refrigerator fuel consumption",ref_consum)
+    st.write("Refrigerator fuel consumption",ref_consum)
     dry_intensity=ef2*(target.iloc[0][7])*(speed/21)**2/0.875**2/distance/teu/(percent/100)*1000000
-    print("Dry Container Emission Intensity:",dry_intensity)
+    st.write("Dry Container Emission Intensity:",dry_intensity)
     ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
-    print("Refrigerated Container Emission Intensity",ref_intensity)
+    st.write("Refrigerated Container Emission Intensity",ref_intensity)
   else:
     lat1=float(st.text_input("Latitude 1 (-90 to 90): "))
     long1=float(st.text_input("Longitude 1 (-180 to 180): "))
@@ -137,9 +138,9 @@ if choice:
     origin=[long1,lat1]
     dest=[long2,lat2]
     route=sr.searoute(origin,dest)
-    #print(route)
+    #st.write(route)
     distance=route.properties['length']
-    print("Distance:",distance)
+    st.write("Distance:",distance)
     teu=int(st.text_input("Enter TEU capacity: "))
     try:
       percent=float(st.text_input("Enter % of capacity, do not include % sign (Default 70): "))
@@ -166,13 +167,13 @@ if choice:
       speed=float(st.text_input("Enter speed, default is 21 knots: "))
     except:
       speed=21.00
-    print("CO2 Emission:",weight*distance*ef2*(speed/21)**2,"kg")#fuel burned per km squares with speed
+    st.write("CO2 Emission:",weight*distance*ef2*(speed/21)**2/1000,"kg")#fuel burned per km squares with speed
     ref_consum=ref_teu*1.9*1914/365*days_operated
-    print("Refrigerator fuel consumption",ref_consum)
+    st.write("Refrigerator fuel consumption",ref_consum)
     dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
-    print("Dry Container Emission Intensity:",dry_intensity)
+    st.write("Dry Container Emission Intensity:",dry_intensity)
     ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
-    print("Refrigerated Container Emission Intensity",ref_intensity)
+    st.write("Refrigerated Container Emission Intensity",ref_intensity)
 else:
   code1=code2=""
   not_found=0
@@ -194,10 +195,10 @@ else:
   if target.empty:
     not_found=1
   else:
-    print("Available Airport codes:")
-    print(target[["Codes_Starting","Codes_Ending"]])
+    st.write("Available Airport codes:")
+    st.write(target[["Codes_Starting","Codes_Ending"]])
     if len(target)==1:
-      print("only one entry exists, using this entry")
+      st.write("only one entry exists, using this entry")
       code1=target.iloc[0][6]
       code2=target.iloc[0][7]
       code1=st.text_input("Enter port code 1: choose 1 from Codes_Starting ")
@@ -206,10 +207,9 @@ else:
     target=target[target["Codes_Ending"]==code2]
     if target.empty:
       not_found=1
-  print(not_found)
   if not not_found:
     distance=target.iloc[0][5]
-    print("Distance:",distance)
+    st.write("Distance:",distance)
     if start==end:
       ef1=ef.iloc[0][5]
     else:
@@ -230,17 +230,17 @@ else:
         ef1=ef.iloc[1][5]#short haul
       else:ef1=ef.iloc[2][5]#long haul
     except:
-      print("Timed out or error extracting data of one or both airports, or airport doesn't exist")
+      st.write("Timed out or error extracting data of one or both airports, or airport doesn't exist")
       #it seems that codes like MAA will time out the processor although MAA is Chennai International Airport in India
   try:
     weight=int(st.text_input("Enter weight in kg: Default 6804: "))
   except:
     weight=6804 #weight of p6p assumed if no or invalid input
   co2=weight*distance*ef1
-  print("CO2 Emission:",co2/1000,"kg")
-  print("This is equivalent to:")
+  st.write("CO2 Emission:",co2/1000,"kg")
+  st.write("This is equivalent to:")
   co2/=1000000
-  print(co2*370.37,"kg of rice")
-  print(co2*16.67,"kg of beef")
-  print(co2*833.33,"liters of milk")
-  print(co2*0.8,"hectares of cropland of fertilizer")
+  st.write(co2*370.37,"kg of rice")
+  st.write(co2*16.67,"kg of beef")
+  st.write(co2*833.33,"liters of milk")
+  st.write(co2*0.8,"hectares of cropland of fertilizer")
