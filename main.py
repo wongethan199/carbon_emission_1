@@ -1,14 +1,16 @@
+# create a streamlit account and make a blank app then paste the code
 # before running the program make sure that you have run
 # pip install searoute
 # and
 # pip install geopy
+# on the terminal
 import streamlit as st
 import searoute as sr
 import pandas
 import csv
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)# remove iloc warnings when getting distance
-import sys
+
 pandas.set_option('display.max_rows', None)
 x=pandas.read_csv("https://raw.githubusercontent.com/wongethan199/carbon_emission_1/main/ESG%20-%20Data%20sheet%20air%20freight%20shipping%20hubs.xlsx%20-%20Main%20-%20Air%20shipping.csv")#distance
 x=x[:670]
@@ -73,10 +75,10 @@ if choice:
     start=st.text_input("Enter start country ")
     end="Vietnam"#input("Enter country 2 ")# currently only vietnam because limited database
     #target=x[(x.Starting_Point==start and x.Ending_Point==end) or (x.Starting_Point==end and x.Ending_Point==start)]
-    ef1=[0,0,0]
+    ef1=0
     target=y[y["Starting_Point"]==start]
     target=target[target["Ending_Point"]==end]
-    if target.empty:
+    if target.empty and start!='':
       st.write("Not Found, exiting, please try mode 1 for coordinates")
     st.write("Available Seaport codes:")
     st.write(target[["Codes_Starting","Codes_Ending"]])
@@ -89,21 +91,19 @@ if choice:
       code2=st.text_input("Enter port code 2: choose 1 from Codes_Ending ")
     target=target[target["Codes_Starting"]==code1]
     target=target[target["Codes_Ending"]==code2]
-    if target.empty:
+    if target.empty and start!='' and end!='':
       st.write("Not Found, exiting, please run and enter again")
     distance=target.iloc[0][8]
     st.write("Distance:",distance)
     try:
       teu=int(st.text_input("Enter TEU capacity: "))
     except:
-      teu=-1
+      teu=24000
     try:
       percent=float(st.text_input("Enter % of capacity, do not include % sign: Default 70: "))
     except:
       percent=70
-    if teu==-1:#unknown
-      ef2=0.016
-    elif teu<1000:
+    if teu<1000:
       ef2=0.0363
     elif teu<2000:
       ef2=0.0321
@@ -187,50 +187,53 @@ else:
   end=st.text_input("Enter country 2 ")#may be domestic flight
   #target=x[(x.Starting_Point==start and x.Ending_Point==end) or (x.Starting_Point==end and x.Ending_Point==start)]
   ef1=0
-  target=x[(x["Starting_Point"]==start)|(x["Starting_Point"]==end)]
-  if end=="United States" or end=="US" or start=="United States" or start=="US":
-    target=target[(target["Ending_Point"]=="US")|(target["Ending_Point"]=="United States")|(target["Starting_Point"]=="US")|(target["Starting_Point"]=="United States")]
-  else:
-    target=target[(target["Ending_Point"]==end)|(target["Ending_Point"]==start)]
-  if target.empty:
-    not_found=1
-  else:
-    st.write("Available Airport codes:")
-    st.write(target[["Codes_Starting","Codes_Ending"]])
-    if len(target)==1:
-      st.write("only one entry exists, using this entry")
-      code1=target.iloc[0][6]
-      code2=target.iloc[0][7]
-      code1=st.text_input("Enter port code 1: choose 1 from Codes_Starting ")
-      code2=st.text_input("Enter port code 2: choose 1 from Codes_Ending ")
-    target=target[target["Codes_Starting"]==code1]
-    target=target[target["Codes_Ending"]==code2]
+  if start!='' and end!='':
+    target=x[(x["Starting_Point"]==start)|(x["Starting_Point"]==end)]
+    if end=="United States" or end=="US" or start=="United States" or start=="US":
+      target=target[(target["Ending_Point"]=="US")|(target["Ending_Point"]=="United States")|(target["Starting_Point"]=="US")|(target["Starting_Point"]=="United States")]
+    else:
+      target=target[(target["Ending_Point"]==end)|(target["Ending_Point"]==start)]
     if target.empty:
       not_found=1
-  if not not_found:
-    distance=target.iloc[0][5]
-    st.write("Distance:",distance)
-    if start==end:
-      ef1=ef.iloc[0][5]
     else:
-      if int(distance)<3700:
-        ef1=ef.iloc[1][5]
-      else:ef1=ef.iloc[2][5]
-  else:
-    if code1=="" or code2=="":
+      st.write("Available Airport codes:")
+      st.write(target[["Codes_Starting","Codes_Ending"]])
+      if len(target)==1:
+        st.write("only one entry exists, using this entry")
+        code1=target.iloc[0][6]
+        code2=target.iloc[0][7]
       code1=st.text_input("Enter port code 1: ")
       code2=st.text_input("Enter port code 2: ")
-    airport_code1 = code1.strip().upper()
-    airport_code2 = code2.strip().upper()
-    try:
-      dst=calculate_distance(airport_code1, airport_code2)
-      if check_same_country(airport_code1,airport_code2):
-        ef1=ef.iloc[0][5]#domestic
-      elif dst<3700:
-        ef1=ef.iloc[1][5]#short haul
-      else:ef1=ef.iloc[2][5]#long haul
-    except:
-      st.write("Timed out or error extracting data of one or both airports, or airport doesn't exist")
+      if code2!='' and code1!='':
+        target=target[target["Codes_Starting"]==code1]
+        target=target[target["Codes_Ending"]==code2]
+        if target.empty:
+          not_found=1
+  if code2!='' and code1!='':
+    if not not_found:
+      distance=target.iloc[0][5]
+      st.write("Distance:",distance)
+      if start==end:
+        ef1=ef.iloc[0][5]
+      else:
+        if int(distance)<3700:
+          ef1=ef.iloc[1][5]
+        else:ef1=ef.iloc[2][5]
+    else:
+      if code1=="" or code2=="":
+        code1=st.text_input("Enter port code 1: ")
+        code2=st.text_input("Enter port code 2: ")
+      airport_code1 = code1.strip().upper()
+      airport_code2 = code2.strip().upper()
+      try:
+        distance=calculate_distance(airport_code1, airport_code2)
+        if check_same_country(airport_code1,airport_code2):
+          ef1=ef.iloc[0][5]#domestic
+        elif distance<3700:
+          ef1=ef.iloc[1][5]#short haul
+        else:ef1=ef.iloc[2][5]#long haul
+      except:
+        st.write("Timed out or error extracting data of one or both airports, or airport doesn't exist")
       #it seems that codes like MAA will time out the processor although MAA is Chennai International Airport in India
   try:
     weight=int(st.text_input("Enter weight in kg: Default 6804: "))
