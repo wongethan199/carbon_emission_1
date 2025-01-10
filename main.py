@@ -1,4 +1,44 @@
 #run first and make sure the files are in the colab first
+from setuptools import setup, find_packages
+
+from os import path
+here = path.abspath(path.dirname(__file__))
+
+classifiers = [
+    'Development Status :: 5 - Production/Stable',
+    'Intended Audience :: Education',
+    'Intended Audience :: Customer Service',
+    'Intended Audience :: Developers',
+    'Intended Audience :: Information Technology',
+    'Intended Audience :: Science/Research',
+    'Intended Audience :: Telecommunications Industry',
+    'Operating System :: OS Independent',
+    'License :: OSI Approved :: Apache Software License',
+    'Programming Language :: Python :: 3'
+]
+
+setup(
+    name='searoute',
+    version='1.4.2',
+    description='A python package for generating the shortest sea route between two points on Earth.',
+    #long_description=open('README.md').read() + '\n\n' +
+    #open('CHANGELOG.txt').read(),
+    long_description_content_type="text/markdown",
+    url='',
+    author='Gent Halili',
+    author_email='genthalili@users.noreply.github.com',
+    license='Apache License 2.0',
+    classifiers=classifiers,
+    keywords='searoute map sea route ocean ports',
+    packages=find_packages(),
+    install_requires=['geojson', 'networkx'],
+    project_urls={
+        "Documentation": "https://github.com/genthalili/searoute-py/blob/main/README.md",
+        "Source": "https://github.com/genthalili/searoute-py",
+    },
+    include_package_data=True,
+)
+import searoute as sr
 import pandas
 import csv
 import warnings
@@ -10,6 +50,8 @@ x=x[:670]
 y=pandas.read_csv("ESG - Data sheet sea freight.xlsx - Carbon footprints counting.csv")
 ef=pandas.read_csv("ESG - Data sheet air freight shipping hubs.xlsx - Sheet1.csv")
 import searoute as sr
+from geopy.distance import geodesic
+from geopy.geocoders import Nominatim
 def get_airport_coordinates(airport_code):
   geolocator = Nominatim(user_agent="airport_distance_calculator")
   try:
@@ -51,7 +93,7 @@ def check_same_country(airport_code1, airport_code2):
     return country1==country2
   else:
     return 0
-choice=int(input("1 for sea and 0 for air"))
+choice=st.text_input("1 for sea and 0 for air ")
 if choice:
   database=int(input("Enter mode:\n0: Database\n1: Coordinates\n"))
   if not database:
