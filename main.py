@@ -4,6 +4,7 @@
 # and
 # pip install geopy
 # on the terminal
+
 import streamlit as st
 import searoute as sr
 import pandas
@@ -47,7 +48,7 @@ def calculate_distance(airport_code1, airport_code2):
 
   if coords1 and coords2:
     distance = geodesic(coords1, coords2).kilometers
-    st.write("Distance:",distance)
+    st.write("Distance:",round(distance),"(using geopy)")
     return distance
   else:
     st.write("Unable to calculate distance due to missing coordinates.")
@@ -195,6 +196,7 @@ else:
       target=target[(target["Ending_Point"]==end)|(target["Ending_Point"]==start)]
     if target.empty:
       not_found=1
+      st.write("Not Found, will use geopy")# the database will be faster if the data is found, and prevents errors like timeout
     else:
       st.write("Available Airport codes:")
       st.write(target[["Codes_Starting","Codes_Ending"]])
@@ -209,31 +211,30 @@ else:
         target=target[target["Codes_Ending"]==code2]
         if target.empty:
           not_found=1
-  if code2!='' and code1!='':
-    if not not_found:
-      distance=target.iloc[0][5]
-      st.write("Distance:",distance)
-      if start==end:
-        ef1=ef.iloc[0][5]
-      else:
-        if int(distance)<3700:
-          ef1=ef.iloc[1][5]
-        else:ef1=ef.iloc[2][5]
+  if not not_found:
+    distance=target.iloc[0][5]
+    st.write("Distance:",distance)
+    if start==end:
+      ef1=ef.iloc[0][5]
     else:
-      if code1=="" or code2=="":
-        code1=st.text_input("Enter port code 1: ")
-        code2=st.text_input("Enter port code 2: ")
-      airport_code1 = code1.strip().upper()
-      airport_code2 = code2.strip().upper()
-      try:
-        distance=calculate_distance(airport_code1, airport_code2)
-        if check_same_country(airport_code1,airport_code2):
-          ef1=ef.iloc[0][5]#domestic
-        elif distance<3700:
-          ef1=ef.iloc[1][5]#short haul
-        else:ef1=ef.iloc[2][5]#long haul
-      except:
-        st.write("Timed out or error extracting data of one or both airports, or airport doesn't exist")
+      if int(distance)<3700:
+        ef1=ef.iloc[1][5]
+      else:ef1=ef.iloc[2][5]
+  else:
+    if code1=="" or code2=="":
+      code1=st.text_input("Enter port code 1: ")
+      code2=st.text_input("Enter port code 2: ")
+    airport_code1 = code1.strip().upper()
+    airport_code2 = code2.strip().upper()
+    try:
+      distance=calculate_distance(airport_code1, airport_code2)
+      if check_same_country(airport_code1,airport_code2):
+        ef1=ef.iloc[0][5]#domestic
+      elif distance<3700:
+        ef1=ef.iloc[1][5]#short haul
+      else:ef1=ef.iloc[2][5]#long haul
+    except:
+      st.write("Timed out or error extracting data of one or both airports, or airport doesn't exist")
       #it seems that codes like MAA will time out the processor although MAA is Chennai International Airport in India
   try:
     weight=int(st.text_input("Enter weight in kg: Default 6804: "))
