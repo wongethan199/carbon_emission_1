@@ -5,38 +5,38 @@ from os import path
 here = path.abspath(path.dirname(__file__))
 
 classifiers = [
-  'Development Status :: 5 - Production/Stable',
-  'Intended Audience :: Education',
-  'Intended Audience :: Customer Service',
-  'Intended Audience :: Developers',
-  'Intended Audience :: Information Technology',
-  'Intended Audience :: Science/Research',
-  'Intended Audience :: Telecommunications Industry',
-  'Operating System :: OS Independent',
-  'License :: OSI Approved :: Apache Software License',
-  'Programming Language :: Python :: 3'
+    'Development Status :: 5 - Production/Stable',
+    'Intended Audience :: Education',
+    'Intended Audience :: Customer Service',
+    'Intended Audience :: Developers',
+    'Intended Audience :: Information Technology',
+    'Intended Audience :: Science/Research',
+    'Intended Audience :: Telecommunications Industry',
+    'Operating System :: OS Independent',
+    'License :: OSI Approved :: Apache Software License',
+    'Programming Language :: Python :: 3'
 ]
 
 setup(
-  name='searoute',
-  version='1.4.2',
-  description='A python package for generating the shortest sea route between two points on Earth.',
-  #long_description=open('README.md').read() + '\n\n' +
-  #open('CHANGELOG.txt').read(),
-  long_description_content_type="text/markdown",
-  url='',
-  author='Gent Halili',
-  author_email='genthalili@users.noreply.github.com',
-  license='Apache License 2.0',
-  classifiers=classifiers,
-  keywords='searoute map sea route ocean ports',
-  packages=find_packages(),
-  install_requires=['geojson', 'networkx'],
-  project_urls={
-      "Documentation": "https://github.com/genthalili/searoute-py/blob/main/README.md",
-      "Source": "https://github.com/genthalili/searoute-py",
-  },
-  include_package_data=True,
+    name='searoute',
+    version='1.4.2',
+    description='A python package for generating the shortest sea route between two points on Earth.',
+    #long_description=open('README.md').read() + '\n\n' +
+    #open('CHANGELOG.txt').read(),
+    long_description_content_type="text/markdown",
+    url='',
+    author='Gent Halili',
+    author_email='genthalili@users.noreply.github.com',
+    license='Apache License 2.0',
+    classifiers=classifiers,
+    keywords='searoute map sea route ocean ports',
+    packages=find_packages(),
+    install_requires=['geojson', 'networkx'],
+    project_urls={
+        "Documentation": "https://github.com/genthalili/searoute-py/blob/main/README.md",
+        "Source": "https://github.com/genthalili/searoute-py",
+    },
+    include_package_data=True,
 )
 import searoute as sr
 import pandas
@@ -93,7 +93,7 @@ def check_same_country(airport_code1, airport_code2):
     return country1==country2
   else:
     return 0
-choice=st.text_input("1 for sea and 0 for air ")
+choice=int(input("1 for sea and 0 for air"))
 if choice:
   database=int(input("Enter mode:\n0: Database\n1: Coordinates\n"))
   if not database:
@@ -211,6 +211,7 @@ if choice:
     ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
     print("Refrigerated Container Emission Intensity",ref_intensity)
 else:
+  code1=code2=""
   not_found=0
   airports0=x[x.columns[2]].values.tolist()
   airports0=[str(i[-4:-1]) for i in airports0]
@@ -224,26 +225,26 @@ else:
   ef1=0
   target=x[(x["Starting_Point"]==start)|(x["Starting_Point"]==end)]
   if end=="United States" or end=="US" or start=="United States" or start=="US":
-    target=target[(target["Ending_Point"]=="US")|(target["Ending_Point"]=="United States")]
+    target=target[(target["Ending_Point"]=="US")|(target["Ending_Point"]=="United States")|(target["Starting_Point"]=="US")|(target["Starting_Point"]=="United States")]
   else:
     target=target[(target["Ending_Point"]==end)|(target["Ending_Point"]==start)]
   if target.empty:
-    print("Countries Not Found, enter codes")
+    not_found=1
   else:
     print("Available Airport codes:")
     print(target[["Codes_Starting","Codes_Ending"]])
-  if len(target)==1:
-    print("only one entry exists, using this entry")
-    code1=target.iloc[0][6]
-    code2=target.iloc[0][7]
-  else:
-    code1=input("Enter port code 1: choose 1 from Codes_Starting ")
-    code2=input("Enter port code 2: choose 1 from Codes_Ending ")
-  target=target[target["Codes_Starting"]==code1]
-  target=target[target["Codes_Ending"]==code2]
-  if target.empty:
-    not_found=1
-  if not_found==0:
+    if len(target)==1:
+      print("only one entry exists, using this entry")
+      code1=target.iloc[0][6]
+      code2=target.iloc[0][7]
+      code1=input("Enter port code 1: choose 1 from Codes_Starting ")
+      code2=input("Enter port code 2: choose 1 from Codes_Ending ")
+    target=target[target["Codes_Starting"]==code1]
+    target=target[target["Codes_Ending"]==code2]
+    if target.empty:
+      not_found=1
+  print(not_found)
+  if not not_found:
     distance=target.iloc[0][5]
     print("Distance:",distance)
     if start==end:
@@ -253,9 +254,11 @@ else:
         ef1=ef.iloc[1][5]
       else:ef1=ef.iloc[2][5]
   else:
+    if code1=="" or code2=="":
+      code1=input("Enter port code 1: ")
+      code2=input("Enter port code 2: ")
     airport_code1 = code1.strip().upper()
     airport_code2 = code2.strip().upper()
-  
     try:
       dst=calculate_distance(airport_code1, airport_code2)
       if check_same_country(airport_code1,airport_code2):
