@@ -1,0 +1,47 @@
+No.,Starting_Point,Hub_Names_Starting,Ending_Point,Hub_Names_Ending,Distance_nautical,Estimated_Carbon_Emisssion,Fuel,Distance_km
+1,China,Port of Shanghai,Vietnam,Port of Ho Chi Minh City,1997,9.3862E-09,29.16,3698.444
+2,China,Port of Shenzhen,Vietnam,Port of Ho Chi Minh City,1085,9.3844E-09,15.84,2009.42
+3,Japan,Port of Tokyo,Vietnam,Port of Ho Chi Minh City,3084,9.3857E-09,45.03,5711.568
+4,Japan,Port of Akita,Vietnam,Port of Hai Phong,2807,9.3845E-09,40.98,5198.564
+5,USA,Port of Los Angeles,Vietnam,Port of Ho Chi Minh City,17353,9.3848E-09,253.35,32137.756
+6,USA,Port of New York,Vietnam,Port of Ho Chi Minh City,11944,9.3848E-09,174.38,22120.288
+7,South Korea,Port of Busan,Vietnam,Port of Ho Chi Minh City,2520,9.3845E-09,36.79,4667.04
+8,South Korea,Port of Busan,Vietnam,Port of Hai Phong,2071,9.3860E-09,30.24,3835.492
+9,Singapore,Port of Singapore,Vietnam,Port of Ho Chi Minh City,774,9.3846E-09,11.3,1433.448
+10,Singapore,Port of Singapore,Vietnam,Port of Hai Phong,1635,9.3846E-09,23.87,3028.02
+11,Malaysia,Port of Klang,Vietnam,Port of Ho Chi Minh City,969,9.3867E-09,14.15,1794.588
+12,Malaysia,Port of Kuantan,Vietnam,Port of Saigon,601,9.3800E-09,8.77,1113.052
+13,Thailand,Port of Bangkok,Vietnam,Port of Ho Chi Minh City,870,9.3835E-09,12.7,1611.24
+14,Thailand,Port of Bangkok,Vietnam,Port of Hanoi,1815,9.3853E-09,26.5,3361.38
+15,Indonesia,Port of Samarinda,Vietnam,Port of Ho Chi Minh City,1554,9.3856E-09,22.69,2878.008
+16,Indonesia,Port of Tanjung Priok,Vietnam,Port of Ho Chi Minh City,993,9.3864E-09,14.5,1839.036
+17,Philippines,Port of Manila,Vietnam,Port of Ho Chi Minh City,984,9.3873E-09,14.37,1822.368
+18,Philippines,Port of Manila,Vietnam,Port of Hai Phong,1160,9.3872E-09,16.94,2148.32
+19,India,Port of Mumbai,Vietnam,Port of Ho Chi Minh City,3376,9.3850E-09,49.29,6252.352
+20,India,Port of Cochin,Vietnam,Port of Ho Chi Minh City,2786,9.3860E-09,40.68,5159.672
+21,Taiwan,Port of Kaohsiung,Vietnam,Port of Ho Chi Minh City,1434,9.3866E-09,20.94,2655.768
+22,Taiwan,Port of Taichung,Vietnam,Port of Hai Phong,1050,9.3850E-09,15.33,1944.6
+23,Bangladesh,Port of Chittagong,Vietnam,Port of Ho Chi Minh City,2605,9.3842E-09,38.03,4824.46
+24,Bangladesh,Port of Chalna,Vietnam,Port of Hanoi,3646,9.3847E-09,53.23,6752.392
+25,Sri Lanka,Port of Colombo,Vietnam,Port of Ho Chi Minh City,2434,9.3859E-09,35.54,4507.768
+26,Sri Lanka,Port of Galle,Vietnam,Port of Hanoi,3316,9.3843E-09,48.41,6141.232
+27,Myanmar,Port of Yangon,Vietnam,Port of Ho Chi Minh City,2081,9.3842E-09,30.38,3854.012
+28,Pakistan,Port of Karachi,Vietnam,Port of Ho Chi Minh City,3964,9.3842E-09,57.87,7341.328
+29,Iran,Port of Bandar Abbas,Vietnam,Port of Ho Chi Minh City,4050,9.3850E-09,59.13,7500.6
+30,Saudi Arabia,Port of Jeddah,Vietnam,Port of Ho Chi Minh City,4820,9.3847E-09,70.37,8926.64
+31,Turkey,Port of Istanbul,Vietnam,Port of Ho Chi Minh City,5480,9.3852E-09,80.01,10148.96
+32,United Arab Emirates,Port of Jebel Ali,Vietnam,Port of Ho Chi Minh City,3800,9.3850E-09,55.48,7037.6
+33,Israel,Port of Haifa,Vietnam,Port of Ho Chi Minh City,5100,9.3850E-09,74.46,9445.2
+34,Jordan,Port of Aqaba,Vietnam,Port of Ho Chi Minh City,4900,9.3850E-09,71.54,9074.8
+35,Kazakhstan,Port of Aktau,Vietnam,Port of Ho Chi Minh City,5200,9.3850E-09,75.92,9630.4
+36,Uzbekistan,Port of Nukus,Vietnam,Port of Ho Chi Minh City,5400,9.3850E-09,78.84,10000.8
+37,Lebanon,Port of Beirut,Vietnam,Port of Ho Chi Minh City,6467,9.3851E-09,94.42,11976.884
+38,Syria,Port of Tartus,Vietnam,Port of Qui Nhon,6896,9.3848E-09,100.68,12771.392
+39,Iraq,Port of Basrah,Vietnam,Port of Ho Chi Minh City,5221,9.3854E-09,76.23,9669.292
+40,Kuwait,Port of Kuwait,Vietnam,Port of Ho Chi Minh City,5177,9.3844E-09,75.58,9587.804
+41,Oman,Port of Sohar,Vietnam,Port of Ho Chi Minh City,4466,9.3844E-09,65.2,8271.032
+42,Yemen,Port of Aden,Vietnam,Port of Nha Be,4683,9.3847E-09,68.37,8672.916
+43,Georgia,Port of Poti,Vietnam,Port of Ho Chi Minh City,9171,9.3852E-09,133.9,16984.692
+44,Armenia,Port of Yerevan,Vietnam,Port of Ho Chi Minh City,4244,9.3846E-09,61.96,7859.888
+45,Azerbaijan,Port of Baku,Vietnam,Port of Ho Chi Minh City,4079,9.3844E-09,59.55,7554.308
+46,Turkmenistan,Port of Turkmenbashi,Vietnam,Port of Ho Chi Minh City,3463,9.3850E-09,50.56,6413.476

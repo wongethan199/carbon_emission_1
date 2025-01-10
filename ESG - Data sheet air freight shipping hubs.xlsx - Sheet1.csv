@@ -1,0 +1,50 @@
+Region,Vehicle,Type,Weight Class,Fuel,CO2 EF,EF Unit,CH4 EF,EF Unit,N2O EF,EF Unit
+UK,Freight flights,"Domestic, between UK airports",,,2.352,kg/tonne-kilometer,0.0752,g/tonne-kilometer,0.0747,g/tonne-kilometer
+UK,Freight flights,"Short-haul1, up to 3700km distance",,,1.206,kg/tonne-kilometer,0.0032,g/tonne-kilometer,0.0383,g/tonne-kilometer
+UK,Freight flights,"Long-haul1, over 3700km distance",,,0.534,kg/tonne-kilometer,0.0016,g/tonne-kilometer,0.017,g/tonne-kilometer
+UK,Freight flights,"International2, over 3700km distance",,,0.534,kg/tonne-kilometer,0.0016,g/tonne-kilometer,0.017,g/tonne-kilometer
+UK,Rail,Freight train,,,0.027,kg/tonne-kilometer,0.0008,g/tonne-kilometer,0.00104,g/tonne-kilometer
+UK,Vans,"Class I, ≤1.305 tonnes",,Petrol,1.055,kg/tonne-kilometer,0.0512,g/tonne-kilometer,0.00886,g/tonne-kilometer
+UK,Vans,"Class II, >1.305 to ≤1.74 tonnes",,Petrol,0.73,kg/tonne-kilometer,0.0348,g/tonne-kilometer,0.00601,g/tonne-kilometer
+UK,Vans,"Class III, >1.74 to ≤3.5 tonnes",,Petrol,0.775,kg/tonne-kilometer,0.0236,g/tonne-kilometer,0.00409,g/tonne-kilometer
+UK,Vans,Average (up to 3.5 tonnes),,Petrol,0.717,kg/tonne-kilometer,0.0324,g/tonne-kilometer,0.00564,g/tonne-kilometer
+UK,Vans,"Class I, ≤1.305 tonnes",,Diesel,0.781,kg/tonne-kilometer,0.0008,g/tonne-kilometer,0.0347,g/tonne-kilometer
+UK,Vans,"Class II, >1.305 to ≤1.74 tonnes",,Diesel,0.562,kg/tonne-kilometer,0.0004,g/tonne-kilometer,0.02144,g/tonne-kilometer
+UK,Vans,"Class III, >1.74 to ≤3.5 tonnes",,Diesel,0.564,kg/tonne-kilometer,0.0004,g/tonne-kilometer,0.01396,g/tonne-kilometer
+UK,Vans,Average (up to 3.5 tonnes),,Diesel,0.566,kg/tonne-kilometer,0.0004,g/tonne-kilometer,0.0156,g/tonne-kilometer
+UK,Vans,Average (up to 3.5 tonnes),,CNG,0.571,kg/tonne-kilometer,0.118,g/tonne-kilometer,0.0047,g/tonne-kilometer
+UK,Vans,Average (up to 3.5 tonnes),,LPG,0.631,kg/tonne-kilometer,0.0036,g/tonne-kilometer,0.0047,g/tonne-kilometer
+UK,Vans,Average (up to 3.5 tonnes),,Unknown,0.571,kg/tonne-kilometer,0.0012,g/tonne-kilometer,0.01527,g/tonne-kilometer
+UK,HGV - Rigid,3.5 - 7.5 tonnes,Average Laden,Diesel,0.507,kg/tonne-kilometer,0.004,g/tonne-kilometer,0.0203,g/tonne-kilometer
+UK,HGV - Rigid,7.5 - 17 tonnes,Average Laden,Diesel,0.35,kg/tonne-kilometer,0.0028,g/tonne-kilometer,0.01416,g/tonne-kilometer
+UK,HGV - Rigid,>17 tonnes,Average Laden,Diesel,0.152,kg/tonne-kilometer,0.0016,g/tonne-kilometer,0.00758,g/tonne-kilometer
+UK,HGV - Rigid,Average2,Average Laden,Diesel,0.176,kg/tonne-kilometer,0.0016,g/tonne-kilometer,0.00866,g/tonne-kilometer
+UK,HGV - Articulated,3.5 - 33 tonnes,Average Laden,Diesel,0.114,kg/tonne-kilometer,0.0008,g/tonne-kilometer,0.00748,g/tonne-kilometer
+UK,HGV - Articulated,>33 tonnes,Average Laden,Diesel,0.073,kg/tonne-kilometer,0.0004,g/tonne-kilometer,0.00473,g/tonne-kilometer
+UK,HGV - Articulated,Average3,Average Laden,Diesel,0.074,kg/tonne-kilometer,0.0004,g/tonne-kilometer,0.0048,g/tonne-kilometer
+UK,HGV - Type Unknown,Average4,Average Laden,Diesel,0.095,kg/tonne-kilometer,0.0008,g/tonne-kilometer,0.0056,g/tonne-kilometer
+UK,Sea tanker,Crude tanker,"200,000+ dwt",,0.003,kg/tonne-kilometer,0.00004,g/tonne-kilometer,0.0001,g/tonne-kilometer
+UK,Sea tanker,Crude tanker,"120,000–199,999 dwt",,0.004,kg/tonne-kilometer,0.00004,g/tonne-kilometer,0.0002,g/tonne-kilometer
+UK,Sea tanker,Crude tanker,"80,000–119,999 dwt",,0.006,kg/tonne-kilometer,0.0001,g/tonne-kilometer,0.0003,g/tonne-kilometer
+UK,Sea tanker,Crude tanker,"60,000–79,999 dwt",,0.008,kg/tonne-kilometer,0.0001,g/tonne-kilometer,0.0003,g/tonne-kilometer
+UK,Sea tanker,Crude tanker,"10,000–59,999 dwt",,0.009,kg/tonne-kilometer,0.0001,g/tonne-kilometer,0.0004,g/tonne-kilometer
+UK,Sea tanker,Crude tanker,0–9999 dwt,,0.033,kg/tonne-kilometer,0.0004,g/tonne-kilometer,0.0015,g/tonne-kilometer
+UK,Sea tanker,Crude tanker,Average,,0.005,kg/tonne-kilometer,0.00004,g/tonne-kilometer,0.0002,g/tonne-kilometer
+UK,Cargo ship,Bulk carrier,"200,000+ dwt",,0.003,kg/tonne-kilometer,0.00004,g/tonne-kilometer,0.0001,g/tonne-kilometer
+UK,Cargo ship,Bulk carrier,"100,000–199,999 dwt",,0.003,kg/tonne-kilometer,0,g/tonne-kilometer,0.0001,g/tonne-kilometer
+UK,Cargo ship,Bulk carrier,"60,000–99,999 dwt",,0.004,kg/tonne-kilometer,0,g/tonne-kilometer,0.0002,g/tonne-kilometer
+UK,Cargo ship,Bulk carrier,"35,000–59,999 dwt",,0.006,kg/tonne-kilometer,0.0001,g/tonne-kilometer,0.0003,g/tonne-kilometer
+UK,Cargo ship,Bulk carrier,"10,000–34,999 dwt",,0.008,kg/tonne-kilometer,0.0001,g/tonne-kilometer,0.0004,g/tonne-kilometer
+UK,Cargo ship,Bulk carrier,0–9999 dwt,,0.029,kg/tonne-kilometer,0.0004,g/tonne-kilometer,0.0013,g/tonne-kilometer
+UK,Cargo ship,Bulk carrier,Average,,0.003,kg/tonne-kilometer,0.00004,g/tonne-kilometer,0.0002,g/tonne-kilometer
+UK,Cargo ship,Container ship,8000+ TEU,,0.013,kg/tonne-kilometer,0.0002,g/tonne-kilometer,0.0006,g/tonne-kilometer
+UK,Cargo ship,Container ship,5000–7999 TEU,,0.017,kg/tonne-kilometer,0.0002,g/tonne-kilometer,0.0008,g/tonne-kilometer
+UK,Cargo ship,Container ship,3000–4999 TEU,,0.017,kg/tonne-kilometer,0.0002,g/tonne-kilometer,0.0008,g/tonne-kilometer
+UK,Cargo ship,Container ship,2000–2999 TEU,,0.02,kg/tonne-kilometer,0.0002,g/tonne-kilometer,0.0009,g/tonne-kilometer
+UK,Cargo ship,Container ship,1000–1999 TEU,,0.032,kg/tonne-kilometer,0.0004,g/tonne-kilometer,0.0015,g/tonne-kilometer
+UK,Cargo ship,Container ship,0–999 TEU,,0.036,kg/tonne-kilometer,0.0004,g/tonne-kilometer,0.0017,g/tonne-kilometer
+UK,Cargo ship,Container ship,Average,,0.016,kg/tonne-kilometer,0.0002,g/tonne-kilometer,0.0007,g/tonne-kilometer
+UK,Cargo ship,Vehicle transport,4000+ CEU,,0.032,kg/tonne-kilometer,0.0004,g/tonne-kilometer,0.0015,g/tonne-kilometer
+UK,Cargo ship,Vehicle transport,0–3999 CEU,,0.058,kg/tonne-kilometer,0.0007,g/tonne-kilometer,0.0026,g/tonne-kilometer
+UK,Cargo ship,Vehicle transport,Average,,0.038,kg/tonne-kilometer,0.0004,g/tonne-kilometer,0.0017,g/tonne-kilometer
+UK,Cargo ship,Large RoPax ferry,Average,,0.372,kg/tonne-kilometer,0.0044,g/tonne-kilometer,0.017,g/tonne-kilometer

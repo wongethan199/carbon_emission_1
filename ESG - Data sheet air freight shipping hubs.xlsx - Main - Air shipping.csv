@@ -1,0 +1,671 @@
+No.,Starting_Point,Hub_Names_Starting,Ending_Point,Hub_Names_Ending,Distance
+1,China,Shanghai Pudong International Airport (PVG),United States,Los Angeles International Airport (LAX),10436
+2,China,Shanghai Pudong International Airport (PVG),United States,John F. Kennedy International Airport (JFK),11897
+3,China,Beijing Capital International Airport (PEK),United States,Los Angeles International Airport (LAX),10058
+4,China,Beijing Capital International Airport (PEK),United States,John F. Kennedy International Airport (JFK),11003
+5,China,Guangzhou Baiyun International Airport (CAN),United States,Los Angeles International Airport (LAX),11638
+6,China,Guangzhou Baiyun International Airport (CAN),United States,John F. Kennedy International Airport (JFK),12878
+7,China,Chengdu Shuangliu International Airport (CTU),United States,Los Angeles International Airport (LAX),11598
+8,China,Chengdu Shuangliu International Airport (CTU),United States,John F. Kennedy International Airport (JFK),12115
+9,Japan,Narita International Airport (NRT),United States,San Francisco International Airport (SFO),8246
+10,Japan,Narita International Airport (NRT),United States,Chicago O'Hare International Airport (ORD),10097
+11,Japan,Kansai International Airport (KIX),United States,San Francisco International Airport (SFO),8710
+12,Japan,Kansai International Airport (KIX),United States,Chicago O'Hare International Airport (ORD),10472
+13,South Korea,Incheon International Airport (ICN),United States,Seattle-Tacoma International Airport (SEA),8396
+14,South Korea,Incheon International Airport (ICN),United States,Dallas/Fort Worth International Airport (DFW),11010
+15,South Korea,Gimpo International Airport (GMP),United States,Seattle-Tacoma International Airport (SEA),8367
+16,South Korea,Gimpo International Airport (GMP),United States,Dallas/Fort Worth International Airport (DFW),10983
+17,South Korea,Busan Gimhae International Airport (PUS),United States,Boston Logan International Airport (BOS),11181
+18,South Korea,Busan Gimhae International Airport (PUS),United States,Miami International Airport (MIA),12591
+19,India,Indira Gandhi International Airport (DEL),United States,Newark Liberty International Airport (EWR),11788
+20,India,Indira Gandhi International Airport (DEL),United States,Chicago O'Hare International Airport (ORD),12045
+21,India,Chhatrapati Shivaji Maharaj International Airport (BOM),United States,Newark Liberty International Airport (EWR),12565
+22,India,Chhatrapati Shivaji Maharaj International Airport (BOM),United States,Chicago O'Hare International Airport (ORD),12962
+23,India,Kempegowda International Airport (BLR),United States,Boston Logan International Airport (BOS),13075
+24,India,Kempegowda International Airport (BLR),United States,Atlanta Hartsfield-Jackson International Airport (ATL),14488
+25,India,Netaji Subhas Chandra Bose International Airport (CCU),United States,Chicago O'Hare International Airport (ORD),12839
+26,Singapore,Changi Airport (SIN),United States,Los Angeles International Airport (LAX),14114
+27,Singapore,Changi Airport (SIN),United States,John F. Kennedy International Airport (JFK),15348
+28,Singapore,Seletar Airport (XSP),United States,Los Angeles International Airport (LAX),14118
+29,Singapore,Seletar Airport (XSP),United States,John F. Kennedy International Airport (JFK),15341
+30,Singapore,Paya Lebar Airbase (PLB),United States,Los Angeles International Airport (LAX),14119
+31,Thailand,Suvarnabhumi Airport (BKK),United States,Los Angeles International Airport (LAX),13308
+32,Thailand,Suvarnabhumi Airport (BKK),United States,John F. Kennedy International Airport (JFK),13963
+33,Thailand,Don Mueang International Airport (DMK),United States,Los Angeles International Airport (LAX),13297
+34,Thailand,Don Mueang International Airport (DMK),United States,John F. Kennedy International Airport (JFK),13937
+35,Vietnam,Tan Son Nhat International Airport (SGN),United States,Los Angeles International Airport (LAX),13146
+36,Vietnam,Tan Son Nhat International Airport (SGN),United States,John F. Kennedy International Airport (JFK),14307
+37,Vietnam,Noi Bai International Airport (HAN),United States,Los Angeles International Airport (LAX),12320
+38,Vietnam,Noi Bai International Airport (HAN),United States,John F. Kennedy International Airport (JFK),13156
+39,Vietnam,Da Nang International Airport (DAD),United States,San Francisco International Airport (SFO),12063
+40,Vietnam,Phu Bai International Airport (HUI),United States,Chicago O'Hare International Airport (ORD),13346
+41,Indonesia,Soekarno–Hatta International Airport (CGK),United States,Los Angeles International Airport (LAX),14460
+42,Indonesia,Soekarno–Hatta International Airport (CGK),United States,John F. Kennedy International Airport (JFK),16180
+43,Indonesia,Ngurah Rai International Airport (DPS),United States,Los Angeles International Airport (LAX),13894
+44,Indonesia,Ngurah Rai International Airport (DPS),United States,John F. Kennedy International Airport (JFK),16363
+45,Malaysia,Kuala Lumpur International Airport (KUL),United States,Los Angeles International Airport (LAX),14175
+46,Malaysia,Kuala Lumpur International Airport (KUL),United States,John F. Kennedy International Airport (JFK),15178
+47,Malaysia,Penang International Airport (PEN),United States,Los Angeles International Airport (LAX),14067
+48,Malaysia,Penang International Airport (PEN),United States,John F. Kennedy International Airport (JFK),14882
+49,Philippines,Ninoy Aquino International Airport (MNL),United States,Los Angeles International Airport (LAX),11756
+50,Philippines,Ninoy Aquino International Airport (MNL),United States,John F. Kennedy International Airport (JFK),13712
+51,Philippines,Mactan–Cebu International Airport (CEB),United States,Los Angeles International Airport (LAX),11819
+52,Philippines,Mactan–Cebu International Airport (CEB),United States,John F. Kennedy International Airport (JFK),14077
+53,South Korea,Incheon International Airport (ICN),Vietnam,Tan Son Nhat International Airport (SGN),3554
+54,South Korea,Incheon International Airport (ICN),Vietnam,Noi Bai International Airport (HAN),2683
+55,South Korea,Gimpo International Airport (GMP),Vietnam,Tan Son Nhat International Airport (SGN),3582
+56,South Korea,Gimpo International Airport (GMP),Vietnam,Noi Bai International Airport (HAN),2714
+57,India,Indira Gandhi International Airport (DEL),China,Shanghai Pudong International Airport (PVG),4301
+58,India,Indira Gandhi International Airport (DEL),China,Beijing Capital International Airport (PEK),3818
+59,India,Chhatrapati Shivaji Maharaj International Airport (BOM),China,Shanghai Pudong International Airport (PVG),5071
+60,India,Chhatrapati Shivaji Maharaj International Airport (BOM),China,Beijing Capital International Airport (PEK),4769
+61,China,Shanghai Pudong International Airport (PVG),Vietnam,Tan Son Nhat International Airport (SGN),2740
+62,Australia,Perth Airport (PER),Australia,Melbourne Airport (MEL),2706
+63,France,Paris Charles de Gaulle Airport (CDG),Australia,Melbourne Airport (MEL),16753
+64,France,Paris Orly Airport (ORY),Australia,Melbourne Airport (MEL),16770
+65,France,Lyon-Saint Exupéry Airport (LYS),Australia,Melbourne Airport (MEL),16593
+66,France,Marseille Provence Airport (MRS),Australia,Melbourne Airport (MEL),16578
+67,France,Nice Côte d'Azur Airport (NCE),Australia,Melbourne Airport (MEL),16418
+68,France,Toulouse-Blagnac Airport (TLS),Australia,Melbourne Airport (MEL),16889
+69,France,Bordeaux-Mérignac Airport (BOD),Australia,Melbourne Airport (MEL),17051
+70,France,Lille Airport (LIL),Australia,Melbourne Airport (MEL),16685
+71,France,Vatry Airport (XCR),Australia,Melbourne Airport (MEL),16636
+72,France,Strasbourg Airport (SXB),Australia,Melbourne Airport (MEL),16387
+73,Hong Kong,Hong Kong International Airport (HKG),China,Shanghai Pudong International Airport (PVG),1254
+74,Hong Kong,Hong Kong International Airport (HKG),China,Guangzhou Baiyun International Airport (CAN),136
+75,Hong Kong,Hong Kong International Airport (HKG),China,Beijing Capital International Airport (PEK),1987
+76,Hong Kong,Hong Kong International Airport (HKG),South Korea,Incheon International Airport (ICN),2065
+77,Hong Kong,Hong Kong International Airport (HKG),Singapore,Singapore Changi Airport (SIN),2556
+78,Hong Kong,Hong Kong International Airport (HKG),Taiwan,Taiwan Taoyuan International Airport (TPE),806
+79,Hong Kong,Hong Kong International Airport (HKG),Japan,Narita International Airport (NRT),2965
+80,Hong Kong,Hong Kong International Airport (HKG),Japan,Tokyo Haneda Airport (HND),2904
+81,Hong Kong,Hong Kong International Airport (HKG),Malaysia,Kuala Lumpur International Airport (KUL),2535
+82,Hong Kong,Hong Kong International Airport (HKG),Thailand,Bangkok Suvarnabhumi Airport (BKK),1688
+83,Hong Kong,Hong Kong International Airport (HKG),India,Delhi Indira Gandhi International Airport (DEL),3753
+84,Hong Kong,Hong Kong International Airport (HKG),India,Chennai International Airport (MAA),3717
+85,Hong Kong,Hong Kong International Airport (HKG),Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),3244
+86,Hong Kong,Hong Kong International Airport (HKG),Philippines,Manila Ninoy Aquino International Airport (MNL),1143
+87,Hong Kong,Hong Kong International Airport (HKG),Vietnam,Tan Son Nhat International Airport (SGN),1489
+88,Hong Kong,Hong Kong International Airport (HKG),Bangladesh,Hazrat Shahjalal International Airport (DAC),2413
+89,Hong Kong,Hong Kong International Airport (HKG),Pakistan,Jinnah International Airport (KHI),4758
+90,Hong Kong,Hong Kong International Airport (HKG),UAE,Dubai International Airport (DXB),5930
+91,Hong Kong,Hong Kong International Airport (HKG),Qatar,Hamad International Airport (DOH),6301
+92,Hong Kong,Hong Kong International Airport (HKG),Turkey,Istanbul Airport (IST),8020
+93,Hong Kong,Hong Kong International Airport (HKG),Saudi Arabia,King Abdulaziz International Airport (JED),7632
+94,China,Shanghai Pudong International Airport (PVG),Hong Kong,Hong Kong International Airport (HKG),1254
+95,China,Shanghai Pudong International Airport (PVG),China,Guangzhou Baiyun International Airport (CAN),1202
+96,China,Shanghai Pudong International Airport (PVG),China,Beijing Capital International Airport (PEK),1098
+97,China,Shanghai Pudong International Airport (PVG),South Korea,Incheon International Airport (ICN),820
+98,China,Shanghai Pudong International Airport (PVG),Singapore,Singapore Changi Airport (SIN),3794
+99,China,Shanghai Pudong International Airport (PVG),Taiwan,Taiwan Taoyuan International Airport (TPE),675
+100,China,Shanghai Pudong International Airport (PVG),Japan,Narita International Airport (NRT),1799
+101,China,Shanghai Pudong International Airport (PVG),Japan,Tokyo Haneda Airport (HND),1740
+102,China,Shanghai Pudong International Airport (PVG),Malaysia,Kuala Lumpur International Airport (KUL),3787
+103,China,Shanghai Pudong International Airport (PVG),Thailand,Bangkok Suvarnabhumi Airport (BKK),2894
+104,China,Shanghai Pudong International Airport (PVG),India,Delhi Indira Gandhi International Airport (DEL),4301
+105,China,Shanghai Pudong International Airport (PVG),India,Chennai International Airport (MAA),4707
+106,China,Shanghai Pudong International Airport (PVG),Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),4429
+107,China,Shanghai Pudong International Airport (PVG),Philippines,Manila Ninoy Aquino International Airport (MNL),1844
+108,China,Shanghai Pudong International Airport (PVG),Bangladesh,Hazrat Shahjalal International Airport (DAC),3195
+109,China,Shanghai Pudong International Airport (PVG),Pakistan,Jinnah International Airport (KHI),5365
+110,China,Shanghai Pudong International Airport (PVG),UAE,Dubai International Airport (DXB),6460
+111,China,Shanghai Pudong International Airport (PVG),Qatar,Hamad International Airport (DOH),6809
+112,China,Shanghai Pudong International Airport (PVG),Turkey,Istanbul Airport (IST),8038
+113,China,Shanghai Pudong International Airport (PVG),Saudi Arabia,King Abdulaziz International Airport (JED),8129
+114,China,Guangzhou Baiyun International Airport (CAN),Hong Kong,Hong Kong International Airport (HKG),136
+115,China,Guangzhou Baiyun International Airport (CAN),China,Shanghai Pudong International Airport (PVG),1202
+116,China,Guangzhou Baiyun International Airport (CAN),China,Beijing Capital International Airport (PEK),1876
+117,China,Guangzhou Baiyun International Airport (CAN),South Korea,Incheon International Airport (ICN),2001
+118,China,Guangzhou Baiyun International Airport (CAN),Singapore,Singapore Changi Airport (SIN),2638
+119,China,Guangzhou Baiyun International Airport (CAN),Taiwan,Taiwan Taoyuan International Airport (TPE),826
+120,China,Guangzhou Baiyun International Airport (CAN),Japan,Narita International Airport (NRT),2947
+121,China,Guangzhou Baiyun International Airport (CAN),Japan,Tokyo Haneda Airport (HND),2886
+122,China,Guangzhou Baiyun International Airport (CAN),Malaysia,Kuala Lumpur International Airport (KUL),2604
+123,China,Guangzhou Baiyun International Airport (CAN),Thailand,Bangkok Suvarnabhumi Airport (BKK),1704
+124,China,Guangzhou Baiyun International Airport (CAN),India,Delhi Indira Gandhi International Airport (DEL),3657
+125,China,Guangzhou Baiyun International Airport (CAN),India,Chennai International Airport (MAA),3679
+126,China,Guangzhou Baiyun International Airport (CAN),Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),3345
+127,China,Guangzhou Baiyun International Airport (CAN),Philippines,Manila Ninoy Aquino International Airport (MNL),1275
+128,China,Guangzhou Baiyun International Airport (CAN),Vietnam,Tan Son Nhat International Airport (SGN),1561
+129,China,Guangzhou Baiyun International Airport (CAN),Bangladesh,Hazrat Shahjalal International Airport (DAC),2336
+130,China,Guangzhou Baiyun International Airport (CAN),Pakistan,Jinnah International Airport (KHI),4670
+131,China,Guangzhou Baiyun International Airport (CAN),UAE,Dubai International Airport (DXB),5838
+132,China,Guangzhou Baiyun International Airport (CAN),Qatar,Hamad International Airport (DOH),6208
+133,China,Guangzhou Baiyun International Airport (CAN),Turkey,Istanbul Airport (IST),7897
+134,China,Guangzhou Baiyun International Airport (CAN),Saudi Arabia,King Abdulaziz International Airport (JED),7540
+135,China,Beijing Capital International Airport (PEK),Hong Kong,Hong Kong International Airport (HKG),1987
+136,China,Beijing Capital International Airport (PEK),China,Shanghai Pudong International Airport (PVG),1098
+137,China,Beijing Capital International Airport (PEK),China,Guangzhou Baiyun International Airport (CAN),1876
+138,China,Beijing Capital International Airport (PEK),South Korea,Incheon International Airport (ICN),904
+139,China,Beijing Capital International Airport (PEK),Singapore,Singapore Changi Airport (SIN),4474
+140,China,Beijing Capital International Airport (PEK),Taiwan,Taiwan Taoyuan International Airport (TPE),1719
+141,China,Beijing Capital International Airport (PEK),Japan,Narita International Airport (NRT),2140
+142,China,Beijing Capital International Airport (PEK),Japan,Tokyo Haneda Airport (HND),2097
+143,China,Beijing Capital International Airport (PEK),Malaysia,Kuala Lumpur International Airport (KUL),4399
+144,China,Beijing Capital International Airport (PEK),Thailand,Bangkok Suvarnabhumi Airport (BKK),3308
+145,China,Beijing Capital International Airport (PEK),India,Delhi Indira Gandhi International Airport (DEL),3816
+146,China,Beijing Capital International Airport (PEK),India,Chennai International Airport (MAA),4653
+147,China,Beijing Capital International Airport (PEK),Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),5216
+148,China,Beijing Capital International Airport (PEK),Philippines,Manila Ninoy Aquino International Airport (MNL),2867
+149,China,Beijing Capital International Airport (PEK),Vietnam,Tan Son Nhat International Airport (SGN),3387
+150,China,Beijing Capital International Airport (PEK),Bangladesh,Hazrat Shahjalal International Airport (DAC),3041
+151,China,Beijing Capital International Airport (PEK),Pakistan,Jinnah International Airport (KHI),4870
+152,China,Beijing Capital International Airport (PEK),UAE,Dubai International Airport (DXB),5855
+153,China,Beijing Capital International Airport (PEK),Qatar,Hamad International Airport (DOH),6173
+154,China,Beijing Capital International Airport (PEK),Turkey,Istanbul Airport (IST),7077
+155,China,Beijing Capital International Airport (PEK),Saudi Arabia,King Abdulaziz International Airport (JED),7450
+156,South Korea,Incheon International Airport (ICN),Hong Kong,Hong Kong International Airport (HKG),2065
+157,South Korea,Incheon International Airport (ICN),China,Shanghai Pudong International Airport (PVG),820
+158,South Korea,Incheon International Airport (ICN),China,Guangzhou Baiyun International Airport (CAN),2001
+159,South Korea,Incheon International Airport (ICN),China,Beijing Capital International Airport (PEK),904
+160,South Korea,Incheon International Airport (ICN),Singapore,Singapore Changi Airport (SIN),4613
+161,South Korea,Incheon International Airport (ICN),Taiwan,Taiwan Taoyuan International Airport (TPE),1459
+162,South Korea,Incheon International Airport (ICN),Japan,Narita International Airport (NRT),1261
+163,South Korea,Incheon International Airport (ICN),Japan,Tokyo Haneda Airport (HND),1213
+164,South Korea,Incheon International Airport (ICN),Malaysia,Kuala Lumpur International Airport (KUL),4600
+165,South Korea,Incheon International Airport (ICN),Thailand,Bangkok Suvarnabhumi Airport (BKK),3663
+166,South Korea,Incheon International Airport (ICN),India,Delhi Indira Gandhi International Airport (DEL),4661
+167,South Korea,Incheon International Airport (ICN),India,Chennai International Airport (MAA),5320
+168,South Korea,Incheon International Airport (ICN),Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),5244
+169,South Korea,Incheon International Airport (ICN),Philippines,Manila Ninoy Aquino International Airport (MNL),2599
+170,South Korea,Incheon International Airport (ICN),Bangladesh,Hazrat Shahjalal International Airport (DAC),3740
+171,South Korea,Incheon International Airport (ICN),Pakistan,Jinnah International Airport (KHI),5725
+172,South Korea,Incheon International Airport (ICN),UAE,Dubai International Airport (DXB),6740
+173,South Korea,Incheon International Airport (ICN),Qatar,Hamad International Airport (DOH),7065
+174,South Korea,Incheon International Airport (ICN),Turkey,Istanbul Airport (IST),7942
+175,South Korea,Incheon International Airport (ICN),Saudi Arabia,King Abdulaziz International Airport (JED),8349
+176,Singapore,Singapore Changi Airport (SIN),Hong Kong,Hong Kong International Airport (HKG),2556
+177,Singapore,Singapore Changi Airport (SIN),China,Shanghai Pudong International Airport (PVG),3794
+178,Singapore,Singapore Changi Airport (SIN),China,Guangzhou Baiyun International Airport (CAN),2638
+179,Singapore,Singapore Changi Airport (SIN),China,Beijing Capital International Airport (PEK),4474
+180,Singapore,Singapore Changi Airport (SIN),South Korea,Incheon International Airport (ICN),4613
+181,Singapore,Singapore Changi Airport (SIN),Taiwan,Taiwan Taoyuan International Airport (TPE),3213
+182,Singapore,Singapore Changi Airport (SIN),Japan,Narita International Airport (NRT),5351
+183,Singapore,Singapore Changi Airport (SIN),Japan,Tokyo Haneda Airport (HND),5292
+184,Singapore,Singapore Changi Airport (SIN),Malaysia,Kuala Lumpur International Airport (KUL),297
+185,Singapore,Singapore Changi Airport (SIN),Thailand,Bangkok Suvarnabhumi Airport (BKK),1411
+186,Singapore,Singapore Changi Airport (SIN),India,Delhi Indira Gandhi International Airport (DEL),4151
+187,Singapore,Singapore Changi Airport (SIN),India,Chennai International Airport (MAA),2925
+188,Singapore,Singapore Changi Airport (SIN),Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),878
+189,Singapore,Singapore Changi Airport (SIN),Philippines,Manila Ninoy Aquino International Airport (MNL),2372
+190,Singapore,Singapore Changi Airport (SIN),Vietnam,Tan Son Nhat International Airport (SGN),1087
+191,Singapore,Singapore Changi Airport (SIN),Bangladesh,Hazrat Shahjalal International Airport (DAC),2889
+192,Singapore,Singapore Changi Airport (SIN),Pakistan,Jinnah International Airport (KHI),4738
+193,Singapore,Singapore Changi Airport (SIN),UAE,Dubai International Airport (DXB),5847
+194,Singapore,Singapore Changi Airport (SIN),Qatar,Hamad International Airport (DOH),6208
+195,Singapore,Singapore Changi Airport (SIN),Turkey,Istanbul Airport (IST),8681
+196,Singapore,Singapore Changi Airport (SIN),Saudi Arabia,King Abdulaziz International Airport (JED),7365
+197,Taiwan,Taiwan Taoyuan International Airport (TPE),Hong Kong,Hong Kong International Airport (HKG),806
+198,Taiwan,Taiwan Taoyuan International Airport (TPE),China,Shanghai Pudong International Airport (PVG),675
+199,Taiwan,Taiwan Taoyuan International Airport (TPE),China,Guangzhou Baiyun International Airport (CAN),826
+200,Taiwan,Taiwan Taoyuan International Airport (TPE),China,Beijing Capital International Airport (PEK),1719
+201,Taiwan,Taiwan Taoyuan International Airport (TPE),South Korea,Incheon International Airport (ICN),1459
+202,Taiwan,Taiwan Taoyuan International Airport (TPE),Singapore,Singapore Changi Airport (SIN),3213
+203,Taiwan,Taiwan Taoyuan International Airport (TPE),Japan,Narita International Airport (NRT),2183
+204,Taiwan,Taiwan Taoyuan International Airport (TPE),Japan,Tokyo Haneda Airport (HND),2123
+205,Taiwan,Taiwan Taoyuan International Airport (TPE),Malaysia,Kuala Lumpur International Airport (KUL),3239
+206,Taiwan,Taiwan Taoyuan International Airport (TPE),Thailand,Bangkok Suvarnabhumi Airport (BKK),2488
+207,Taiwan,Taiwan Taoyuan International Airport (TPE),India,Delhi Indira Gandhi International Airport (DEL),4380
+208,Taiwan,Taiwan Taoyuan International Airport (TPE),India,Chennai International Airport (MAA),4505
+209,Taiwan,Taiwan Taoyuan International Airport (TPE),Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),3796
+210,Taiwan,Taiwan Taoyuan International Airport (TPE),Philippines,Manila Ninoy Aquino International Airport (MNL),1170
+211,Taiwan,Taiwan Taoyuan International Airport (TPE),Vietnam,Tan Son Nhat International Airport (SGN),2204
+212,Taiwan,Taiwan Taoyuan International Airport (TPE),Bangladesh,Hazrat Shahjalal International Airport (DAC),3122
+213,Taiwan,Taiwan Taoyuan International Airport (TPE),Pakistan,Jinnah International Airport (KHI),5420
+214,Taiwan,Taiwan Taoyuan International Airport (TPE),UAE,Dubai International Airport (DXB),6567
+215,Taiwan,Taiwan Taoyuan International Airport (TPE),Qatar,Hamad International Airport (DOH),6930
+216,Taiwan,Taiwan Taoyuan International Airport (TPE),Turkey,Istanbul Airport (IST),8413
+217,Taiwan,Taiwan Taoyuan International Airport (TPE),Saudi Arabia,King Abdulaziz International Airport (JED),8263
+218,Japan,Narita International Airport (NRT),Hong Kong,Hong Kong International Airport (HKG),2965
+219,Japan,Narita International Airport (NRT),China,Shanghai Pudong International Airport (PVG),1799
+220,Japan,Narita International Airport (NRT),China,Guangzhou Baiyun International Airport (CAN),2947
+221,Japan,Narita International Airport (NRT),China,Beijing Capital International Airport (PEK),2140
+222,Japan,Narita International Airport (NRT),South Korea,Incheon International Airport (ICN),1261
+223,Japan,Narita International Airport (NRT),Singapore,Singapore Changi Airport (SIN),5351
+224,Japan,Narita International Airport (NRT),Taiwan,Taiwan Taoyuan International Airport (TPE),2183
+225,Japan,Narita International Airport (NRT),Japan,Tokyo Haneda Airport (HND),60
+226,Japan,Narita International Airport (NRT),Malaysia,Kuala Lumpur International Airport (KUL),5404
+227,Japan,Narita International Airport (NRT),Thailand,Bangkok Suvarnabhumi Airport (BKK),4650
+228,Japan,Narita International Airport (NRT),India,Delhi Indira Gandhi International Airport (DEL),5922
+229,Japan,Narita International Airport (NRT),India,Chennai International Airport (MAA),6499
+230,Japan,Narita International Airport (NRT),Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),5826
+231,Japan,Narita International Airport (NRT),Philippines,Manila Ninoy Aquino International Airport (MNL),3047
+232,Japan,Narita International Airport (NRT),Vietnam,Tan Son Nhat International Airport (SGN),4382
+233,Japan,Narita International Airport (NRT),Bangladesh,Hazrat Shahjalal International Airport (DAC),4954
+234,Japan,Narita International Airport (NRT),Pakistan,Jinnah International Airport (KHI),6986
+235,Japan,Narita International Airport (NRT),UAE,Dubai International Airport (DXB),7994
+236,Japan,Narita International Airport (NRT),Qatar,Hamad International Airport (DOH),8313
+237,Japan,Narita International Airport (NRT),Turkey,Istanbul Airport (IST),9000
+238,Japan,Narita International Airport (NRT),Saudi Arabia,King Abdulaziz International Airport (JED),9585
+239,Japan,Tokyo Haneda Airport (HND),Hong Kong,Hong Kong International Airport (HKG),2904
+240,Japan,Tokyo Haneda Airport (HND),China,Shanghai Pudong International Airport (PVG),1740
+241,Japan,Tokyo Haneda Airport (HND),China,Guangzhou Baiyun International Airport (CAN),2886
+242,Japan,Tokyo Haneda Airport (HND),China,Beijing Capital International Airport (PEK),2097
+243,Japan,Tokyo Haneda Airport (HND),South Korea,Incheon International Airport (ICN),1213
+244,Japan,Tokyo Haneda Airport (HND),Singapore,Singapore Changi Airport (SIN),5292
+245,Japan,Tokyo Haneda Airport (HND),Taiwan,Taiwan Taoyuan International Airport (TPE),2123
+246,Japan,Tokyo Haneda Airport (HND),Japan,Narita International Airport (NRT),60
+247,Japan,Tokyo Haneda Airport (HND),Malaysia,Kuala Lumpur International Airport (KUL),5344
+248,Japan,Tokyo Haneda Airport (HND),Thailand,Bangkok Suvarnabhumi Airport (BKK),4589
+249,Japan,Tokyo Haneda Airport (HND),India,Delhi Indira Gandhi International Airport (DEL),5872
+250,Japan,Tokyo Haneda Airport (HND),India,Chennai International Airport (MAA),6441
+251,Japan,Tokyo Haneda Airport (HND),Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),5770
+252,Japan,Tokyo Haneda Airport (HND),Philippines,Manila Ninoy Aquino International Airport (MNL),2991
+253,Japan,Tokyo Haneda Airport (HND),Vietnam,Tan Son Nhat International Airport (SGN),4322
+254,Japan,Tokyo Haneda Airport (HND),Bangladesh,Hazrat Shahjalal International Airport (DAC),4899
+255,Japan,Tokyo Haneda Airport (HND),Pakistan,Jinnah International Airport (KHI),6937
+256,Japan,Tokyo Haneda Airport (HND),UAE,Dubai International Airport (DXB),7949
+257,Japan,Tokyo Haneda Airport (HND),Qatar,Hamad International Airport (DOH),8270
+258,Japan,Tokyo Haneda Airport (HND),Turkey,Istanbul Airport (IST),8978
+259,Japan,Tokyo Haneda Airport (HND),Saudi Arabia,King Abdulaziz International Airport (JED),9544
+260,Malaysia,Kuala Lumpur International Airport (KUL),Hong Kong,Hong Kong International Airport (HKG),2535
+261,Malaysia,Kuala Lumpur International Airport (KUL),China,Shanghai Pudong International Airport (PVG),3787
+262,Malaysia,Kuala Lumpur International Airport (KUL),China,Guangzhou Baiyun International Airport (CAN),2604
+263,Malaysia,Kuala Lumpur International Airport (KUL),China,Beijing Capital International Airport (PEK),4399
+264,Malaysia,Kuala Lumpur International Airport (KUL),South Korea,Incheon International Airport (ICN),4600
+265,Malaysia,Kuala Lumpur International Airport (KUL),Singapore,Singapore Changi Airport (SIN),297
+266,Malaysia,Kuala Lumpur International Airport (KUL),Taiwan,Taiwan Taoyuan International Airport (TPE),3239
+267,Malaysia,Kuala Lumpur International Airport (KUL),Japan,Narita International Airport (NRT),5404
+268,Malaysia,Kuala Lumpur International Airport (KUL),Japan,Tokyo Haneda Airport (HND),5344
+269,Malaysia,Kuala Lumpur International Airport (KUL),Thailand,Bangkok Suvarnabhumi Airport (BKK),1215
+270,Malaysia,Kuala Lumpur International Airport (KUL),India,Delhi Indira Gandhi International Airport (DEL),3869
+271,Malaysia,Kuala Lumpur International Airport (KUL),India,Chennai International Airport (MAA),2628
+272,Malaysia,Kuala Lumpur International Airport (KUL),Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),1125
+273,Malaysia,Kuala Lumpur International Airport (KUL),Philippines,Manila Ninoy Aquino International Airport (MNL),2489
+274,Malaysia,Kuala Lumpur International Airport (KUL),Vietnam,Tan Son Nhat International Airport (SGN),1046
+275,Malaysia,Kuala Lumpur International Airport (KUL),Bangladesh,Hazrat Shahjalal International Airport (DAC),2633
+276,Malaysia,Kuala Lumpur International Airport (KUL),Pakistan,Jinnah International Airport (KHI),4442
+277,Malaysia,Kuala Lumpur International Airport (KUL),UAE,Dubai International Airport (DXB),5550
+278,Malaysia,Kuala Lumpur International Airport (KUL),Qatar,Hamad International Airport (DOH),5911
+279,Malaysia,Kuala Lumpur International Airport (KUL),Turkey,Istanbul Airport (IST),8389
+280,Malaysia,Kuala Lumpur International Airport (KUL),Saudi Arabia,King Abdulaziz International Airport (JED),7071
+281,Thailand,Bangkok Suvarnabhumi Airport (BKK),Hong Kong,Hong Kong International Airport (HKG),1688
+282,Thailand,Bangkok Suvarnabhumi Airport (BKK),China,Shanghai Pudong International Airport (PVG),2894
+283,Thailand,Bangkok Suvarnabhumi Airport (BKK),China,Guangzhou Baiyun International Airport (CAN),1704
+284,Thailand,Bangkok Suvarnabhumi Airport (BKK),China,Beijing Capital International Airport (PEK),3308
+285,Thailand,Bangkok Suvarnabhumi Airport (BKK),South Korea,Incheon International Airport (ICN),3663
+286,Thailand,Bangkok Suvarnabhumi Airport (BKK),Singapore,Singapore Changi Airport (SIN),1411
+287,Thailand,Bangkok Suvarnabhumi Airport (BKK),Taiwan,Taiwan Taoyuan International Airport (TPE),2488
+288,Thailand,Bangkok Suvarnabhumi Airport (BKK),Japan,Narita International Airport (NRT),4650
+289,Thailand,Bangkok Suvarnabhumi Airport (BKK),Japan,Tokyo Haneda Airport (HND),4589
+290,Thailand,Bangkok Suvarnabhumi Airport (BKK),Malaysia,Kuala Lumpur International Airport (KUL),1215
+291,Thailand,Bangkok Suvarnabhumi Airport (BKK),India,Delhi Indira Gandhi International Airport (DEL),2947
+292,Thailand,Bangkok Suvarnabhumi Airport (BKK),India,Chennai International Airport (MAA),2230
+293,Thailand,Bangkok Suvarnabhumi Airport (BKK),Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),2287
+294,Thailand,Bangkok Suvarnabhumi Airport (BKK),Philippines,Manila Ninoy Aquino International Airport (MNL),2190
+295,Thailand,Bangkok Suvarnabhumi Airport (BKK),Vietnam,Tan Son Nhat International Airport (SGN),716
+296,Thailand,Bangkok Suvarnabhumi Airport (BKK),Bangladesh,Hazrat Shahjalal International Airport (DAC),1566
+297,Thailand,Bangkok Suvarnabhumi Airport (BKK),Pakistan,Jinnah International Airport (KHI),3730
+298,Thailand,Bangkok Suvarnabhumi Airport (BKK),UAE,Dubai International Airport (DXB),4909
+299,Thailand,Bangkok Suvarnabhumi Airport (BKK),Qatar,Hamad International Airport (DOH),5286
+300,Thailand,Bangkok Suvarnabhumi Airport (BKK),Turkey,Istanbul Airport (IST),7519
+301,Thailand,Bangkok Suvarnabhumi Airport (BKK),Saudi Arabia,King Abdulaziz International Airport (JED),6555
+302,India,Delhi Indira Gandhi International Airport (DEL),Hong Kong,Hong Kong International Airport (HKG),3753
+303,India,Delhi Indira Gandhi International Airport (DEL),China,Shanghai Pudong International Airport (PVG),4301
+304,India,Delhi Indira Gandhi International Airport (DEL),China,Guangzhou Baiyun International Airport (CAN),3657
+305,India,Delhi Indira Gandhi International Airport (DEL),China,Beijing Capital International Airport (PEK),3816
+306,India,Delhi Indira Gandhi International Airport (DEL),South Korea,Incheon International Airport (ICN),4661
+307,India,Delhi Indira Gandhi International Airport (DEL),Singapore,Singapore Changi Airport (SIN),4151
+308,India,Delhi Indira Gandhi International Airport (DEL),Taiwan,Taiwan Taoyuan International Airport (TPE),4380
+309,India,Delhi Indira Gandhi International Airport (DEL),Japan,Narita International Airport (NRT),5922
+310,India,Delhi Indira Gandhi International Airport (DEL),Japan,Tokyo Haneda Airport (HND),5872
+311,India,Delhi Indira Gandhi International Airport (DEL),Malaysia,Kuala Lumpur International Airport (KUL),3869
+312,India,Delhi Indira Gandhi International Airport (DEL),Thailand,Bangkok Suvarnabhumi Airport (BKK),2947
+313,India,Delhi Indira Gandhi International Airport (DEL),India,Chennai International Airport (MAA),1753
+314,India,Delhi Indira Gandhi International Airport (DEL),Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),4978
+315,India,Delhi Indira Gandhi International Airport (DEL),Philippines,Manila Ninoy Aquino International Airport (MNL),4777
+316,India,Delhi Indira Gandhi International Airport (DEL),Vietnam,Tan Son Nhat International Airport (SGN),3650
+317,India,Delhi Indira Gandhi International Airport (DEL),Bangladesh,Hazrat Shahjalal International Airport (DAC),1427
+318,India,Delhi Indira Gandhi International Airport (DEL),Pakistan,Jinnah International Airport (KHI),1068
+319,India,Delhi Indira Gandhi International Airport (DEL),UAE,Dubai International Airport (DXB),2187
+320,India,Delhi Indira Gandhi International Airport (DEL),Qatar,Hamad International Airport (DOH),2553
+321,India,Delhi Indira Gandhi International Airport (DEL),Turkey,Istanbul Airport (IST),4574
+322,India,Delhi Indira Gandhi International Airport (DEL),Saudi Arabia,King Abdulaziz International Airport (JED),3886
+323,India,Chennai International Airport (MAA),Hong Kong,Hong Kong International Airport (HKG),3717
+324,India,Chennai International Airport (MAA),China,Shanghai Pudong International Airport (PVG),4707
+325,India,Chennai International Airport (MAA),China,Guangzhou Baiyun International Airport (CAN),3679
+326,India,Chennai International Airport (MAA),China,Beijing Capital International Airport (PEK),4653
+327,India,Chennai International Airport (MAA),South Korea,Incheon International Airport (ICN),5320
+328,India,Chennai International Airport (MAA),Singapore,Singapore Changi Airport (SIN),2925
+329,India,Chennai International Airport (MAA),Taiwan,Taiwan Taoyuan International Airport (TPE),4505
+330,India,Chennai International Airport (MAA),Japan,Narita International Airport (NRT),6499
+331,India,Chennai International Airport (MAA),Japan,Tokyo Haneda Airport (HND),6441
+332,India,Chennai International Airport (MAA),Malaysia,Kuala Lumpur International Airport (KUL),2628
+333,India,Chennai International Airport (MAA),Thailand,Bangkok Suvarnabhumi Airport (BKK),2230
+334,India,Chennai International Airport (MAA),India,Delhi Indira Gandhi International Airport (DEL),1753
+335,India,Chennai International Airport (MAA),Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),3612
+336,India,Chennai International Airport (MAA),Philippines,Manila Ninoy Aquino International Airport (MNL),4415
+337,India,Chennai International Airport (MAA),Vietnam,Tan Son Nhat International Airport (SGN),2894
+338,India,Chennai International Airport (MAA),Bangladesh,Hazrat Shahjalal International Airport (DAC),1615
+339,India,Chennai International Airport (MAA),Pakistan,Jinnah International Airport (KHI),1899
+340,India,Chennai International Airport (MAA),UAE,Dubai International Airport (DXB),2934
+341,India,Chennai International Airport (MAA),Qatar,Hamad International Airport (DOH),3288
+342,India,Chennai International Airport (MAA),Turkey,Istanbul Airport (IST),5870
+343,India,Chennai International Airport (MAA),Saudi Arabia,King Abdulaziz International Airport (JED),4451
+344,Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),Hong Kong,Hong Kong International Airport (HKG),3244
+345,Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),China,Shanghai Pudong International Airport (PVG),4429
+346,Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),China,Guangzhou Baiyun International Airport (CAN),3345
+347,Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),China,Beijing Capital International Airport (PEK),5216
+348,Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),South Korea,Incheon International Airport (ICN),5244
+349,Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),Singapore,Singapore Changi Airport (SIN),878
+350,Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),Taiwan,Taiwan Taoyuan International Airport (TPE),3796
+351,Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),Japan,Narita International Airport (NRT),5826
+352,Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),Japan,Tokyo Haneda Airport (HND),5770
+353,Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),Malaysia,Kuala Lumpur International Airport (KUL),1125
+354,Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),Thailand,Bangkok Suvarnabhumi Airport (BKK),2287
+355,Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),India,Delhi Indira Gandhi International Airport (DEL),4978
+356,Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),India,Chennai International Airport (MAA),3612
+357,Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),Philippines,Manila Ninoy Aquino International Airport (MNL),2779
+358,Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),Vietnam,Tan Son Nhat International Airport (SGN),1874
+359,Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),Bangladesh,Hazrat Shahjalal International Airport (DAC),3757
+360,Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),Pakistan,Jinnah International Airport (KHI),5485
+361,Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),UAE,Dubai International Airport (DXB),6544
+362,Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),Qatar,Hamad International Airport (DOH),6891
+363,Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),Turkey,Istanbul Airport (IST),9455
+364,Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),Saudi Arabia,King Abdulaziz International Airport (JED),7974
+365,Philippines,Manila Ninoy Aquino International Airport (MNL),Hong Kong,Hong Kong International Airport (HKG),1143
+366,Philippines,Manila Ninoy Aquino International Airport (MNL),China,Shanghai Pudong International Airport (PVG),1844
+367,Philippines,Manila Ninoy Aquino International Airport (MNL),China,Guangzhou Baiyun International Airport (CAN),1275
+368,Philippines,Manila Ninoy Aquino International Airport (MNL),China,Beijing Capital International Airport (PEK),2867
+369,Philippines,Manila Ninoy Aquino International Airport (MNL),South Korea,Incheon International Airport (ICN),2599
+370,Philippines,Manila Ninoy Aquino International Airport (MNL),Singapore,Singapore Changi Airport (SIN),2372
+371,Philippines,Manila Ninoy Aquino International Airport (MNL),Taiwan,Taiwan Taoyuan International Airport (TPE),1170
+372,Philippines,Manila Ninoy Aquino International Airport (MNL),Japan,Narita International Airport (NRT),3047
+373,Philippines,Manila Ninoy Aquino International Airport (MNL),Japan,Tokyo Haneda Airport (HND),2991
+374,Philippines,Manila Ninoy Aquino International Airport (MNL),Malaysia,Kuala Lumpur International Airport (KUL),2489
+375,Philippines,Manila Ninoy Aquino International Airport (MNL),Thailand,Bangkok Suvarnabhumi Airport (BKK),2190
+376,Philippines,Manila Ninoy Aquino International Airport (MNL),India,Delhi Indira Gandhi International Airport (DEL),4777
+377,Philippines,Manila Ninoy Aquino International Airport (MNL),India,Chennai International Airport (MAA),4415
+378,Philippines,Manila Ninoy Aquino International Airport (MNL),Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),2779
+379,Philippines,Manila Ninoy Aquino International Airport (MNL),Vietnam,Tan Son Nhat International Airport (SGN),1613
+380,Philippines,Manila Ninoy Aquino International Airport (MNL),Bangladesh,Hazrat Shahjalal International Airport (DAC),3374
+381,Philippines,Manila Ninoy Aquino International Airport (MNL),Pakistan,Jinnah International Airport (KHI),5727
+382,Philippines,Manila Ninoy Aquino International Airport (MNL),UAE,Dubai International Airport (DXB),6915
+383,Philippines,Manila Ninoy Aquino International Airport (MNL),Qatar,Hamad International Airport (DOH),7292
+384,Philippines,Manila Ninoy Aquino International Airport (MNL),Turkey,Istanbul Airport (IST),9147
+385,Philippines,Manila Ninoy Aquino International Airport (MNL),Saudi Arabia,King Abdulaziz International Airport (JED),8608
+386,Vietnam,Tan Son Nhat International Airport (SGN),Hong Kong,Hong Kong International Airport (HKG),1489
+387,Vietnam,Tan Son Nhat International Airport (SGN),China,Shanghai Pudong International Airport (PVG),2740
+388,Vietnam,Tan Son Nhat International Airport (SGN),China,Guangzhou Baiyun International Airport (CAN),1561
+389,Vietnam,Tan Son Nhat International Airport (SGN),China,Beijing Capital International Airport (PEK),3387
+390,Vietnam,Tan Son Nhat International Airport (SGN),South Korea,Incheon International Airport (ICN),3554
+391,Vietnam,Tan Son Nhat International Airport (SGN),Singapore,Singapore Changi Airport (SIN),1087
+392,Vietnam,Tan Son Nhat International Airport (SGN),Taiwan,Taiwan Taoyuan International Airport (TPE),2204
+393,Vietnam,Tan Son Nhat International Airport (SGN),Japan,Narita International Airport (NRT),4382
+394,Vietnam,Tan Son Nhat International Airport (SGN),Japan,Tokyo Haneda Airport (HND),4322
+395,Vietnam,Tan Son Nhat International Airport (SGN),Malaysia,Kuala Lumpur International Airport (KUL),1046
+396,Vietnam,Tan Son Nhat International Airport (SGN),Thailand,Bangkok Suvarnabhumi Airport (BKK),716
+397,Vietnam,Tan Son Nhat International Airport (SGN),India,Delhi Indira Gandhi International Airport (DEL),3650
+398,Vietnam,Tan Son Nhat International Airport (SGN),India,Chennai International Airport (MAA),2894
+399,Vietnam,Tan Son Nhat International Airport (SGN),Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),1874
+400,Vietnam,Tan Son Nhat International Airport (SGN),Philippines,Manila Ninoy Aquino International Airport (MNL),1613
+401,Vietnam,Tan Son Nhat International Airport (SGN),Bangladesh,Hazrat Shahjalal International Airport (DAC),2246
+402,Vietnam,Tan Son Nhat International Airport (SGN),Pakistan,Jinnah International Airport (KHI),4446
+403,Vietnam,Tan Son Nhat International Airport (SGN),UAE,Dubai International Airport (DXB),5624
+404,Vietnam,Tan Son Nhat International Airport (SGN),Qatar,Hamad International Airport (DOH),6001
+405,Vietnam,Tan Son Nhat International Airport (SGN),Turkey,Istanbul Airport (IST),8216
+406,Vietnam,Tan Son Nhat International Airport (SGN),Saudi Arabia,King Abdulaziz International Airport (JED),7264
+407,Bangladesh,Hazrat Shahjalal International Airport (DAC),Hong Kong,Hong Kong International Airport (HKG),2413
+408,Bangladesh,Hazrat Shahjalal International Airport (DAC),China,Shanghai Pudong International Airport (PVG),3195
+409,Bangladesh,Hazrat Shahjalal International Airport (DAC),China,Guangzhou Baiyun International Airport (CAN),2336
+410,Bangladesh,Hazrat Shahjalal International Airport (DAC),China,Beijing Capital International Airport (PEK),3041
+411,Bangladesh,Hazrat Shahjalal International Airport (DAC),South Korea,Incheon International Airport (ICN),3740
+412,Bangladesh,Hazrat Shahjalal International Airport (DAC),Singapore,Singapore Changi Airport (SIN),2889
+413,Bangladesh,Hazrat Shahjalal International Airport (DAC),Taiwan,Taiwan Taoyuan International Airport (TPE),3122
+414,Bangladesh,Hazrat Shahjalal International Airport (DAC),Japan,Narita International Airport (NRT),4954
+415,Bangladesh,Hazrat Shahjalal International Airport (DAC),Japan,Tokyo Haneda Airport (HND),4899
+416,Bangladesh,Hazrat Shahjalal International Airport (DAC),Malaysia,Kuala Lumpur International Airport (KUL),2633
+417,Bangladesh,Hazrat Shahjalal International Airport (DAC),Thailand,Bangkok Suvarnabhumi Airport (BKK),1566
+418,Bangladesh,Hazrat Shahjalal International Airport (DAC),India,Delhi Indira Gandhi International Airport (DEL),1427
+419,Bangladesh,Hazrat Shahjalal International Airport (DAC),India,Chennai International Airport (MAA),1615
+420,Bangladesh,Hazrat Shahjalal International Airport (DAC),Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),3757
+421,Bangladesh,Hazrat Shahjalal International Airport (DAC),Philippines,Manila Ninoy Aquino International Airport (MNL),3374
+422,Bangladesh,Hazrat Shahjalal International Airport (DAC),Vietnam,Tan Son Nhat International Airport (SGN),2246
+423,Bangladesh,Hazrat Shahjalal International Airport (DAC),Pakistan,Jinnah International Airport (KHI),2358
+424,Bangladesh,Hazrat Shahjalal International Airport (DAC),UAE,Dubai International Airport (DXB),3543
+425,Bangladesh,Hazrat Shahjalal International Airport (DAC),Qatar,Hamad International Airport (DOH),3919
+426,Bangladesh,Hazrat Shahjalal International Airport (DAC),Turkey,Istanbul Airport (IST),5972
+427,Bangladesh,Hazrat Shahjalal International Airport (DAC),Saudi Arabia,King Abdulaziz International Airport (JED),5240
+428,Pakistan,Jinnah International Airport (KHI),Hong Kong,Hong Kong International Airport (HKG),4758
+429,Pakistan,Jinnah International Airport (KHI),China,Shanghai Pudong International Airport (PVG),5365
+430,Pakistan,Jinnah International Airport (KHI),China,Guangzhou Baiyun International Airport (CAN),4670
+431,Pakistan,Jinnah International Airport (KHI),China,Beijing Capital International Airport (PEK),4870
+432,Pakistan,Jinnah International Airport (KHI),South Korea,Incheon International Airport (ICN),5725
+433,Pakistan,Jinnah International Airport (KHI),Singapore,Singapore Changi Airport (SIN),4738
+434,Pakistan,Jinnah International Airport (KHI),Taiwan,Taiwan Taoyuan International Airport (TPE),5420
+435,Pakistan,Jinnah International Airport (KHI),Japan,Narita International Airport (NRT),6986
+436,Pakistan,Jinnah International Airport (KHI),Japan,Tokyo Haneda Airport (HND),6937
+437,Pakistan,Jinnah International Airport (KHI),Malaysia,Kuala Lumpur International Airport (KUL),4442
+438,Pakistan,Jinnah International Airport (KHI),Thailand,Bangkok Suvarnabhumi Airport (BKK),3730
+439,Pakistan,Jinnah International Airport (KHI),India,Delhi Indira Gandhi International Airport (DEL),1068
+440,Pakistan,Jinnah International Airport (KHI),India,Chennai International Airport (MAA),1899
+441,Pakistan,Jinnah International Airport (KHI),Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),5485
+442,Pakistan,Jinnah International Airport (KHI),Philippines,Manila Ninoy Aquino International Airport (MNL),5727
+443,Pakistan,Jinnah International Airport (KHI),Vietnam,Tan Son Nhat International Airport (SGN),4446
+444,Pakistan,Jinnah International Airport (KHI),Bangladesh,Hazrat Shahjalal International Airport (DAC),2358
+445,Pakistan,Jinnah International Airport (KHI),UAE,Dubai International Airport (DXB),1190
+446,Pakistan,Jinnah International Airport (KHI),Qatar,Hamad International Airport (DOH),1569
+447,Pakistan,Jinnah International Airport (KHI),Turkey,Istanbul Airport (IST),3976
+448,Pakistan,Jinnah International Airport (KHI),Saudi Arabia,King Abdulaziz International Airport (JED),2883
+449,UAE,Dubai International Airport (DXB),Hong Kong,Hong Kong International Airport (HKG),5930
+450,UAE,Dubai International Airport (DXB),China,Shanghai Pudong International Airport (PVG),6460
+451,UAE,Dubai International Airport (DXB),China,Guangzhou Baiyun International Airport (CAN),5838
+452,UAE,Dubai International Airport (DXB),China,Beijing Capital International Airport (PEK),5855
+453,UAE,Dubai International Airport (DXB),South Korea,Incheon International Airport (ICN),6740
+454,UAE,Dubai International Airport (DXB),Singapore,Singapore Changi Airport (SIN),5847
+455,UAE,Dubai International Airport (DXB),Taiwan,Taiwan Taoyuan International Airport (TPE),6567
+456,UAE,Dubai International Airport (DXB),Japan,Narita International Airport (NRT),7994
+457,UAE,Dubai International Airport (DXB),Japan,Tokyo Haneda Airport (HND),7949
+458,UAE,Dubai International Airport (DXB),Malaysia,Kuala Lumpur International Airport (KUL),5550
+459,UAE,Dubai International Airport (DXB),Thailand,Bangkok Suvarnabhumi Airport (BKK),4909
+460,UAE,Dubai International Airport (DXB),India,Delhi Indira Gandhi International Airport (DEL),2187
+461,UAE,Dubai International Airport (DXB),India,Chennai International Airport (MAA),2934
+462,UAE,Dubai International Airport (DXB),Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),6544
+463,UAE,Dubai International Airport (DXB),Philippines,Manila Ninoy Aquino International Airport (MNL),6915
+464,UAE,Dubai International Airport (DXB),Vietnam,Tan Son Nhat International Airport (SGN),5624
+465,UAE,Dubai International Airport (DXB),Bangladesh,Hazrat Shahjalal International Airport (DAC),3543
+466,UAE,Dubai International Airport (DXB),Pakistan,Jinnah International Airport (KHI),1190
+467,UAE,Dubai International Airport (DXB),Qatar,Hamad International Airport (DOH),378
+468,UAE,Dubai International Airport (DXB),Turkey,Istanbul Airport (IST),3030
+469,UAE,Dubai International Airport (DXB),Saudi Arabia,King Abdulaziz International Airport (JED),1702
+470,Qatar,Hamad International Airport (DOH),Hong Kong,Hong Kong International Airport (HKG),6301
+471,Qatar,Hamad International Airport (DOH),China,Shanghai Pudong International Airport (PVG),6809
+472,Qatar,Hamad International Airport (DOH),China,Guangzhou Baiyun International Airport (CAN),6208
+473,Qatar,Hamad International Airport (DOH),China,Beijing Capital International Airport (PEK),6173
+474,Qatar,Hamad International Airport (DOH),South Korea,Incheon International Airport (ICN),7065
+475,Qatar,Hamad International Airport (DOH),Singapore,Singapore Changi Airport (SIN),6208
+476,Qatar,Hamad International Airport (DOH),Taiwan,Taiwan Taoyuan International Airport (TPE),6930
+477,Qatar,Hamad International Airport (DOH),Japan,Narita International Airport (NRT),8313
+478,Qatar,Hamad International Airport (DOH),Japan,Tokyo Haneda Airport (HND),8270
+479,Qatar,Hamad International Airport (DOH),Malaysia,Kuala Lumpur International Airport (KUL),5911
+480,Qatar,Hamad International Airport (DOH),Thailand,Bangkok Suvarnabhumi Airport (BKK),5286
+481,Qatar,Hamad International Airport (DOH),India,Delhi Indira Gandhi International Airport (DEL),2553
+482,Qatar,Hamad International Airport (DOH),India,Chennai International Airport (MAA),3288
+483,Qatar,Hamad International Airport (DOH),Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),6891
+484,Qatar,Hamad International Airport (DOH),Philippines,Manila Ninoy Aquino International Airport (MNL),7292
+485,Qatar,Hamad International Airport (DOH),Vietnam,Tan Son Nhat International Airport (SGN),6001
+486,Qatar,Hamad International Airport (DOH),Bangladesh,Hazrat Shahjalal International Airport (DAC),3919
+487,Qatar,Hamad International Airport (DOH),Pakistan,Jinnah International Airport (KHI),1569
+488,Qatar,Hamad International Airport (DOH),UAE,Dubai International Airport (DXB),378
+489,Qatar,Hamad International Airport (DOH),Turkey,Istanbul Airport (IST),2756
+490,Qatar,Hamad International Airport (DOH),Saudi Arabia,King Abdulaziz International Airport (JED),1333
+491,Turkey,Istanbul Airport (IST),Hong Kong,Hong Kong International Airport (HKG),8020
+492,Turkey,Istanbul Airport (IST),China,Shanghai Pudong International Airport (PVG),8038
+493,Turkey,Istanbul Airport (IST),China,Guangzhou Baiyun International Airport (CAN),7897
+494,Turkey,Istanbul Airport (IST),China,Beijing Capital International Airport (PEK),7077
+495,Turkey,Istanbul Airport (IST),South Korea,Incheon International Airport (ICN),7942
+496,Turkey,Istanbul Airport (IST),Singapore,Singapore Changi Airport (SIN),8681
+497,Turkey,Istanbul Airport (IST),Taiwan,Taiwan Taoyuan International Airport (TPE),8413
+498,Turkey,Istanbul Airport (IST),Japan,Narita International Airport (NRT),9000
+499,Turkey,Istanbul Airport (IST),Japan,Tokyo Haneda Airport (HND),8978
+500,Turkey,Istanbul Airport (IST),Malaysia,Kuala Lumpur International Airport (KUL),8389
+501,Turkey,Istanbul Airport (IST),Thailand,Bangkok Suvarnabhumi Airport (BKK),7519
+502,Turkey,Istanbul Airport (IST),India,Delhi Indira Gandhi International Airport (DEL),4574
+503,Turkey,Istanbul Airport (IST),India,Chennai International Airport (MAA),5870
+504,Turkey,Istanbul Airport (IST),Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),9455
+505,Turkey,Istanbul Airport (IST),Philippines,Manila Ninoy Aquino International Airport (MNL),9147
+506,Turkey,Istanbul Airport (IST),Vietnam,Tan Son Nhat International Airport (SGN),8216
+507,Turkey,Istanbul Airport (IST),Bangladesh,Hazrat Shahjalal International Airport (DAC),5972
+508,Turkey,Istanbul Airport (IST),Pakistan,Jinnah International Airport (KHI),3976
+509,Turkey,Istanbul Airport (IST),UAE,Dubai International Airport (DXB),3030
+510,Turkey,Istanbul Airport (IST),Qatar,Hamad International Airport (DOH),2756
+511,Turkey,Istanbul Airport (IST),Saudi Arabia,King Abdulaziz International Airport (JED),2384
+512,Saudi Arabia,King Abdulaziz International Airport (JED),Hong Kong,Hong Kong International Airport (HKG),7632
+513,Saudi Arabia,King Abdulaziz International Airport (JED),China,Shanghai Pudong International Airport (PVG),8129
+514,Saudi Arabia,King Abdulaziz International Airport (JED),China,Guangzhou Baiyun International Airport (CAN),7540
+515,Saudi Arabia,King Abdulaziz International Airport (JED),China,Beijing Capital International Airport (PEK),7450
+516,Saudi Arabia,King Abdulaziz International Airport (JED),South Korea,Incheon International Airport (ICN),8349
+517,Saudi Arabia,King Abdulaziz International Airport (JED),Singapore,Singapore Changi Airport (SIN),7365
+518,Saudi Arabia,King Abdulaziz International Airport (JED),Taiwan,Taiwan Taoyuan International Airport (TPE),8263
+519,Saudi Arabia,King Abdulaziz International Airport (JED),Japan,Narita International Airport (NRT),9585
+520,Saudi Arabia,King Abdulaziz International Airport (JED),Japan,Tokyo Haneda Airport (HND),9544
+521,Saudi Arabia,King Abdulaziz International Airport (JED),Malaysia,Kuala Lumpur International Airport (KUL),7071
+522,Saudi Arabia,King Abdulaziz International Airport (JED),Thailand,Bangkok Suvarnabhumi Airport (BKK),6555
+523,Saudi Arabia,King Abdulaziz International Airport (JED),India,Delhi Indira Gandhi International Airport (DEL),3886
+524,Saudi Arabia,King Abdulaziz International Airport (JED),India,Chennai International Airport (MAA),4451
+525,Saudi Arabia,King Abdulaziz International Airport (JED),Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),7974
+526,Saudi Arabia,King Abdulaziz International Airport (JED),Philippines,Manila Ninoy Aquino International Airport (MNL),8608
+527,Saudi Arabia,King Abdulaziz International Airport (JED),Vietnam,Tan Son Nhat International Airport (SGN),7264
+528,Saudi Arabia,King Abdulaziz International Airport (JED),Bangladesh,Hazrat Shahjalal International Airport (DAC),5240
+529,Saudi Arabia,King Abdulaziz International Airport (JED),Pakistan,Jinnah International Airport (KHI),2883
+530,Saudi Arabia,King Abdulaziz International Airport (JED),UAE,Dubai International Airport (DXB),1702
+531,Saudi Arabia,King Abdulaziz International Airport (JED),Qatar,Hamad International Airport (DOH),1333
+532,Saudi Arabia,King Abdulaziz International Airport (JED),Turkey,Istanbul Airport (IST),2384
+533,Hong Kong,Hong Kong International Airport (HKG),Australia,Sydney Kingsford Smith Airport (SYD),7371
+534,Hong Kong,Hong Kong International Airport (HKG),Australia,Melbourne Airport (MEL),7387
+535,Hong Kong,Hong Kong International Airport (HKG),US,Los Angeles International Airport (LAX),11684
+536,Hong Kong,Hong Kong International Airport (HKG),US,Chicago O'Hare International Airport (ORD),12543
+537,Hong Kong,Hong Kong International Airport (HKG),US,John F. Kennedy International Airport (JFK),12990
+538,China,Shanghai Pudong International Airport (PVG),Australia,Sydney Kingsford Smith Airport (SYD),7836
+539,China,Shanghai Pudong International Airport (PVG),Australia,Melbourne Airport (MEL),7986
+540,China,Shanghai Pudong International Airport (PVG),US,Los Angeles International Airport (LAX),10436
+541,China,Shanghai Pudong International Airport (PVG),US,Chicago O'Hare International Airport (ORD),11357
+542,China,Shanghai Pudong International Airport (PVG),US,John F. Kennedy International Airport (JFK),11897
+543,China,Guangzhou Baiyun International Airport (CAN),Australia,Sydney Kingsford Smith Airport (SYD),7506
+544,China,Guangzhou Baiyun International Airport (CAN),Australia,Melbourne Airport (MEL),7522
+545,China,Guangzhou Baiyun International Airport (CAN),US,Los Angeles International Airport (LAX),11637
+546,China,Guangzhou Baiyun International Airport (CAN),US,Chicago O'Hare International Airport (ORD),12447
+547,China,Guangzhou Baiyun International Airport (CAN),US,John F. Kennedy International Airport (JFK),12877
+548,China,Beijing Capital International Airport (PEK),Australia,Sydney Kingsford Smith Airport (SYD),8934
+549,China,Beijing Capital International Airport (PEK),Australia,Melbourne Airport (MEL),9080
+550,China,Beijing Capital International Airport (PEK),US,Los Angeles International Airport (LAX),10059
+551,China,Beijing Capital International Airport (PEK),US,Chicago O'Hare International Airport (ORD),10588
+552,China,Beijing Capital International Airport (PEK),US,John F. Kennedy International Airport (JFK),11004
+553,South Korea,Incheon International Airport (ICN),Australia,Sydney Kingsford Smith Airport (SYD),8310
+554,South Korea,Incheon International Airport (ICN),Australia,Melbourne Airport (MEL),8531
+555,South Korea,Incheon International Airport (ICN),US,Los Angeles International Airport (LAX),9648
+556,South Korea,Incheon International Airport (ICN),US,Chicago O'Hare International Airport (ORD),10545
+557,South Korea,Incheon International Airport (ICN),US,John F. Kennedy International Airport (JFK),11115
+558,Singapore,Singapore Changi Airport (SIN),Australia,Sydney Kingsford Smith Airport (SYD),6287
+559,Singapore,Singapore Changi Airport (SIN),Australia,Melbourne Airport (MEL),6024
+560,Singapore,Singapore Changi Airport (SIN),US,Los Angeles International Airport (LAX),14114
+561,Singapore,Singapore Changi Airport (SIN),US,Chicago O'Hare International Airport (ORD),15060
+562,Singapore,Singapore Changi Airport (SIN),US,John F. Kennedy International Airport (JFK),15348
+563,Taiwan,Taiwan Taoyuan International Airport (TPE),Australia,Sydney Kingsford Smith Airport (SYD),7259
+564,Taiwan,Taiwan Taoyuan International Airport (TPE),Australia,Melbourne Airport (MEL),7372
+565,Taiwan,Taiwan Taoyuan International Airport (TPE),US,Los Angeles International Airport (LAX),10942
+566,Taiwan,Taiwan Taoyuan International Airport (TPE),US,Chicago O'Hare International Airport (ORD),12001
+567,Taiwan,Taiwan Taoyuan International Airport (TPE),US,John F. Kennedy International Airport (JFK),12566
+568,Japan,Narita International Airport (NRT),Australia,Sydney Kingsford Smith Airport (SYD),7798
+569,Japan,Narita International Airport (NRT),Australia,Melbourne Airport (MEL),8144
+570,Japan,Narita International Airport (NRT),US,Los Angeles International Airport (LAX),8772
+571,Japan,Narita International Airport (NRT),US,Chicago O'Hare International Airport (ORD),10097
+572,Japan,Narita International Airport (NRT),US,John F. Kennedy International Airport (JFK),10853
+573,Japan,Tokyo Haneda Airport (HND),Australia,Sydney Kingsford Smith Airport (SYD),7784
+574,Japan,Tokyo Haneda Airport (HND),Australia,Melbourne Airport (MEL),8124
+575,Japan,Tokyo Haneda Airport (HND),US,Los Angeles International Airport (LAX),8831
+576,Japan,Tokyo Haneda Airport (HND),US,Chicago O'Hare International Airport (ORD),10147
+577,Japan,Tokyo Haneda Airport (HND),US,John F. Kennedy International Airport (JFK),10899
+578,Malaysia,Kuala Lumpur International Airport (KUL),Australia,Sydney Kingsford Smith Airport (SYD),6579
+579,Malaysia,Kuala Lumpur International Airport (KUL),Australia,Melbourne Airport (MEL),6306
+580,Malaysia,Kuala Lumpur International Airport (KUL),US,Los Angeles International Airport (LAX),14176
+581,Malaysia,Kuala Lumpur International Airport (KUL),US,Chicago O'Hare International Airport (ORD),14958
+582,Malaysia,Kuala Lumpur International Airport (KUL),US,John F. Kennedy International Airport (JFK),15178
+583,Thailand,Bangkok Suvarnabhumi Airport (BKK),Australia,Sydney Kingsford Smith Airport (SYD),7502
+584,Thailand,Bangkok Suvarnabhumi Airport (BKK),Australia,Melbourne Airport (MEL),7316
+585,Thailand,Bangkok Suvarnabhumi Airport (BKK),US,Los Angeles International Airport (LAX),13308
+586,Thailand,Bangkok Suvarnabhumi Airport (BKK),US,Chicago O'Hare International Airport (ORD),13778
+587,Thailand,Bangkok Suvarnabhumi Airport (BKK),US,John F. Kennedy International Airport (JFK),13963
+588,India,Delhi Indira Gandhi International Airport (DEL),Australia,Sydney Kingsford Smith Airport (SYD),10421
+589,India,Delhi Indira Gandhi International Airport (DEL),Australia,Melbourne Airport (MEL),10174
+590,India,Delhi Indira Gandhi International Airport (DEL),US,Los Angeles International Airport (LAX),12898
+591,India,Delhi Indira Gandhi International Airport (DEL),US,Chicago O'Hare International Airport (ORD),12045
+592,India,Delhi Indira Gandhi International Airport (DEL),US,John F. Kennedy International Airport (JFK),11778
+593,India,Chennai International Airport (MAA),Australia,Sydney Kingsford Smith Airport (SYD),9122
+594,India,Chennai International Airport (MAA),Australia,Melbourne Airport (MEL),8764
+595,India,Chennai International Airport (MAA),US,Los Angeles International Airport (LAX),14453
+596,India,Chennai International Airport (MAA),US,Chicago O'Hare International Airport (ORD),13798
+597,India,Chennai International Airport (MAA),US,John F. Kennedy International Airport (JFK),13491
+598,Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),Australia,Sydney Kingsford Smith Airport (SYD),5517
+599,Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),Australia,Melbourne Airport (MEL),5206
+600,Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),US,Los Angeles International Airport (LAX),14460
+601,Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),US,Chicago O'Hare International Airport (ORD),15782
+602,Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),US,John F. Kennedy International Airport (JFK),16180
+603,Philippines,Manila Ninoy Aquino International Airport (MNL),Australia,Sydney Kingsford Smith Airport (SYD),6242
+604,Philippines,Manila Ninoy Aquino International Airport (MNL),Australia,Melbourne Airport (MEL),6291
+605,Philippines,Manila Ninoy Aquino International Airport (MNL),US,Los Angeles International Airport (LAX),11756
+606,Philippines,Manila Ninoy Aquino International Airport (MNL),US,Chicago O'Hare International Airport (ORD),13087
+607,Philippines,Manila Ninoy Aquino International Airport (MNL),US,John F. Kennedy International Airport (JFK),13712
+608,Vietnam,Tan Son Nhat International Airport (SGN),Australia,Sydney Kingsford Smith Airport (SYD),6833
+609,Vietnam,Tan Son Nhat International Airport (SGN),Australia,Melbourne Airport (MEL),6683
+610,Vietnam,Tan Son Nhat International Airport (SGN),US,Los Angeles International Airport (LAX),13146
+611,Vietnam,Tan Son Nhat International Airport (SGN),US,Chicago O'Hare International Airport (ORD),13974
+612,Vietnam,Tan Son Nhat International Airport (SGN),US,John F. Kennedy International Airport (JFK),14307
+613,Bangladesh,Hazrat Shahjalal International Airport (DAC),Australia,Sydney Kingsford Smith Airport (SYD),9067
+614,Bangladesh,Hazrat Shahjalal International Airport (DAC),Australia,Melbourne Airport (MEL),8876
+615,Bangladesh,Hazrat Shahjalal International Airport (DAC),US,Los Angeles International Airport (LAX),12924
+616,Bangladesh,Hazrat Shahjalal International Airport (DAC),US,Chicago O'Hare International Airport (ORD),12715
+617,Bangladesh,Hazrat Shahjalal International Airport (DAC),US,John F. Kennedy International Airport (JFK),12680
+618,Pakistan,Jinnah International Airport (KHI),Australia,Sydney Kingsford Smith Airport (SYD),11001
+619,Pakistan,Jinnah International Airport (KHI),Australia,Melbourne Airport (MEL),10661
+620,Pakistan,Jinnah International Airport (KHI),US,Los Angeles International Airport (LAX),13465
+621,Pakistan,Jinnah International Airport (KHI),US,Chicago O'Hare International Airport (ORD),12170
+622,Pakistan,Jinnah International Airport (KHI),US,John F. Kennedy International Airport (JFK),11705
+623,UAE,Dubai International Airport (DXB),Australia,Sydney Kingsford Smith Airport (SYD),12039
+624,UAE,Dubai International Airport (DXB),Australia,Melbourne Airport (MEL),11637
+625,UAE,Dubai International Airport (DXB),US,Los Angeles International Airport (LAX),13420
+626,UAE,Dubai International Airport (DXB),US,Chicago O'Hare International Airport (ORD),11662
+627,UAE,Dubai International Airport (DXB),US,John F. Kennedy International Airport (JFK),11022
+628,Qatar,Hamad International Airport (DOH),Australia,Sydney Kingsford Smith Airport (SYD),12371
+629,Qatar,Hamad International Airport (DOH),Australia,Melbourne Airport (MEL),11950
+630,Qatar,Hamad International Airport (DOH),US,Los Angeles International Airport (LAX),13367
+631,Qatar,Hamad International Airport (DOH),US,Chicago O'Hare International Airport (ORD),11479
+632,Qatar,Hamad International Airport (DOH),US,John F. Kennedy International Airport (JFK),10789
+633,Turkey,Istanbul Airport (IST),Australia,Sydney Kingsford Smith Airport (SYD),14967
+634,Turkey,Istanbul Airport (IST),Australia,Melbourne Airport (MEL),14634
+635,Turkey,Istanbul Airport (IST),US,Los Angeles International Airport (LAX),11026
+636,Turkey,Istanbul Airport (IST),US,Chicago O'Hare International Airport (ORD),8809
+637,Turkey,Istanbul Airport (IST),US,John F. Kennedy International Airport (JFK),8047
+638,Saudi Arabia,King Abdulaziz International Airport (JED),Australia,Sydney Kingsford Smith Airport (SYD),13309
+639,Saudi Arabia,King Abdulaziz International Airport (JED),Australia,Melbourne Airport (MEL),12799
+640,Saudi Arabia,King Abdulaziz International Airport (JED),US,Los Angeles International Airport (LAX),13410
+641,Saudi Arabia,King Abdulaziz International Airport (JED),US,Chicago O'Hare International Airport (ORD),11111
+642,Saudi Arabia,King Abdulaziz International Airport (JED),US,John F. Kennedy International Airport (JFK),10243
+643,Hong Kong,Hong Kong International Airport (HKG),Germany,Frankfurt Airport (FRA),9100
+644,China,Shanghai Pudong International Airport (PVG),France,Paris Charles de Gaulle Airport (CDG),9300
+645,South Korea,Incheon International Airport (ICN),Netherlands,Amsterdam Schiphol Airport (AMS),8600
+646,Singapore,Singapore Changi Airport (SIN),United Kingdom,London Heathrow Airport (LHR),10900
+647,Japan,Tokyo Narita International Airport (NRT),Germany,Frankfurt Airport (FRA),9400
+648,China,Beijing Capital International Airport (PEK),France,Paris Charles de Gaulle Airport (CDG),8200
+649,Malaysia,Kuala Lumpur International Airport (KUL),Netherlands,Amsterdam Schiphol Airport (AMS),10200
+650,Thailand,Bangkok Suvarnabhumi Airport (BKK),United Kingdom,London Heathrow Airport (LHR),9600
+651,India,Delhi Indira Gandhi International Airport (DEL),Germany,Frankfurt Airport (FRA),6100
+652,Indonesia,Jakarta Soekarno-Hatta International Airport (CGK),France,Paris Charles de Gaulle Airport (CDG),11400
+653,Philippines,Manila Ninoy Aquino International Airport (MNL),Netherlands,Amsterdam Schiphol Airport (AMS),10500
+654,Vietnam,Ho Chi Minh City Tan Son Nhat Airport (SGN),United Kingdom,London Heathrow Airport (LHR),10200
+655,Vietnam,Hanoi Noi Bai International Airport (HAN),Germany,Frankfurt Airport (FRA),8900
+656,Taiwan,Taipei Taoyuan International Airport (TPE),Germany,Frankfurt Airport (FRA),9400
+657,China,Guangzhou Baiyun International Airport (CAN),France,Paris Charles de Gaulle Airport (CDG),9500
+658,China,Chengdu Shuangliu International Airport (CTU),Netherlands,Amsterdam Schiphol Airport (AMS),8200
+659,China,Shenzhen Bao'an International Airport (SZX),Germany,Frankfurt Airport (FRA),9100
+660,India,Mumbai Chhatrapati Shivaji Maharaj International Airport (BOM),United Kingdom,London Heathrow Airport (LHR),7200
+661,India,Chennai International Airport (MAA),France,Paris Charles de Gaulle Airport (CDG),8000
+662,Sri Lanka,Colombo Bandaranaike International Airport (CMB),Germany,Frankfurt Airport (FRA),8500
+663,Bangladesh,Dhaka Hazrat Shahjalal International Airport (DAC),Netherlands,Amsterdam Schiphol Airport (AMS),7500
+664,Pakistan,Karachi Jinnah International Airport (KHI),United Kingdom,London Heathrow Airport (LHR),6800
+665,Pakistan,Lahore Allama Iqbal International Airport (LHE),France,Paris Charles de Gaulle Airport (CDG),6500
+666,Nepal,Kathmandu Tribhuvan International Airport (KTM),Germany,Frankfurt Airport (FRA),6700
+667,Myanmar,Yangon International Airport (RGN),Netherlands,Amsterdam Schiphol Airport (AMS),8800
+668,Cambodia,Phnom Penh International Airport (PNH),United Kingdom,London Heathrow Airport (LHR),10000
+669,Laos,Vientiane Wattay International Airport (VTE),France,Paris Charles de Gaulle Airport (CDG),9500
+670,Mongolia,Ulaanbaatar Chinggis Khaan International Airport (ULN),Germany,Frankfurt Airport (FRA),7000
