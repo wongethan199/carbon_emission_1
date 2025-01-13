@@ -5,6 +5,6 @@ To access the bash terminal, go to the "terminal" tab at the bottom of your stre
 ----  
 
 Modes:  
-1. Air freight - Will use database by default, or geopy if none exist in the database
-2a. Sea freight (Database) - Only Vietnam as end
-2b. Sea freight (Coordinates)
+1. Air freight - Will use database by default, or geopy if none exist in the database  
+2a. Sea freight (Database) - Only Vietnam as end  
+2b. Sea freight (Coordinates)  
