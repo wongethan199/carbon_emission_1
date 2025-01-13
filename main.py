@@ -11,7 +11,6 @@ import pandas
 import csv
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)# remove iloc warnings when getting distance
-
 pandas.set_option('display.max_rows', None)
 x=pandas.read_csv("https://raw.githubusercontent.com/wongethan199/carbon_emission_1/main/ESG%20-%20Data%20sheet%20air%20freight%20shipping%20hubs.xlsx%20-%20Main%20-%20Air%20shipping.csv")#distance
 x=x[:670]
@@ -66,7 +65,7 @@ st.header("Carbon Emission Calculator")
 choice=st.text_input("Enter 0 for air(Default) and 1 for sea: ")
 if choice=='1':
   st.write("Current mode: Sea")
-  database=st.text_input("Enter mode:\n0: Database (Default)\n1: Coordinates\n")
+  database=st.text_input("Enter mode:\n0: Database (Default, only supports Vietnam as end)\n1: Coordinates\n")
   
   if database=='0' or not database:
   #sea route if data in csv
@@ -77,7 +76,7 @@ if choice=='1':
     y["Codes_Starting"]=seaports0
     y["Codes_Ending"]=seaports1
     start=st.text_input("Enter start country ")
-    end="Vietnam"#input("Enter country 2 ")# currently only vietnam because limited database
+    end="Vietnam"
     #target=x[(x.Starting_Point==start and x.Ending_Point==end) or (x.Starting_Point==end and x.Ending_Point==start)]
     ef1=0
     target=y[y["Starting_Point"]==start]
@@ -252,7 +251,6 @@ else:
       else:ef1=ef.iloc[2][5]#long haul
     except:
       st.write("Timed out or error extracting data of one or both airports, or airport doesn't exist")
-      #it seems that codes like MAA will time out the processor although MAA is Chennai International Airport in India
   aircraft1=pandas.DataFrame()
   aircraft=st.text_input("Enter the aircraft, please enter the company name e.g. Airbus A340-500, Antonov An-225, Boeing 747-400 ")
   if aircraft!='':
