@@ -153,7 +153,10 @@ if choice=='1':
       #st.write(route)
       distance=route.properties['length']
       st.write("Distance:",distance)
-      teu=int(st.text_input("Enter TEU capacity: "))
+      try:
+        teu=int(st.text_input("Enter TEU capacity: "))
+      except:
+        teu=24000
       try:
         percent=float(st.text_input("Enter % of capacity, do not include % sign (Default 70): "))
       except:
