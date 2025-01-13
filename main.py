@@ -208,7 +208,7 @@ else:
   st.write("Current mode: Air")
   target=pandas.DataFrame()
   code1=code2=""
-  not_found=1
+  not_found=0
   airports0=x[x.columns[2]].values.tolist()
   airports0=[str(i[-4:-1]) for i in airports0]
   airports1=x[x.columns[4]].values.tolist()
