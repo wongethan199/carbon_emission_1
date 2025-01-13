@@ -94,58 +94,58 @@ if choice=='1':
       else:
         code1=st.text_input("Enter port code 1: choose 1 from Codes_Starting ")
         code2=st.text_input("Enter port code 2: choose 1 from Codes_Ending ")
-        if code1 and code2:
-          target=target[target["Codes_Starting"]==code1]
-          target=target[target["Codes_Ending"]==code2]
-          if target.empty:
-            st.write("Not Found")
+      if code1 and code2:
+        target=target[target["Codes_Starting"]==code1]
+        target=target[target["Codes_Ending"]==code2]
+        if target.empty:
+          st.write("Not Found")
+        else:
+          distance=target.iloc[0][8]
+          st.write("Distance:",round(distance),'km')
+          try:
+            teu=int(st.text_input("Enter TEU capacity: "))
+          except:
+            teu=24000
+          try:
+            percent=float(st.text_input("Enter % of capacity, do not include % sign: Default 70: "))
+          except:
+            percent=70
+          if teu<1000:
+            ef2=0.0363
+          elif teu<2000:
+            ef2=0.0321
+          elif teu<3000:
+            ef2=0.0200
+          elif teu<8000:
+            ef2=0.0167
           else:
-            distance=target.iloc[0][8]
-            st.write("Distance:",round(distance),'km')
+            ef2=0.0125
+          try:
+            ref_teu=int(st.text_input("Enter refrigerated teu capacity, default 800: "))
+          except:
+            ref_teu=800
+          days_operated=st.text_input("Enter days operated out of 365: ")
+          if days_operated:
+            days_operated=int(days_operated)
+            days_operated=min(days_operated,365)
+            weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
             try:
-              teu=int(st.text_input("Enter TEU capacity: "))
+              speed=float(st.text_input("Enter speed, default is 21 knots: "))#slow steaming
             except:
-              teu=24000
-            try:
-              percent=float(st.text_input("Enter % of capacity, do not include % sign: Default 70: "))
-            except:
-              percent=70
-            if teu<1000:
-              ef2=0.0363
-            elif teu<2000:
-              ef2=0.0321
-            elif teu<3000:
-              ef2=0.0200
-            elif teu<8000:
-              ef2=0.0167
-            else:
-              ef2=0.0125
-            try:
-              ref_teu=int(st.text_input("Enter refrigerated teu capacity, default 800: "))
-            except:
-              ref_teu=800
-            days_operated=st.text_input("Enter days operated out of 365: ")
-            if days_operated:
-              days_operated=int(days_operated)
-              days_operated=min(days_operated,365)
-              weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
-              try:
-                speed=float(st.text_input("Enter speed, default is 21 knots: "))#slow steaming
-              except:
-                speed=21.00
-              st.write("CO2 Emission:",round(weight*distance*ef2*(speed/21)**2/1000,1),"kg")
-              st.write("This is equivalent to:")
-              co2/=1000000
-              st.write(round(co2*370.37,1),"kg of rice")
-              st.write(round(co2*16.67,2),"kg of beef")
-              st.write(round(co2*833.33,1),"liters of milk")
-              st.write(round(co2*0.8,3),"hectares of cropland of fertilizer")
-              ref_consum=ref_teu*1.9*1914/365*days_operated
-              st.write("Refrigerator fuel consumption",ref_consum)
-              dry_intensity=ef2*(target.iloc[0][7])*(speed/21)**2/0.875**2/distance/teu/(percent/100)*1000000
-              st.write("Dry Container Emission Intensity:",dry_intensity)
-              ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
-              st.write("Refrigerated Container Emission Intensity",ref_intensity)
+              speed=21.00
+            st.write("CO2 Emission:",round(weight*distance*ef2*(speed/21)**2/1000,1),"kg")
+            st.write("This is equivalent to:")
+            co2/=1000000
+            st.write(round(co2*370.37,1),"kg of rice")
+            st.write(round(co2*16.67,2),"kg of beef")
+            st.write(round(co2*833.33,1),"liters of milk")
+            st.write(round(co2*0.8,3),"hectares of cropland of fertilizer")
+            ref_consum=ref_teu*1.9*1914/365*days_operated
+            st.write("Refrigerator fuel consumption",ref_consum)
+            dry_intensity=ef2*(target.iloc[0][7])*(speed/21)**2/0.875**2/distance/teu/(percent/100)*1000000
+            st.write("Dry Container Emission Intensity:",dry_intensity)
+            ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
+            st.write("Refrigerated Container Emission Intensity",ref_intensity)
   else:
     lat1=st.text_input("Latitude 1 (-90 to 90): ")
     long1=st.text_input("Longitude 1 (-180 to 180): ")
