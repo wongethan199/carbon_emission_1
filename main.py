@@ -123,19 +123,22 @@ if choice=='1':
         ref_teu=int(st.text_input("Enter refrigerated teu capacity, default 800: "))
       except:
         ref_teu=800
-      days_operated=min(int(st.text_input("Enter days operated out of 365: ")),365)
-      weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
-      try:
-        speed=float(st.text_input("Enter speed, default is 21 knots: "))#slow steaming
-      except:
-        speed=21.00
-      st.write("CO2 Emission:",weight*distance*ef2*(speed/21)**2/1000,"kg")#fuel burned per km squares with speed
-      ref_consum=ref_teu*1.9*1914/365*days_operated
-      st.write("Refrigerator fuel consumption",ref_consum)
-      dry_intensity=ef2*(target.iloc[0][7])*(speed/21)**2/0.875**2/distance/teu/(percent/100)*1000000
-      st.write("Dry Container Emission Intensity:",dry_intensity)
-      ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
-      st.write("Refrigerated Container Emission Intensity",ref_intensity)
+      days_operated=st.text_input("Enter days operated out of 365: ")
+      if days_operated:
+        days_operated=int(days_operated)
+        days_operated=min(days_operated,365)
+        weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
+        try:
+          speed=float(st.text_input("Enter speed, default is 21 knots: "))#slow steaming
+        except:
+          speed=21.00
+        st.write("CO2 Emission:",weight*distance*ef2*(speed/21)**2/1000,"kg")#fuel burned per km squares with speed
+        ref_consum=ref_teu*1.9*1914/365*days_operated
+        st.write("Refrigerator fuel consumption",ref_consum)
+        dry_intensity=ef2*(target.iloc[0][7])*(speed/21)**2/0.875**2/distance/teu/(percent/100)*1000000
+        st.write("Dry Container Emission Intensity:",dry_intensity)
+        ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
+        st.write("Refrigerated Container Emission Intensity",ref_intensity)
   else:
     lat1=st.text_input("Latitude 1 (-90 to 90): ")
     long1=st.text_input("Longitude 1 (-180 to 180): ")
