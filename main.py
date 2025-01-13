@@ -100,7 +100,7 @@ if choice=='1':
       if target.empty and start!='' and end!='':
         st.write("Not Found, exiting, please run and enter again")
       distance=target.iloc[0][8]
-      st.write("Distance:",distance,'km')
+      st.write("Distance:",round(distance),'km')
       try:
         teu=int(st.text_input("Enter TEU capacity: "))
       except:
@@ -152,7 +152,7 @@ if choice=='1':
       route=sr.searoute(origin,dest)
       #st.write(route)
       distance=route.properties['length']
-      st.write("Distance:",distance,'km')
+      st.write("Distance:",round(distance),'km')
       try:
         teu=int(st.text_input("Enter TEU capacity: "))
       except:
