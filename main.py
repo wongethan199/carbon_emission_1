@@ -146,6 +146,7 @@ if choice=='1':
     long2=st.text_input("Longitude 2 (-180 to 180): ")
     lst=[long1,lat1,long2,lat2]
     if all(lst):
+      lst=[float(i)for i in lst]
       origin=lst[:2]
       dest=lst[2:]
       route=sr.searoute(origin,dest)
