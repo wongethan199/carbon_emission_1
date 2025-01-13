@@ -182,7 +182,7 @@ if choice=='1':
       try:
         speed=float(st.text_input("Enter speed, default is 21 knots: "))
       except:
-        speed=21.00
+        speed=21.0
       st.write("CO2 Emission:",round(weight*distance*ef2*(speed/21)**2/1000,1),"kg")#fuel burned per km squares with speed
       ref_consum=ref_teu*1.9*1914/365*days_operated
       st.write("Refrigerator fuel consumption",ref_consum)
@@ -201,10 +201,10 @@ else:
   airports1=[str(i[-4:-1]) for i in airports1]
   x["Codes_Starting"]=airports0
   x["Codes_Ending"]=airports1
-  start=st.text_input("Enter country 1 ")
-  end=st.text_input("Enter country 2 ")
+  start=st.text_input("Enter country 1")
+  end=st.text_input("Enter country 2")
   ef1=0
-  if start!='' and end!='':
+  if start and end:
     target=x[(x["Starting_Point"]==start)|(x["Starting_Point"]==end)]
     if end=="United States" or end=="US" or start=="United States" or start=="US":
       target=target[(target["Ending_Point"]=="US")|(target["Ending_Point"]=="United States")|(target["Starting_Point"]=="US")|(target["Starting_Point"]=="United States")]
@@ -254,13 +254,13 @@ else:
       st.write("Timed out or error extracting data of one or both airports, or airport doesn't exist")
   aircraft1=pandas.DataFrame()
   aircraft=st.text_input("Enter the aircraft, please enter the company name e.g. Airbus A340-500, Antonov An-225, Boeing 747-400 ")
-  if aircraft!='':
+  if aircraft:
     aircraft1=w[w["Type"]==aircraft]
   if aircraft1.empty:
     st.write("No aircraft found")
   else:
     percent=st.text_input("enter % of takeoff weight ")
-    if percent!='':
+    if percent:
       percent=min(float(percent),100)
       weight=aircraft1.iloc[0][1]*percent/100
       st.write("the weight of the aircraft is",round(weight,1),"kg")
