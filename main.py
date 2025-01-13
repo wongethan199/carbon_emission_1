@@ -133,7 +133,8 @@ if choice=='1':
               speed=float(st.text_input("Enter speed, default is 21 knots: "))#slow steaming
             except:
               speed=21.00
-            st.write("CO2 Emission:",round(weight*distance*ef2*(speed/21)**2/1000,1),"kg")
+            co2=weight*distance*ef2*(speed/21)**2/1000
+            st.write("CO2 Emission:",round(co2,1),"kg")
             st.write("This is equivalent to:")
             co2/=1000000
             st.write(round(co2*370.37,1),"kg of rice")
@@ -189,7 +190,8 @@ if choice=='1':
         speed=float(st.text_input("Enter speed, default is 21 knots: "))
       except:
         speed=21.0
-      st.write("CO2 Emission:",round(weight*distance*ef2*(speed/21)**2/1000,1),"kg")
+      co2=weight*distance*ef2*(speed/21)**2/1000
+      st.write("CO2 Emission:",round(co2,1),"kg")
       st.write("This is equivalent to:")
       co2/=1000000
       st.write(round(co2*370.37,1),"kg of rice")
