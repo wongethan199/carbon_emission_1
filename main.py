@@ -134,6 +134,12 @@ if choice=='1':
               except:
                 speed=21.00
               st.write("CO2 Emission:",round(weight*distance*ef2*(speed/21)**2/1000,1),"kg")
+              st.write("This is equivalent to:")
+      co2/=1000000
+      st.write(round(co2*370.37,1),"kg of rice")
+      st.write(round(co2*16.67,2),"kg of beef")
+      st.write(round(co2*833.33,1),"liters of milk")
+      st.write(round(co2*0.8,3),"hectares of cropland of fertilizer")
               ref_consum=ref_teu*1.9*1914/365*days_operated
               st.write("Refrigerator fuel consumption",ref_consum)
               dry_intensity=ef2*(target.iloc[0][7])*(speed/21)**2/0.875**2/distance/teu/(percent/100)*1000000
@@ -183,7 +189,13 @@ if choice=='1':
         speed=float(st.text_input("Enter speed, default is 21 knots: "))
       except:
         speed=21.0
-      st.write("CO2 Emission:",round(weight*distance*ef2*(speed/21)**2/1000,1),"kg")#fuel burned per km squares with speed
+      st.write("CO2 Emission:",round(weight*distance*ef2*(speed/21)**2/1000,1),"kg")
+      st.write("This is equivalent to:")
+      co2/=1000000
+      st.write(round(co2*370.37,1),"kg of rice")
+      st.write(round(co2*16.67,2),"kg of beef")
+      st.write(round(co2*833.33,1),"liters of milk")
+      st.write(round(co2*0.8,3),"hectares of cropland of fertilizer")
       ref_consum=ref_teu*1.9*1914/365*days_operated
       st.write("Refrigerator fuel consumption",ref_consum)
       dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
