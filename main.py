@@ -49,7 +49,7 @@ def calculate_distance(airport_code1, airport_code2):
 
   if coords1 and coords2:
     distance = geodesic(coords1, coords2).kilometers
-    st.write("Distance:",round(distance))
+    st.write("Distance:",round(distance),'km')
     return distance
   else:
     st.write("Unable to calculate distance due to missing coordinates.")
@@ -100,7 +100,7 @@ if choice=='1':
       if target.empty and start!='' and end!='':
         st.write("Not Found, exiting, please run and enter again")
       distance=target.iloc[0][8]
-      st.write("Distance:",distance)
+      st.write("Distance:",distance,'km')
       try:
         teu=int(st.text_input("Enter TEU capacity: "))
       except:
@@ -132,7 +132,7 @@ if choice=='1':
           speed=float(st.text_input("Enter speed, default is 21 knots: "))#slow steaming
         except:
           speed=21.00
-        st.write("CO2 Emission:",round(weight*distance*ef2*(speed/21)**2/1000),"kg")
+        st.write("CO2 Emission:",round(weight*distance*ef2*(speed/21)**2/1000,1),"kg")
         ref_consum=ref_teu*1.9*1914/365*days_operated
         st.write("Refrigerator fuel consumption",ref_consum)
         dry_intensity=ef2*(target.iloc[0][7])*(speed/21)**2/0.875**2/distance/teu/(percent/100)*1000000
@@ -152,7 +152,7 @@ if choice=='1':
       route=sr.searoute(origin,dest)
       #st.write(route)
       distance=route.properties['length']
-      st.write("Distance:",distance)
+      st.write("Distance:",distance,'km')
       try:
         teu=int(st.text_input("Enter TEU capacity: "))
       except:
@@ -182,7 +182,7 @@ if choice=='1':
         speed=float(st.text_input("Enter speed, default is 21 knots: "))
       except:
         speed=21.00
-      st.write("CO2 Emission:",round(weight*distance*ef2*(speed/21)**2/1000),"kg")#fuel burned per km squares with speed
+      st.write("CO2 Emission:",round(weight*distance*ef2*(speed/21)**2/1000,1),"kg")#fuel burned per km squares with speed
       ref_consum=ref_teu*1.9*1914/365*days_operated
       st.write("Refrigerator fuel consumption",ref_consum)
       dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
@@ -230,7 +230,7 @@ else:
           not_found=1
   if not not_found:
     distance=target.iloc[0][5]
-    st.write("Distance:",distance)
+    st.write("Distance:",distance,'km')
     if start==end:
       ef1=ef.iloc[0][5]
     else:
@@ -266,7 +266,7 @@ else:
       weight=aircraft1.iloc[0][1]*percent/100
       st.write("the weight of the aircraft is",round(weight,1),"kg")
       co2=weight*distance*ef1
-      st.write("CO2 Emission:",round(co2/1000),"kg")
+      st.write("CO2 Emission:",round(co2/1000,1),"kg")
       st.write("This is equivalent to:")
       co2/=1000000
       st.write(round(co2*370.37,1),"kg of rice")
