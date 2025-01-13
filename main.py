@@ -11,6 +11,7 @@ import pandas
 import csv
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)# remove iloc warnings when getting distance
+
 pandas.set_option('display.max_rows', None)
 x=pandas.read_csv("https://raw.githubusercontent.com/wongethan199/carbon_emission_1/main/ESG%20-%20Data%20sheet%20air%20freight%20shipping%20hubs.xlsx%20-%20Main%20-%20Air%20shipping.csv")#distance
 x=x[:670]
@@ -77,7 +78,6 @@ if choice=='1':
     y["Codes_Ending"]=seaports1
     start=st.text_input("Enter start country ")
     end="Vietnam"
-    #target=x[(x.Starting_Point==start and x.Ending_Point==end) or (x.Starting_Point==end and x.Ending_Point==start)]
     ef1=0
     target=y[y["Starting_Point"]==start]
     target=target[target["Ending_Point"]==end]
@@ -94,50 +94,52 @@ if choice=='1':
       else:
         code1=st.text_input("Enter port code 1: choose 1 from Codes_Starting ")
         code2=st.text_input("Enter port code 2: choose 1 from Codes_Ending ")
-      target=target[target["Codes_Starting"]==code1]
-      target=target[target["Codes_Ending"]==code2]
-      if target.empty and start!='' and end!='':
-        st.write("Not Found, exiting, please run and enter again")
-      distance=target.iloc[0][8]
-      st.write("Distance:",round(distance),'km')
-      try:
-        teu=int(st.text_input("Enter TEU capacity: "))
-      except:
-        teu=24000
-      try:
-        percent=float(st.text_input("Enter % of capacity, do not include % sign: Default 70: "))
-      except:
-        percent=70
-      if teu<1000:
-        ef2=0.0363
-      elif teu<2000:
-        ef2=0.0321
-      elif teu<3000:
-        ef2=0.0200
-      elif teu<8000:
-        ef2=0.0167
-      else:
-        ef2=0.0125
-      try:
-        ref_teu=int(st.text_input("Enter refrigerated teu capacity, default 800: "))
-      except:
-        ref_teu=800
-      days_operated=st.text_input("Enter days operated out of 365: ")
-      if days_operated:
-        days_operated=int(days_operated)
-        days_operated=min(days_operated,365)
-        weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
-        try:
-          speed=float(st.text_input("Enter speed, default is 21 knots: "))#slow steaming
-        except:
-          speed=21.00
-        st.write("CO2 Emission:",round(weight*distance*ef2*(speed/21)**2/1000,1),"kg")
-        ref_consum=ref_teu*1.9*1914/365*days_operated
-        st.write("Refrigerator fuel consumption",ref_consum)
-        dry_intensity=ef2*(target.iloc[0][7])*(speed/21)**2/0.875**2/distance/teu/(percent/100)*1000000
-        st.write("Dry Container Emission Intensity:",dry_intensity)
-        ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
-        st.write("Refrigerated Container Emission Intensity",ref_intensity)
+        if code1 and code2:
+          target=target[target["Codes_Starting"]==code1]
+          target=target[target["Codes_Ending"]==code2]
+          if target.empty:
+            st.write("Not Found")
+          else:
+            distance=target.iloc[0][8]
+            st.write("Distance:",round(distance),'km')
+            try:
+              teu=int(st.text_input("Enter TEU capacity: "))
+            except:
+              teu=24000
+            try:
+              percent=float(st.text_input("Enter % of capacity, do not include % sign: Default 70: "))
+            except:
+              percent=70
+            if teu<1000:
+              ef2=0.0363
+            elif teu<2000:
+              ef2=0.0321
+            elif teu<3000:
+              ef2=0.0200
+            elif teu<8000:
+              ef2=0.0167
+            else:
+              ef2=0.0125
+            try:
+              ref_teu=int(st.text_input("Enter refrigerated teu capacity, default 800: "))
+            except:
+              ref_teu=800
+            days_operated=st.text_input("Enter days operated out of 365: ")
+            if days_operated:
+              days_operated=int(days_operated)
+              days_operated=min(days_operated,365)
+              weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
+              try:
+                speed=float(st.text_input("Enter speed, default is 21 knots: "))#slow steaming
+              except:
+                speed=21.00
+              st.write("CO2 Emission:",round(weight*distance*ef2*(speed/21)**2/1000,1),"kg")
+              ref_consum=ref_teu*1.9*1914/365*days_operated
+              st.write("Refrigerator fuel consumption",ref_consum)
+              dry_intensity=ef2*(target.iloc[0][7])*(speed/21)**2/0.875**2/distance/teu/(percent/100)*1000000
+              st.write("Dry Container Emission Intensity:",dry_intensity)
+              ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
+              st.write("Refrigerated Container Emission Intensity",ref_intensity)
   else:
     lat1=st.text_input("Latitude 1 (-90 to 90): ")
     long1=st.text_input("Longitude 1 (-180 to 180): ")
@@ -200,8 +202,7 @@ else:
   x["Codes_Starting"]=airports0
   x["Codes_Ending"]=airports1
   start=st.text_input("Enter country 1 ")
-  end=st.text_input("Enter country 2 ")#may be domestic flight
-  #target=x[(x.Starting_Point==start and x.Ending_Point==end) or (x.Starting_Point==end and x.Ending_Point==start)]
+  end=st.text_input("Enter country 2 ")
   ef1=0
   if start!='' and end!='':
     target=x[(x["Starting_Point"]==start)|(x["Starting_Point"]==end)]
