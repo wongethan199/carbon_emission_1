@@ -132,7 +132,7 @@ if choice=='1':
           speed=float(st.text_input("Enter speed, default is 21 knots: "))#slow steaming
         except:
           speed=21.00
-        st.write("CO2 Emission:",weight*distance*ef2*(speed/21)**2/1000,"kg")#fuel burned per km squares with speed
+        st.write("CO2 Emission:",round(weight*distance*ef2*(speed/21)**2/1000),"kg")
         ref_consum=ref_teu*1.9*1914/365*days_operated
         st.write("Refrigerator fuel consumption",ref_consum)
         dry_intensity=ef2*(target.iloc[0][7])*(speed/21)**2/0.875**2/distance/teu/(percent/100)*1000000
@@ -182,7 +182,7 @@ if choice=='1':
         speed=float(st.text_input("Enter speed, default is 21 knots: "))
       except:
         speed=21.00
-      st.write("CO2 Emission:",weight*distance*ef2*(speed/21)**2/1000,"kg")#fuel burned per km squares with speed
+      st.write("CO2 Emission:",round(weight*distance*ef2*(speed/21)**2/1000),"kg")#fuel burned per km squares with speed
       ref_consum=ref_teu*1.9*1914/365*days_operated
       st.write("Refrigerator fuel consumption",ref_consum)
       dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
@@ -266,10 +266,10 @@ else:
       weight=aircraft1.iloc[0][1]*percent/100
       st.write("the weight of the aircraft is",round(weight,1),"kg")
       co2=weight*distance*ef1
-      st.write("CO2 Emission:",co2/1000,"kg")
+      st.write("CO2 Emission:",round(co2/1000),"kg")
       st.write("This is equivalent to:")
       co2/=1000000
-      st.write(co2*370.37,"kg of rice")
-      st.write(co2*16.67,"kg of beef")
-      st.write(co2*833.33,"liters of milk")
-      st.write(co2*0.8,"hectares of cropland of fertilizer")
+      st.write(round(co2*370.37,1),"kg of rice")
+      st.write(round(co2*16.67,2),"kg of beef")
+      st.write(round(co2*833.33,1),"liters of milk")
+      st.write(round(co2*0.8,3),"hectares of cropland of fertilizer")
