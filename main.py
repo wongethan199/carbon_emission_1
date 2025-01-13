@@ -17,6 +17,7 @@ x=pandas.read_csv("https://raw.githubusercontent.com/wongethan199/carbon_emissio
 x=x[:670]
 y=pandas.read_csv("https://raw.githubusercontent.com/wongethan199/carbon_emission_1/refs/heads/main/ESG%20-%20Data%20sheet%20sea%20freight.xlsx%20-%20Carbon%20footprints%20counting.csv")
 ef=pandas.read_csv("https://raw.githubusercontent.com/wongethan199/carbon_emission_1/refs/heads/main/ESG%20-%20Data%20sheet%20air%20freight%20shipping%20hubs.xlsx%20-%20Sheet1.csv")
+w=pandas.read_csv("https://raw.githubusercontent.com/wongethan199/carbon_emission_1/refs/heads/main/aircraft%20weight.csv")
 import searoute as sr
 from geopy.distance import geodesic
 from geopy.geocoders import Nominatim
@@ -48,7 +49,7 @@ def calculate_distance(airport_code1, airport_code2):
 
   if coords1 and coords2:
     distance = geodesic(coords1, coords2).kilometers
-    st.write("Distance:",round(distance),"(using geopy)")
+    st.write("Distance:",round(distance))
     return distance
   else:
     st.write("Unable to calculate distance due to missing coordinates.")
@@ -62,10 +63,12 @@ def check_same_country(airport_code1, airport_code2):
   else:
     return 0
 st.header("Carbon Emission Calculator")
-choice=int(st.text_input("Enter 0 for air and 1 for sea: "))
-if choice:
-  database=int(st.text_input("Enter mode:\n0: Database\n1: Coordinates\n"))
-  if not database:
+choice=st.text_input("Enter 0 for air(Default) and 1 for sea: ")
+if choice=='1':
+  st.write("Current mode: Sea")
+  database=st.text_input("Enter mode:\n0: Database (Default)\n1: Coordinates\n")
+  
+  if database=='0' or not database:
   #sea route if data in csv
     seaports0=y[y.columns[2]].values.tolist()
     seaports0=[str(i[8:]) for i in seaports0]
@@ -79,105 +82,111 @@ if choice:
     ef1=0
     target=y[y["Starting_Point"]==start]
     target=target[target["Ending_Point"]==end]
-    if target.empty and start!='':
-      st.write("Not Found, exiting, please try mode 1 for coordinates")
-    st.write("Available Seaport codes:")
-    st.write(target[["Codes_Starting","Codes_Ending"]])
-    if len(target)==1:
-      st.write("only one entry exists, using this entry")
-      code1=target.iloc[0][9]
-      code2=target.iloc[0][10]
+    if target.empty:
+      if start:
+        st.write("Not Found, please try mode 1 for coordinates")
     else:
-      code1=st.text_input("Enter port code 1: choose 1 from Codes_Starting ")
-      code2=st.text_input("Enter port code 2: choose 1 from Codes_Ending ")
-    target=target[target["Codes_Starting"]==code1]
-    target=target[target["Codes_Ending"]==code2]
-    if target.empty and start!='' and end!='':
-      st.write("Not Found, exiting, please run and enter again")
-    distance=target.iloc[0][8]
-    st.write("Distance:",distance)
-    try:
-      teu=int(st.text_input("Enter TEU capacity: "))
-    except:
-      teu=24000
-    try:
-      percent=float(st.text_input("Enter % of capacity, do not include % sign: Default 70: "))
-    except:
-      percent=70
-    if teu<1000:
-      ef2=0.0363
-    elif teu<2000:
-      ef2=0.0321
-    elif teu<3000:
-      ef2=0.0200
-    elif teu<8000:
-      ef2=0.0167
-    else:
-      ef2=0.0125
-    try:
-      ref_teu=int(st.text_input("Enter refrigerated teu capacity, default 800: "))
-    except:
-      ref_teu=800
-    days_operated=min(int(st.text_input("Enter days operated out of 365: ")),365)
-    weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
-    try:
-      speed=float(st.text_input("Enter speed, default is 21 knots: "))#slow steaming
-    except:
-      speed=21.00
-    st.write("CO2 Emission:",weight*distance*ef2*(speed/21)**2/1000,"kg")#fuel burned per km squares with speed
-    ref_consum=ref_teu*1.9*1914/365*days_operated
-    st.write("Refrigerator fuel consumption",ref_consum)
-    dry_intensity=ef2*(target.iloc[0][7])*(speed/21)**2/0.875**2/distance/teu/(percent/100)*1000000
-    st.write("Dry Container Emission Intensity:",dry_intensity)
-    ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
-    st.write("Refrigerated Container Emission Intensity",ref_intensity)
+      st.write("Available Seaport codes:")
+      st.write(target[["Codes_Starting","Codes_Ending"]])
+      if len(target)==1:
+        st.write("only one entry exists, using this entry")
+        code1=target.iloc[0][9]
+        code2=target.iloc[0][10]
+      else:
+        code1=st.text_input("Enter port code 1: choose 1 from Codes_Starting ")
+        code2=st.text_input("Enter port code 2: choose 1 from Codes_Ending ")
+      target=target[target["Codes_Starting"]==code1]
+      target=target[target["Codes_Ending"]==code2]
+      if target.empty and start!='' and end!='':
+        st.write("Not Found, exiting, please run and enter again")
+      distance=target.iloc[0][8]
+      st.write("Distance:",distance)
+      try:
+        teu=int(st.text_input("Enter TEU capacity: "))
+      except:
+        teu=24000
+      try:
+        percent=float(st.text_input("Enter % of capacity, do not include % sign: Default 70: "))
+      except:
+        percent=70
+      if teu<1000:
+        ef2=0.0363
+      elif teu<2000:
+        ef2=0.0321
+      elif teu<3000:
+        ef2=0.0200
+      elif teu<8000:
+        ef2=0.0167
+      else:
+        ef2=0.0125
+      try:
+        ref_teu=int(st.text_input("Enter refrigerated teu capacity, default 800: "))
+      except:
+        ref_teu=800
+      days_operated=min(int(st.text_input("Enter days operated out of 365: ")),365)
+      weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
+      try:
+        speed=float(st.text_input("Enter speed, default is 21 knots: "))#slow steaming
+      except:
+        speed=21.00
+      st.write("CO2 Emission:",weight*distance*ef2*(speed/21)**2/1000,"kg")#fuel burned per km squares with speed
+      ref_consum=ref_teu*1.9*1914/365*days_operated
+      st.write("Refrigerator fuel consumption",ref_consum)
+      dry_intensity=ef2*(target.iloc[0][7])*(speed/21)**2/0.875**2/distance/teu/(percent/100)*1000000
+      st.write("Dry Container Emission Intensity:",dry_intensity)
+      ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
+      st.write("Refrigerated Container Emission Intensity",ref_intensity)
   else:
-    lat1=float(st.text_input("Latitude 1 (-90 to 90): "))
-    long1=float(st.text_input("Longitude 1 (-180 to 180): "))
-    lat2=float(st.text_input("Latitude 2 (-90 to 90): "))
-    long2=float(st.text_input("Longitude 2 (-180 to 180): "))
-    origin=[long1,lat1]
-    dest=[long2,lat2]
-    route=sr.searoute(origin,dest)
-    #st.write(route)
-    distance=route.properties['length']
-    st.write("Distance:",distance)
-    teu=int(st.text_input("Enter TEU capacity: "))
-    try:
-      percent=float(st.text_input("Enter % of capacity, do not include % sign (Default 70): "))
-    except:
-      percent=70
-    if teu<1000:
-      ef2=0.0363
-    elif teu<2000:
-      ef2=0.0321
-    elif teu<3000:
-      ef2=0.0200
-    elif teu<8000:
-      ef2=0.0167
-    else:
-      ef2=0.0125
-    try:
-      ref_teu=int(st.text_input("Enter refrigerated teu capacity, default 800: "))
-    except:
-      ref_teu=800
-    days_operated=min(int(st.text_input("Enter days operated out of 365: ")),365)
-    # if more than 365 days, assume user means 365
-    weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
-    try:
-      speed=float(st.text_input("Enter speed, default is 21 knots: "))
-    except:
-      speed=21.00
-    st.write("CO2 Emission:",weight*distance*ef2*(speed/21)**2/1000,"kg")#fuel burned per km squares with speed
-    ref_consum=ref_teu*1.9*1914/365*days_operated
-    st.write("Refrigerator fuel consumption",ref_consum)
-    dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
-    st.write("Dry Container Emission Intensity:",dry_intensity)
-    ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
-    st.write("Refrigerated Container Emission Intensity",ref_intensity)
+    lat1=st.text_input("Latitude 1 (-90 to 90): ")
+    long1=st.text_input("Longitude 1 (-180 to 180): ")
+    lat2=st.text_input("Latitude 2 (-90 to 90): ")
+    long2=st.text_input("Longitude 2 (-180 to 180): ")
+    lst=[long1,lat1,long2,lat2]
+    if all(lst):
+      origin=lst[:2]
+      dest=lst[2:]
+      route=sr.searoute(origin,dest)
+      #st.write(route)
+      distance=route.properties['length']
+      st.write("Distance:",distance)
+      teu=int(st.text_input("Enter TEU capacity: "))
+      try:
+        percent=float(st.text_input("Enter % of capacity, do not include % sign (Default 70): "))
+      except:
+        percent=70
+      if teu<1000:
+        ef2=0.0363
+      elif teu<2000:
+        ef2=0.0321
+      elif teu<3000:
+        ef2=0.0200
+      elif teu<8000:
+        ef2=0.0167
+      else:
+        ef2=0.0125
+      try:
+        ref_teu=int(st.text_input("Enter refrigerated teu capacity, default 800: "))
+      except:
+        ref_teu=800
+      days_operated=min(int(st.text_input("Enter days operated out of 365: ")),365)
+      # if more than 365 days, assume user means 365
+      weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
+      try:
+        speed=float(st.text_input("Enter speed, default is 21 knots: "))
+      except:
+        speed=21.00
+      st.write("CO2 Emission:",weight*distance*ef2*(speed/21)**2/1000,"kg")#fuel burned per km squares with speed
+      ref_consum=ref_teu*1.9*1914/365*days_operated
+      st.write("Refrigerator fuel consumption",ref_consum)
+      dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
+      st.write("Dry Container Emission Intensity:",dry_intensity)
+      ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
+      st.write("Refrigerated Container Emission Intensity",ref_intensity)
 else:
+  st.write("Current mode: Air")
+  target=pandas.DataFrame()
   code1=code2=""
-  not_found=0
+  not_found=1
   airports0=x[x.columns[2]].values.tolist()
   airports0=[str(i[-4:-1]) for i in airports0]
   airports1=x[x.columns[4]].values.tolist()
@@ -204,8 +213,9 @@ else:
         st.write("only one entry exists, using this entry")
         code1=target.iloc[0][6]
         code2=target.iloc[0][7]
-      code1=st.text_input("Enter port code 1: ")
-      code2=st.text_input("Enter port code 2: ")
+      else:
+        code1=st.text_input("Enter port code 1: ")
+        code2=st.text_input("Enter port code 2: ")
       if code2!='' and code1!='':
         target=target[target["Codes_Starting"]==code1]
         target=target[target["Codes_Ending"]==code2]
@@ -236,15 +246,23 @@ else:
     except:
       st.write("Timed out or error extracting data of one or both airports, or airport doesn't exist")
       #it seems that codes like MAA will time out the processor although MAA is Chennai International Airport in India
-  try:
-    weight=int(st.text_input("Enter weight in kg: Default 6804: "))
-  except:
-    weight=6804 #weight of p6p assumed if no or invalid input
-  co2=weight*distance*ef1
-  st.write("CO2 Emission:",co2/1000,"kg")
-  st.write("This is equivalent to:")
-  co2/=1000000
-  st.write(co2*370.37,"kg of rice")
-  st.write(co2*16.67,"kg of beef")
-  st.write(co2*833.33,"liters of milk")
-  st.write(co2*0.8,"hectares of cropland of fertilizer")
+  aircraft1=pandas.DataFrame()
+  aircraft=st.text_input("Enter the aircraft, please enter the company name e.g. Airbus A340-500, Antonov An-225, Boeing 747-400 ")
+  if aircraft!='':
+    aircraft1=w[w["Type"]==aircraft]
+  if aircraft1.empty:
+    st.write("No aircraft found")
+  else:
+    percent=st.text_input("enter % of takeoff weight ")
+    if percent!='':
+      percent=min(float(percent),100)
+      weight=aircraft1.iloc[0][1]*percent/100
+      st.write("the weight of the aircraft is",round(weight,1),"kg")
+      co2=weight*distance*ef1
+      st.write("CO2 Emission:",co2/1000,"kg")
+      st.write("This is equivalent to:")
+      co2/=1000000
+      st.write(co2*370.37,"kg of rice")
+      st.write(co2*16.67,"kg of beef")
+      st.write(co2*833.33,"liters of milk")
+      st.write(co2*0.8,"hectares of cropland of fertilizer")
