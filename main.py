@@ -10,7 +10,8 @@ import searoute as sr
 import pandas
 import csv
 import warnings
-warnings.simplefilter(action='ignore', category=FutureWarning)
+warnings.simplefilter(action='ignore', category=FutureWarning)# remove iloc warnings when getting distance
+
 pandas.set_option('display.max_rows', None)
 x=pandas.read_csv("https://raw.githubusercontent.com/wongethan199/carbon_emission_1/main/ESG%20-%20Data%20sheet%20air%20freight%20shipping%20hubs.xlsx%20-%20Main%20-%20Air%20shipping.csv")#distance
 x=x[:670]
@@ -76,10 +77,8 @@ if choice=='1':
     y["Codes_Starting"]=seaports0
     y["Codes_Ending"]=seaports1
     start=st.text_input("Enter start country ")
-    end="Vietnam"
     ef1=0
-    target=y[y["Starting_Point"]==start]
-    target=target[target["Ending_Point"]==end]
+    target=y[y["Starting_Point"].str.lower()==start.lower().strip()]
     if target.empty:
       if start:
         st.write("Not Found, please try mode 1 for coordinates")
@@ -94,8 +93,8 @@ if choice=='1':
         code1=st.text_input("Enter port code 1: choose 1 from Codes_Starting ")
         code2=st.text_input("Enter port code 2: choose 1 from Codes_Ending ")
       if code1 and code2:
-        target=target[target["Codes_Starting"]==code1]
-        target=target[target["Codes_Ending"]==code2]
+        target=target[target["Codes_Starting"].str.lower()==code1.lower().strip()]
+        target=target[target["Codes_Ending"].str.lower()==code2.lower().strip()]
         if target.empty:
           st.write("Not Found")
         else:
@@ -184,7 +183,7 @@ if choice=='1':
         ref_teu=800
       days_operated=min(int(st.text_input("Enter days operated out of 365: ")),365)
       # if more than 365 days, assume user means 365
-      weight=teu*24*percent/100
+      weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
       try:
         speed=float(st.text_input("Enter speed, default is 21 knots: "))
       except:
@@ -214,17 +213,17 @@ else:
   airports1=[str(i[-4:-1]) for i in airports1]
   x["Codes_Starting"]=airports0
   x["Codes_Ending"]=airports1
-  start=st.text_input("Enter country 1")
-  end=st.text_input("Enter country 2")
+  start=st.text_input("Enter country 1").lower().strip()
+  end=st.text_input("Enter country 2").lower().strip()
   ef1=0
   if start and end:
-    target=x[(x["Starting_Point"]==start)|(x["Starting_Point"]==end)]
-    if end=="United States" or end=="US" or start=="United States" or start=="US":
+    target=x[(x["Starting_Point"].str.lower()==start)|(x["Starting_Point"].str.lower()==end)]
+    if end=="united states" or end=="us" or start=="united states" or start=="us":
       target=target[(target["Ending_Point"]=="US")|(target["Ending_Point"]=="United States")|(target["Starting_Point"]=="US")|(target["Starting_Point"]=="United States")]
     else:
-      target=target[(target["Ending_Point"]==end)|(target["Ending_Point"]==start)]
+      target=target[(target["Ending_Point"].str.lower()==end)|(target["Ending_Point"].str.lower()==start)]
     if start!=end:
-      target=target[target["Ending_Point"]!=target["Starting_Point"]] # exclude domestic flights that may be part of the list
+      target=target[target["Ending_Point"].str.lower()!=target["Starting_Point"].str.lower()]
     if target.empty:
       not_found=1
       st.write("Not Found, will use geopy")# the database will be faster if the data is found, and prevents errors like timeout
@@ -238,9 +237,9 @@ else:
       else:
         code1=st.text_input("Enter port code 1: ")
         code2=st.text_input("Enter port code 2: ")
-      if code2!='' and code1!='':
-        target=target[target["Codes_Starting"]==code1]
-        target=target[target["Codes_Ending"]==code2]
+      if code2 and code1:
+        target=target[target["Codes_Starting"]==code1.upper().strip()]
+        target=target[target["Codes_Ending"]==code2.upper().strip()]
         if target.empty:
           not_found=1
   if not not_found:
