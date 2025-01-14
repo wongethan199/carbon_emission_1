@@ -113,29 +113,26 @@ if choice=='1':
             ref_teu=int(st.text_input("Enter refrigerated teu capacity, default 800: "))
           except:
             ref_teu=800
-          days_operated=st.text_input("Enter days operated out of 365: ")
-          if days_operated:
-            days_operated=int(days_operated)
-            days_operated=min(days_operated,365)
-            weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
-            try:
-              speed=float(st.text_input("Enter speed, default is 21 knots: "))#slow steaming
-            except:
-              speed=21.0
-            co2=weight*distance*ef2*(speed/21)**2/1000
-            st.write("CO2 Emission:",round(co2,1),"kg")
-            st.write("This is equivalent to:")
-            co2/=1000
-            st.write(round(co2*370.37,1),"kg of rice")
-            st.write(round(co2*16.67,2),"kg of beef")
-            st.write(round(co2*833.33,1),"liters of milk")
-            st.write(round(co2*0.8,3),"hectares of cropland of fertilizer")
-            ref_consum=ref_teu*1.9*1914/365*days_operated
-            st.write("Refrigerator fuel consumption",ref_consum)
-            dry_intensity=ef2*(target.iloc[0][7])*(speed/21)**2/0.875**2/distance/teu/(percent/100)*1000000
-            st.write("Dry Container Emission Intensity:",dry_intensity)
-            ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
-            st.write("Refrigerated Container Emission Intensity",ref_intensity)
+          days_operated=min(int(st.text_input("Enter days operated out of 365: ")),365)
+          ref_consum=ref_teu*1.9*1914/365*days_operated
+          st.write("Refrigerator fuel consumption",round(ref_consum/1000,2),'kg')
+          weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
+          try:
+            speed=float(st.text_input("Enter speed, default is 21 knots: "))
+          except:
+            speed=21.0
+          co2=weight*distance*ef2*(speed/21)**2/1000+ref_consum/1000/0.737*2.54
+          st.write("CO2 Emission:",round(co2,1),"kg")
+          st.write("This is equivalent to:")
+          co2/=1000
+          st.write(round(co2*370.37,1),"kg of rice")
+          st.write(round(co2*16.67,2),"kg of beef")
+          st.write(round(co2*833.33,1),"liters of milk")
+          st.write(round(co2*0.8,3),"hectares of cropland of fertilizer")
+          dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
+          st.write("Dry Container Emission Intensity:",dry_intensity)
+          ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
+          st.write("Refrigerated Container Emission Intensity",ref_intensity)
   else:
     lat1=st.text_input("Latitude 1 (-90 to 90): ")
     long1=st.text_input("Longitude 1 (-180 to 180): ")
@@ -173,12 +170,14 @@ if choice=='1':
       except:
         ref_teu=800
       days_operated=min(int(st.text_input("Enter days operated out of 365: ")),365)
+      ref_consum=ref_teu*1.9*1914/365*days_operated
+      st.write("Refrigerator fuel consumption",round(ref_consum/1000,2),'kg')
       weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
       try:
         speed=float(st.text_input("Enter speed, default is 21 knots: "))
       except:
         speed=21.0
-      co2=weight*distance*ef2*(speed/21)**2/1000
+      co2=weight*distance*ef2*(speed/21)**2/1000+ref_consum/1000/0.737*2.54
       st.write("CO2 Emission:",round(co2,1),"kg")
       st.write("This is equivalent to:")
       co2/=1000
@@ -186,8 +185,6 @@ if choice=='1':
       st.write(round(co2*16.67,2),"kg of beef")
       st.write(round(co2*833.33,1),"liters of milk")
       st.write(round(co2*0.8,3),"hectares of cropland of fertilizer")
-      ref_consum=ref_teu*1.9*1914/365*days_operated
-      st.write("Refrigerator fuel consumption",ref_consum)
       dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
       st.write("Dry Container Emission Intensity:",dry_intensity)
       ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
