@@ -123,7 +123,7 @@ if choice=='1':
           st.write("Refrigerator fuel consumption",round(ref_consum/1000,2),'kg')
           weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
           try:
-            speed=float(st.text_input("Enter speed, default is 21 knots: "))
+            speed=float(st.text_input("Enter speed in knots, default is 21 knots: "))
           except:
             speed=21.0
           co2=weight*distance*ef2*(speed/21)**2/1000+ref_consum/1000*3.15
@@ -140,8 +140,8 @@ if choice=='1':
           st.write("Refrigerated Container Emission Intensity",ref_intensity)
   else:
     lat1=st.text_input("Latitude 1 (-90 to 90): ")
-    long1=st.text_input("Longitude 1 (-180 to 180): ")
-    lat2=st.text_input("Latitude 2 (-90 to 90): ")
+    long1=st.text_input("Longitude 1 (-180 to 180):")
+    lat2=st.text_input("Latitude 2 (-90 to 90):")
     long2=st.text_input("Longitude 2 (-180 to 180): ")
     lst=[long1,lat1,long2,lat2]
     if all(lst):
@@ -152,7 +152,7 @@ if choice=='1':
       distance=route.properties['length']
       st.write("Distance:",round(distance),'km')
       if round(distance)==0:
-        st.write("Locations are too close to calculate CO2 and emission intensities")
+        st.write("Locations are too close to calculate CO2 emission and emission intensities")
       else:
         try:
           teu=int(st.text_input("Enter TEU capacity: "))
@@ -186,7 +186,7 @@ if choice=='1':
         st.write("Refrigerator fuel consumption",round(ref_consum/1000,2),'kg')
         weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
         try:
-          speed=float(st.text_input("Enter speed, default is 21 knots: "))
+          speed=float(st.text_input("Enter speed in knots, default is 21 knots: "))
         except:
           speed=21.0
         co2=weight*distance*ef2*(speed/21)**2/1000+ref_consum/1000*3.15
