@@ -230,6 +230,7 @@ else:
       st.write("Not Found, will use geopy")# the database will be faster if the data is found, and prevents errors like timeout
     else:
       st.write("Available Airport codes:")
+      target=target.drop_duplicates(subset=['Distance'])
       st.write(target[["Codes_Starting","Codes_Ending"]])
       if len(target)==1:
         st.write("only one entry exists, using this entry")
