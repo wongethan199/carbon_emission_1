@@ -122,7 +122,7 @@ if choice=='1':
             speed=float(st.text_input("Enter speed, default is 21 knots: "))
           except:
             speed=21.0
-          co2=weight*distance*ef2*(speed/21)**2/1000+ref_consum/1000/0.737*2.54
+          co2=weight*distance*ef2*(speed/21)**2/1000+ref_consum/1000*3.15
           st.write("CO2 Emission:",round(co2,1),"kg")
           st.write("This is equivalent to:")
           co2/=1000
@@ -181,7 +181,7 @@ if choice=='1':
           speed=float(st.text_input("Enter speed, default is 21 knots: "))
         except:
           speed=21.0
-        co2=weight*distance*ef2*(speed/21)**2/1000+ref_consum/1000/0.737*2.54
+        co2=weight*distance*ef2*(speed/21)**2/1000+ref_consum/1000*3.15
         st.write("CO2 Emission:",round(co2,1),"kg")
         st.write("This is equivalent to:")
         co2/=1000
