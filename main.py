@@ -114,7 +114,11 @@ if choice=='1':
           except:
             ref_teu=800
           ref_teu=min(ref_teu,teu)
-          days_operated=min(int(st.text_input("Enter days operated out of 365: ")),365)
+          try:
+            days_operated=int(st.text_input("Enter days operated out of 365: (Default 276) "))
+          except:
+            days_operated=276
+          days_operated=min(days_operated,365)
           ref_consum=ref_teu*1.9*1914/365*days_operated
           st.write("Refrigerator fuel consumption",round(ref_consum/1000,2),'kg')
           weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
@@ -173,7 +177,11 @@ if choice=='1':
         except:
           ref_teu=800
         ref_teu=min(ref_teu,teu)
-        days_operated=min(int(st.text_input("Enter days operated out of 365: ")),365)
+        try:
+          days_operated=int(st.text_input("Enter days operated out of 365: (Default 276) "))
+        except:
+          days_operated=276
+        days_operated=min(days_operated,365)
         ref_consum=ref_teu*1.9*1914/365*days_operated
         st.write("Refrigerator fuel consumption",round(ref_consum/1000,2),'kg')
         weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
