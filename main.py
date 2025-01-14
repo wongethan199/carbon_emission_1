@@ -274,9 +274,9 @@ else:
     if aircraft1.empty:
       st.write("No aircraft found")
     else:
-      percent=st.text_input("enter % of takeoff weight ")
+      percent=st.text_input("enter % of maximum takeoff weight (Minimum 40)")
       if percent:
-        percent=min(float(percent),100)
+        percent=max(min(float(percent),100),40)
         weight=aircraft1.iloc[0][1]*percent/100
         st.write("the weight of the aircraft is",round(weight,1),"kg")
         co2=weight*distance*ef1
