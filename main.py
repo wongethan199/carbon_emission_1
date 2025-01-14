@@ -122,22 +122,45 @@ if choice=='1':
           ref_consum=ref_teu*1.9*1914/365*days_operated
           st.write("Refrigerator fuel consumption",round(ref_consum/1000,2),'kg')
           weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
-          try:
-            speed=float(st.text_input("Enter speed in knots, default is 21 knots: "))
-          except:
-            speed=21.0
-          co2=weight*distance*ef2*(speed/21)**2/1000+ref_consum/1000*3.15
-          st.write("CO2 Emission:",round(co2,1),"kg")
-          st.write("This is equivalent to:")
-          co2/=1000
-          st.write(round(co2*370.37,1),"kg of rice")
-          st.write(round(co2*16.67,2),"kg of beef")
-          st.write(round(co2*833.33,1),"liters of milk")
-          st.write(round(co2*0.8,4),"hectares of cropland of fertilizer")
-          dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
-          st.write("Dry Container Emission Intensity:",dry_intensity)
-          ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
-          st.write("Refrigerated Container Emission Intensity",ref_intensity)
+          st.markdown(":red[Warning: Only fill one of the below 2]")
+          speed=st.text_input("Enter speed in knots, default is 21 knots: ")
+          days=st.text_input("enter number of days you expect your shipment to arrive")
+          if speed and days:
+            st.write("You entered both speed and days, it is impossible to calculate it")
+          elif speed:
+            speed=float(speed)
+            days=distance/(speed*1.852)/24
+            st.write('Days',days)
+            co2=weight*distance*ef2*(speed/21)**2/1000+ref_consum/1000*3.15
+            st.write("CO2 Emission:",round(co2,1),"kg")
+            st.write("This is equivalent to:")
+            co2/=1000
+            st.write(round(co2*370.37,1),"kg of rice")
+            st.write(round(co2*16.67,2),"kg of beef")
+            st.write(round(co2*833.33,1),"liters of milk")
+            st.write(round(co2*0.8,4),"hectares of cropland of fertilizer")
+            dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
+            st.write("Dry Container Emission Intensity:",dry_intensity)
+            ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
+            st.write("Refrigerated Container Emission Intensity",ref_intensity)
+          elif days:
+            days=float(days)
+            speed=distance/(days*24)/1.852
+            st.write("Speed",speed)
+            speed=distance/(days*24)/1.852
+            co2=weight*distance*ef2*(speed/21)**2/1000+ref_consum/1000*3.15
+            st.write("CO2 Emission:",round(co2,1),"kg")
+            st.write("This is equivalent to:")
+            co2/=1000
+            st.write(round(co2*370.37,1),"kg of rice")
+            st.write(round(co2*16.67,2),"kg of beef")
+            st.write(round(co2*833.33,1),"liters of milk")
+            st.write(round(co2*0.8,4),"hectares of cropland of fertilizer")
+            dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
+            st.write("Dry Container Emission Intensity:",dry_intensity)
+            ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
+            st.write("Refrigerated Container Emission Intensity",ref_intensity) 
+            
   else:
     lat1=st.text_input("Latitude 1 (-90 to 90): ")
     long1=st.text_input("Longitude 1 (-180 to 180):")
@@ -185,22 +208,43 @@ if choice=='1':
         ref_consum=ref_teu*1.9*1914/365*days_operated
         st.write("Refrigerator fuel consumption",round(ref_consum/1000,2),'kg')
         weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
-        try:
-          speed=float(st.text_input("Enter speed in knots, default is 21 knots: "))
-        except:
-          speed=21.0
-        co2=weight*distance*ef2*(speed/21)**2/1000+ref_consum/1000*3.15
-        st.write("CO2 Emission:",round(co2,1),"kg")
-        st.write("This is equivalent to:")
-        co2/=1000
-        st.write(round(co2*370.37,1),"kg of rice")
-        st.write(round(co2*16.67,2),"kg of beef")
-        st.write(round(co2*833.33,1),"liters of milk")
-        st.write(round(co2*0.8,4),"hectares of cropland of fertilizer")
-        dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
-        st.write("Dry Container Emission Intensity:",dry_intensity)
-        ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
-        st.write("Refrigerated Container Emission Intensity",ref_intensity)
+        st.markdown(":red[Warning: Only fill one of the below 2]")
+        speed=st.text_input("Enter speed in knots, default is 21 knots: ")
+        days=st.text_input("enter number of days you expect your shipment to arrive")
+        if speed and days:
+          st.write("You entered both speed and days, it is impossible to calculate it")
+        elif speed:
+          speed=float(speed)
+          days=distance/(speed*1.852)/24
+          st.write('Days',days)
+          co2=weight*distance*ef2*(speed/21)**2/1000+ref_consum/1000*3.15
+          st.write("CO2 Emission:",round(co2,1),"kg")
+          st.write("This is equivalent to:")
+          co2/=1000
+          st.write(round(co2*370.37,1),"kg of rice")
+          st.write(round(co2*16.67,2),"kg of beef")
+          st.write(round(co2*833.33,1),"liters of milk")
+          st.write(round(co2*0.8,4),"hectares of cropland of fertilizer")
+          dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
+          st.write("Dry Container Emission Intensity:",dry_intensity)
+          ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
+          st.write("Refrigerated Container Emission Intensity",ref_intensity)
+        elif days:
+          days=float(days)
+          speed=distance/(days*24)/1.852
+          st.write("Speed",speed)
+          co2=weight*distance*ef2*(speed/21)**2/1000+ref_consum/1000*3.15
+          st.write("CO2 Emission:",round(co2,1),"kg")
+          st.write("This is equivalent to:")
+          co2/=1000
+          st.write(round(co2*370.37,1),"kg of rice")
+          st.write(round(co2*16.67,2),"kg of beef")
+          st.write(round(co2*833.33,1),"liters of milk")
+          st.write(round(co2*0.8,4),"hectares of cropland of fertilizer")
+          dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
+          st.write("Dry Container Emission Intensity:",dry_intensity)
+          ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
+          st.write("Refrigerated Container Emission Intensity",ref_intensity)
 else:
   st.write("Current mode: Air")
   target=pandas.DataFrame()
@@ -230,8 +274,7 @@ else:
       st.write("Not Found, will use geopy")
     else:
       st.write("Available Airport codes:")
-      target=target.drop_duplicates(subset=['Distance'])
-      st.write(target[["Codes_Starting","Codes_Ending"]])
+      st.write(target.drop_duplicates(subset=['Distance'])[["Codes_Starting","Codes_Ending"]])
       if len(target)==1:
         st.write("only one entry exists, using this entry")
         code1=target.iloc[0][6]
