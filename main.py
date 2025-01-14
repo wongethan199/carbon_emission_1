@@ -1,17 +1,13 @@
 # create a streamlit account and make a blank app then paste the code
 # before running the program make sure that you have run
-# pip install searoute
-# and
-# pip install geopy
+# `pip install searoute` and `pip install geopy`
 # on the terminal
-
 import streamlit as st
 import searoute as sr
 import pandas
 import csv
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)# remove iloc warnings when getting distance
-
 pandas.set_option('display.max_rows', None)
 x=pandas.read_csv("https://raw.githubusercontent.com/wongethan199/carbon_emission_1/main/ESG%20-%20Data%20sheet%20air%20freight%20shipping%20hubs.xlsx%20-%20Main%20-%20Air%20shipping.csv")#distance
 x=x[:670]
@@ -45,8 +41,6 @@ def get_airport_country(airport_code):
 def calculate_distance(airport_code1, airport_code2):
   coords1 = get_airport_coordinates(airport_code1)
   coords2 = get_airport_coordinates(airport_code2)
-
-
   if coords1 and coords2:
     distance = geodesic(coords1, coords2).kilometers
     st.write("Distance:",round(distance),'km')
@@ -56,8 +50,6 @@ def calculate_distance(airport_code1, airport_code2):
 def check_same_country(airport_code1, airport_code2):
   country1 = get_airport_country(airport_code1)
   country2 = get_airport_country(airport_code2)
-
-
   if country1 and country2:
     return country1==country2
   else:
@@ -66,8 +58,7 @@ st.header("Carbon Emission Calculator")
 choice=st.text_input("Enter 0 for air(Default) and 1 for sea: ")
 if choice=='1':
   st.write("Current mode: Sea")
-  database=st.text_input("Enter mode:\n0: Database (Default, only supports Vietnam as end)\n1: Coordinates\n")
-  
+  database=st.text_input("Enter mode:\n0: Database (Default, only supports Vietnam as end)\n1: Coordinates\n")  
   if database=='0' or not database:
   #sea route if data in csv
     seaports0=y[y.columns[2]].values.tolist()
@@ -130,7 +121,7 @@ if choice=='1':
             try:
               speed=float(st.text_input("Enter speed, default is 21 knots: "))#slow steaming
             except:
-              speed=21.00
+              speed=21.0
             co2=weight*distance*ef2*(speed/21)**2/1000
             st.write("CO2 Emission:",round(co2,1),"kg")
             st.write("This is equivalent to:")
@@ -153,9 +144,9 @@ if choice=='1':
     lst=[long1,lat1,long2,lat2]
     if all(lst):
       lst=[float(i)for i in lst]
-      origin=lst[:2]
+      orig=lst[:2]
       dest=lst[2:]
-      route=sr.searoute(origin,dest)
+      route=sr.searoute(orig,dest)
       #st.write(route)
       distance=route.properties['length']
       st.write("Distance:",round(distance),'km')
@@ -182,7 +173,6 @@ if choice=='1':
       except:
         ref_teu=800
       days_operated=min(int(st.text_input("Enter days operated out of 365: ")),365)
-      # if more than 365 days, assume user means 365
       weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
       try:
         speed=float(st.text_input("Enter speed, default is 21 knots: "))
@@ -242,13 +232,13 @@ else:
         target=target[target["Codes_Ending"]==code2.upper().strip()]
         if target.empty:
           not_found=1
-  if not not_found:
+  if 0==not_found:
     distance=target.iloc[0][5]
     st.write("Distance:",distance,'km')
     if start==end:
       ef1=ef.iloc[0][5]
     else:
-      if int(distance)<3700:
+      if distance<3700:
         ef1=ef.iloc[1][5]
       else:ef1=ef.iloc[2][5]
   else:
@@ -269,7 +259,7 @@ else:
   aircraft1=pandas.DataFrame()
   aircraft=st.text_input("Enter the aircraft, please enter the company name e.g. Airbus A340-500, Antonov An-225, Boeing 747-400 ")
   if aircraft:
-    aircraft1=w[w["Type"]==aircraft]
+    aircraft1=w[w["Type"].str.lower()==aircraft.lower().strip()]
   if aircraft1.empty:
     st.write("No aircraft found")
   else:
