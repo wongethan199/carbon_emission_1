@@ -123,7 +123,7 @@ if choice=='1':
           st.write("Refrigerator fuel consumption",round(ref_consum/1000,2),'kg')
           weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
           st.markdown(":red[Warning: Only fill one of the below 2]")
-          speed=st.text_input("Enter speed in knots, default is 21 knots: ")
+          speed=st.text_input("Enter speed in knots ")
           days=st.text_input("enter number of days you expect your shipment to arrive")
           if speed and days:
             st.write("You entered both speed and days, it is impossible to calculate it")
@@ -209,7 +209,7 @@ if choice=='1':
         st.write("Refrigerator fuel consumption",round(ref_consum/1000,2),'kg')
         weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
         st.markdown(":red[Warning: Only fill one of the below 2]")
-        speed=st.text_input("Enter speed in knots, default is 21 knots: ")
+        speed=st.text_input("Enter speed in knots ")
         days=st.text_input("enter number of days you expect your shipment to arrive")
         if speed and days:
           st.write("You entered both speed and days, it is impossible to calculate it")
