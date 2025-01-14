@@ -10,8 +10,7 @@ import searoute as sr
 import pandas
 import csv
 import warnings
-warnings.simplefilter(action='ignore', category=FutureWarning)# remove iloc warnings when getting distance
-
+warnings.simplefilter(action='ignore', category=FutureWarning)
 pandas.set_option('display.max_rows', None)
 x=pandas.read_csv("https://raw.githubusercontent.com/wongethan199/carbon_emission_1/main/ESG%20-%20Data%20sheet%20air%20freight%20shipping%20hubs.xlsx%20-%20Main%20-%20Air%20shipping.csv")#distance
 x=x[:670]
@@ -185,7 +184,7 @@ if choice=='1':
         ref_teu=800
       days_operated=min(int(st.text_input("Enter days operated out of 365: ")),365)
       # if more than 365 days, assume user means 365
-      weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
+      weight=teu*24*percent/100
       try:
         speed=float(st.text_input("Enter speed, default is 21 knots: "))
       except:
@@ -224,6 +223,8 @@ else:
       target=target[(target["Ending_Point"]=="US")|(target["Ending_Point"]=="United States")|(target["Starting_Point"]=="US")|(target["Starting_Point"]=="United States")]
     else:
       target=target[(target["Ending_Point"]==end)|(target["Ending_Point"]==start)]
+    if start!=end:
+      target=target[target["Ending_Point"]!=target["Starting_Point"]] # exclude domestic flights that may be part of the list
     if target.empty:
       not_found=1
       st.write("Not Found, will use geopy")# the database will be faster if the data is found, and prevents errors like timeout
