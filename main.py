@@ -113,6 +113,7 @@ if choice=='1':
             ref_teu=int(st.text_input("Enter refrigerated teu capacity, default 800: "))
           except:
             ref_teu=800
+          ref_teu=min(ref_teu,teu)
           days_operated=min(int(st.text_input("Enter days operated out of 365: ")),365)
           ref_consum=ref_teu*1.9*1914/365*days_operated
           st.write("Refrigerator fuel consumption",round(ref_consum/1000,2),'kg')
@@ -169,6 +170,7 @@ if choice=='1':
         ref_teu=int(st.text_input("Enter refrigerated teu capacity, default 800: "))
       except:
         ref_teu=800
+      ref_teu=min(ref_teu,teu)
       days_operated=min(int(st.text_input("Enter days operated out of 365: ")),365)
       ref_consum=ref_teu*1.9*1914/365*days_operated
       st.write("Refrigerator fuel consumption",round(ref_consum/1000,2),'kg')
