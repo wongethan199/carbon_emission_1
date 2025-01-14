@@ -81,8 +81,8 @@ if choice=='1':
         code1=target.iloc[0][9]
         code2=target.iloc[0][10]
       else:
-        code1=st.text_input("Enter port code 1: choose 1 from Codes_Starting ")
-        code2=st.text_input("Enter port code 2: choose 1 from Codes_Ending ")
+        code1=st.text_input("Enter port code 1: ")
+        code2=st.text_input("Enter port code 2: ")
       if code1 and code2:
         target=target[target["Codes_Starting"].str.lower()==code1.lower().strip()]
         target=target[target["Codes_Ending"].str.lower()==code2.lower().strip()]
@@ -133,7 +133,7 @@ if choice=='1':
           st.write(round(co2*370.37,1),"kg of rice")
           st.write(round(co2*16.67,2),"kg of beef")
           st.write(round(co2*833.33,1),"liters of milk")
-          st.write(round(co2*0.8,3),"hectares of cropland of fertilizer")
+          st.write(round(co2*0.8,4),"hectares of cropland of fertilizer")
           dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
           st.write("Dry Container Emission Intensity:",dry_intensity)
           ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
@@ -150,10 +150,10 @@ if choice=='1':
       dest=lst[2:]
       route=sr.searoute(orig,dest)
       distance=route.properties['length']
-      st.write("Distance:",round(distance),'km')
-      if round(distance)==0:
-        st.write("Locations are too close to calculate CO2 emission and emission intensities")
+      if distance==0:
+        st.write("Locations are too close to calculate CO2 emission and emission intensity")
       else:
+        st.write("Distance:",round(distance),'km')
         try:
           teu=int(st.text_input("Enter TEU capacity: "))
         except:
@@ -196,7 +196,7 @@ if choice=='1':
         st.write(round(co2*370.37,1),"kg of rice")
         st.write(round(co2*16.67,2),"kg of beef")
         st.write(round(co2*833.33,1),"liters of milk")
-        st.write(round(co2*0.8,3),"hectares of cropland of fertilizer")
+        st.write(round(co2*0.8,4),"hectares of cropland of fertilizer")
         dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
         st.write("Dry Container Emission Intensity:",dry_intensity)
         ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
@@ -227,7 +227,7 @@ else:
       target=target[target["Ending_Point"].str.lower()!=target["Starting_Point"].str.lower()]
     if target.empty:
       not_found=1
-      st.write("Not Found, will use geopy")# the database will be faster if the data is found, and prevents errors like timeout
+      st.write("Not Found, will use geopy")
     else:
       st.write("Available Airport codes:")
       target=target.drop_duplicates(subset=['Distance'])
@@ -287,4 +287,4 @@ else:
         st.write(round(co2*370.37,1),"kg of rice")
         st.write(round(co2*16.67,2),"kg of beef")
         st.write(round(co2*833.33,1),"liters of milk")
-        st.write(round(co2*0.8,3),"hectares of cropland of fertilizer")
+        st.write(round(co2*0.8,4),"hectares of cropland of fertilizer")
