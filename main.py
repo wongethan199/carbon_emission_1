@@ -125,7 +125,7 @@ if choice=='1':
             co2=weight*distance*ef2*(speed/21)**2/1000
             st.write("CO2 Emission:",round(co2,1),"kg")
             st.write("This is equivalent to:")
-            co2/=1000000
+            co2/=1000
             st.write(round(co2*370.37,1),"kg of rice")
             st.write(round(co2*16.67,2),"kg of beef")
             st.write(round(co2*833.33,1),"liters of milk")
@@ -181,7 +181,7 @@ if choice=='1':
       co2=weight*distance*ef2*(speed/21)**2/1000
       st.write("CO2 Emission:",round(co2,1),"kg")
       st.write("This is equivalent to:")
-      co2/=1000000
+      co2/=1000
       st.write(round(co2*370.37,1),"kg of rice")
       st.write(round(co2*16.67,2),"kg of beef")
       st.write(round(co2*833.33,1),"liters of milk")
