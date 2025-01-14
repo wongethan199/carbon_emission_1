@@ -145,52 +145,54 @@ if choice=='1':
       orig=lst[:2]
       dest=lst[2:]
       route=sr.searoute(orig,dest)
-      #st.write(route)
       distance=route.properties['length']
       st.write("Distance:",round(distance),'km')
-      try:
-        teu=int(st.text_input("Enter TEU capacity: "))
-      except:
-        teu=24000
-      try:
-        percent=float(st.text_input("Enter % of capacity, do not include % sign (Default 70): "))
-      except:
-        percent=70
-      if teu<1000:
-        ef2=0.0363
-      elif teu<2000:
-        ef2=0.0321
-      elif teu<3000:
-        ef2=0.0200
-      elif teu<8000:
-        ef2=0.0167
+      if round(distance)==0:
+        st.write("Locations are too close to calculate CO2 and emission intensities")
       else:
-        ef2=0.0125
-      try:
-        ref_teu=int(st.text_input("Enter refrigerated teu capacity, default 800: "))
-      except:
-        ref_teu=800
-      ref_teu=min(ref_teu,teu)
-      days_operated=min(int(st.text_input("Enter days operated out of 365: ")),365)
-      ref_consum=ref_teu*1.9*1914/365*days_operated
-      st.write("Refrigerator fuel consumption",round(ref_consum/1000,2),'kg')
-      weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
-      try:
-        speed=float(st.text_input("Enter speed, default is 21 knots: "))
-      except:
-        speed=21.0
-      co2=weight*distance*ef2*(speed/21)**2/1000+ref_consum/1000/0.737*2.54
-      st.write("CO2 Emission:",round(co2,1),"kg")
-      st.write("This is equivalent to:")
-      co2/=1000
-      st.write(round(co2*370.37,1),"kg of rice")
-      st.write(round(co2*16.67,2),"kg of beef")
-      st.write(round(co2*833.33,1),"liters of milk")
-      st.write(round(co2*0.8,3),"hectares of cropland of fertilizer")
-      dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
-      st.write("Dry Container Emission Intensity:",dry_intensity)
-      ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
-      st.write("Refrigerated Container Emission Intensity",ref_intensity)
+        try:
+          teu=int(st.text_input("Enter TEU capacity: "))
+        except:
+          teu=24000
+        try:
+          percent=float(st.text_input("Enter % of capacity, do not include % sign: Default 70: "))
+        except:
+          percent=70
+        if teu<1000:
+          ef2=0.0363
+        elif teu<2000:
+          ef2=0.0321
+        elif teu<3000:
+          ef2=0.0200
+        elif teu<8000:
+          ef2=0.0167
+        else:
+          ef2=0.0125
+        try:
+          ref_teu=int(st.text_input("Enter refrigerated teu capacity, default 800: "))
+        except:
+          ref_teu=800
+        ref_teu=min(ref_teu,teu)
+        days_operated=min(int(st.text_input("Enter days operated out of 365: ")),365)
+        ref_consum=ref_teu*1.9*1914/365*days_operated
+        st.write("Refrigerator fuel consumption",round(ref_consum/1000,2),'kg')
+        weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
+        try:
+          speed=float(st.text_input("Enter speed, default is 21 knots: "))
+        except:
+          speed=21.0
+        co2=weight*distance*ef2*(speed/21)**2/1000+ref_consum/1000/0.737*2.54
+        st.write("CO2 Emission:",round(co2,1),"kg")
+        st.write("This is equivalent to:")
+        co2/=1000
+        st.write(round(co2*370.37,1),"kg of rice")
+        st.write(round(co2*16.67,2),"kg of beef")
+        st.write(round(co2*833.33,1),"liters of milk")
+        st.write(round(co2*0.8,3),"hectares of cropland of fertilizer")
+        dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
+        st.write("Dry Container Emission Intensity:",dry_intensity)
+        ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
+        st.write("Refrigerated Container Emission Intensity",ref_intensity)
 else:
   st.write("Current mode: Air")
   target=pandas.DataFrame()
@@ -202,10 +204,12 @@ else:
   airports1=[str(i[-4:-1]) for i in airports1]
   x["Codes_Starting"]=airports0
   x["Codes_Ending"]=airports1
-  start=st.text_input("Enter country 1").lower().strip()
-  end=st.text_input("Enter country 2").lower().strip()
+  start=st.text_input("Enter country 1")
+  end=st.text_input("Enter country 2")
   ef1=0
   if start and end:
+    start=start.lower().strip()
+    end=end.lower().strip()
     target=x[(x["Starting_Point"].str.lower()==start)|(x["Starting_Point"].str.lower()==end)]
     if end=="united states" or end=="us" or start=="united states" or start=="us":
       target=target[(target["Ending_Point"]=="US")|(target["Ending_Point"]=="United States")|(target["Starting_Point"]=="US")|(target["Starting_Point"]=="United States")]
@@ -231,47 +235,47 @@ else:
         target=target[target["Codes_Ending"]==code2.upper().strip()]
         if target.empty:
           not_found=1
-  if 0==not_found:
-    distance=target.iloc[0][5]
-    st.write("Distance:",distance,'km')
-    if start==end:
-      ef1=ef.iloc[0][5]
+    if 0==not_found:
+      distance=target.iloc[0][5]
+      st.write("Distance:",distance,'km')
+      if start==end:
+        ef1=ef.iloc[0][5]
+      else:
+        if distance<3700:
+          ef1=ef.iloc[1][5]
+        else:ef1=ef.iloc[2][5]
     else:
-      if distance<3700:
-        ef1=ef.iloc[1][5]
-      else:ef1=ef.iloc[2][5]
-  else:
-    if code1=="" or code2=="":
-      code1=st.text_input("Enter port code 1: ")
-      code2=st.text_input("Enter port code 2: ")
-    airport_code1 = code1.strip().upper()
-    airport_code2 = code2.strip().upper()
-    try:
-      distance=calculate_distance(airport_code1, airport_code2)
-      if check_same_country(airport_code1,airport_code2):
-        ef1=ef.iloc[0][5]#domestic
-      elif distance<3700:
-        ef1=ef.iloc[1][5]#short haul
-      else:ef1=ef.iloc[2][5]#long haul
-    except:
-      st.write("Timed out or error extracting data of one or both airports, or airport doesn't exist")
-  aircraft1=pandas.DataFrame()
-  aircraft=st.text_input("Enter the aircraft, please enter the company name e.g. Airbus A340-500, Antonov An-225, Boeing 747-400 ")
-  if aircraft:
-    aircraft1=w[w["Type"].str.lower()==aircraft.lower().strip()]
-  if aircraft1.empty:
-    st.write("No aircraft found")
-  else:
-    percent=st.text_input("enter % of takeoff weight ")
-    if percent:
-      percent=min(float(percent),100)
-      weight=aircraft1.iloc[0][1]*percent/100
-      st.write("the weight of the aircraft is",round(weight,1),"kg")
-      co2=weight*distance*ef1
-      st.write("CO2 Emission:",round(co2/1000,1),"kg")
-      st.write("This is equivalent to:")
-      co2/=1000000
-      st.write(round(co2*370.37,1),"kg of rice")
-      st.write(round(co2*16.67,2),"kg of beef")
-      st.write(round(co2*833.33,1),"liters of milk")
-      st.write(round(co2*0.8,3),"hectares of cropland of fertilizer")
+      if code1=="" or code2=="":
+        code1=st.text_input("Enter port code 1: ")
+        code2=st.text_input("Enter port code 2: ")
+      airport_code1 = code1.strip().upper()
+      airport_code2 = code2.strip().upper()
+      try:
+        distance=calculate_distance(airport_code1, airport_code2)
+        if check_same_country(airport_code1,airport_code2):
+          ef1=ef.iloc[0][5]#domestic
+        elif distance<3700:
+          ef1=ef.iloc[1][5]#short haul
+        else:ef1=ef.iloc[2][5]#long haul
+      except:
+        st.write("Timed out or error extracting data of one or both airports, or airport doesn't exist")
+    aircraft1=pandas.DataFrame()
+    aircraft=st.text_input("Enter the aircraft, please enter the company name e.g. Airbus A340-500, Antonov An-225, Boeing 747-400 ")
+    if aircraft:
+      aircraft1=w[w["Type"].str.lower()==aircraft.lower().strip()]
+    if aircraft1.empty:
+      st.write("No aircraft found")
+    else:
+      percent=st.text_input("enter % of takeoff weight ")
+      if percent:
+        percent=min(float(percent),100)
+        weight=aircraft1.iloc[0][1]*percent/100
+        st.write("the weight of the aircraft is",round(weight,1),"kg")
+        co2=weight*distance*ef1
+        st.write("CO2 Emission:",round(co2/1000,1),"kg")
+        st.write("This is equivalent to:")
+        co2/=1000000
+        st.write(round(co2*370.37,1),"kg of rice")
+        st.write(round(co2*16.67,2),"kg of beef")
+        st.write(round(co2*833.33,1),"liters of milk")
+        st.write(round(co2*0.8,3),"hectares of cropland of fertilizer")
