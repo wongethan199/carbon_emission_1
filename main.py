@@ -1,3 +1,7 @@
+# create a streamlit account and make a blank app then paste the code
+# before running the program make sure that you have run
+# `pip install searoute` and `pip install geopy`
+# on the terminal
 import streamlit as st
 import searoute as sr
 import pandas
@@ -328,7 +332,4 @@ else:
         st.write("CO2 Emission:",round(co2/1000,1),"kg")
         st.write("This is equivalent to:")
         co2/=1000000
-        st.write(round(co2*370.37,1),"kg of rice")
-        st.write(round(co2*16.67,2),"kg of beef")
-        st.write(round(co2*833.33,1),"liters of milk")
-        st.write(round(co2*0.8,4),"hectares of cropland of fertilizer")
+        st.write(round(co2*370.37,1),"kg of rice",round(co2*16.67,2),"kg of beef",round(co2*833.33,1),"liters of milk, or",round(co2*0.8,4),"hectares of cropland of fertilizer")
