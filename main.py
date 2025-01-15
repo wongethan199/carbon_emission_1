@@ -236,6 +236,8 @@ if choice=='1':
           days=float(days)
           speed=distance/(days*24)/1.852
           st.write("Speed",speed)
+          ref_consum=ref_teu*0.75*days*24#ref_teu*1.9*1914/365*days_operated
+          st.write("Refrigerator fuel consumption",round(ref_consum*0.9,2),'kg')
           co2=weight*distance*ef2*(speed/21)**2/1000+ref_consum/1000*3.15
           st.write("CO2 Emission:",round(co2,1),"kg")
           st.write("This is equivalent to:")
