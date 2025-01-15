@@ -104,7 +104,7 @@ if choice=='1':
           except:
             ref_teu=800
           ref_teu=min(ref_teu,teu)
-          weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
+          weight=teu*24*percent/100
           st.markdown(":red[Warning: Only fill one of the below 2]")
           speed=st.text_input("Enter speed in knots")
           days=st.text_input("enter number of days you expect your shipment to arrive")
@@ -128,7 +128,7 @@ if choice=='1':
             days=float(days)
             speed=distance/(days*24)/1.852
             st.write("Speed",speed,"knots")
-            ref_consum=ref_teu*0.75*days*24#ref_teu*1.9*1914/365*days_operated
+            ref_consum=ref_teu*0.75*days*24
             st.write("Refrigerator fuel consumption",round(ref_consum*0.9,2),'kg')
             co2=weight*distance*ef2*(speed/21)**2/1000+ref_consum*3.15
             st.write("CO2 Emission:",round(co2,1),"kg")
@@ -177,7 +177,7 @@ if choice=='1':
         except:
           ref_teu=800
         ref_teu=min(ref_teu,teu)
-        weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
+        weight=teu*24*percent/100
         st.markdown(":red[Warning: Only fill one of the below 2]")
         speed=st.text_input("Enter speed in knots")
         days=st.text_input("enter number of days you expect your shipment to arrive")
@@ -281,7 +281,7 @@ else:
           ef1=ef.iloc[1][5]
         else:ef1=ef.iloc[2][5]
     else:
-      if code1=="" or code2=="":
+      if not(code1 and code2):
         code1=st.text_input("Enter port code 1:")
         code2=st.text_input("Enter port code 2:")
       airport_code1=code1.strip().upper()
