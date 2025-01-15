@@ -15,9 +15,9 @@ from geopy.geocoders import Nominatim
 def get_airport_coordinates(airport_code):
   geolocator=Nominatim(user_agent="airport_distance_calculator")
   try:
-    location=geolocator.geocode(f"{airport_code} airport")
-    if location:
-      return(location.latitude,location.longitude)
+    loc=geolocator.geocode(f"{airport_code} airport")
+    if loc:
+      return(loc.latitude,loc.longitude)
     else:
       return None
   except:
@@ -45,12 +45,11 @@ def check_same_country(airport_code1, airport_code2):
   country2=get_airport_country(airport_code2)
   return (country1 and country2) and country1==country2
 st.header("Carbon Emission Calculator")
-choice=st.text_input("Enter 0 for air(Default) and 1 for sea: ")
+choice=st.text_input("Enter 0 for air(Default) and 1 for sea:")
 if choice=='1':
   st.write("Current mode: Sea")
   database=st.text_input("Enter mode: 0: Database (Default, only supports Vietnam as end) 1: Coordinates")  
   if database=='0' or not database:
-  #sea route if data in csv
     seaports0=y[y.columns[2]].values.tolist()
     seaports0=[str(i[8:]) for i in seaports0]
     seaports1=y[y.columns[4]].values.tolist()
@@ -73,9 +72,11 @@ if choice=='1':
       else:
         code1=st.text_input("Enter port code 1:")
         code2=st.text_input("Enter port code 2:")
+        st.markdown(":red[Warning: The order matters for the two port codes]")
       if code1 and code2:
         target=target[target["Codes_Starting"].str.lower()==code1.lower().strip()]
         target=target[target["Codes_Ending"].str.lower()==code2.lower().strip()]
+        
         if target.empty:
           st.write("Not Found")
         else:
@@ -104,7 +105,7 @@ if choice=='1':
           except:
             ref_teu=800
           ref_teu=min(ref_teu,teu)
-          weight=teu*24*percent/100
+          weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
           st.markdown(":red[Warning: Only fill one of the below 2]")
           speed=st.text_input("Enter speed in knots")
           days=st.text_input("enter number of days you expect your shipment to arrive")
@@ -177,7 +178,7 @@ if choice=='1':
         except:
           ref_teu=800
         ref_teu=min(ref_teu,teu)
-        weight=teu*24*percent/100
+        weight=teu*24*percent/100 
         st.markdown(":red[Warning: Only fill one of the below 2]")
         speed=st.text_input("Enter speed in knots")
         days=st.text_input("enter number of days you expect your shipment to arrive")
@@ -205,7 +206,7 @@ if choice=='1':
           days=float(days)
           speed=distance/(days*24)/1.852
           st.write("Speed",speed,"knots")
-          ref_consum=ref_teu*0.75*days*24#ref_teu*1.9*1914/365*days_operated
+          ref_consum=ref_teu*0.75*days*24
           st.write("Refrigerator fuel consumption",round(ref_consum*0.9,2),'kg')
           co2=weight*distance*ef2*(speed/21)**2/1000+ref_consum*3.15
           st.write("CO2 Emission:",round(co2,1),"kg")
