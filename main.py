@@ -114,13 +114,6 @@ if choice=='1':
           except:
             ref_teu=800
           ref_teu=min(ref_teu,teu)
-          try:
-            days_operated=int(st.text_input("Enter days operated out of 365: (Default 276) "))
-          except:
-            days_operated=276
-          days_operated=min(days_operated,365)
-          ref_consum=ref_teu*1.9*1914/365*days_operated
-          st.write("Refrigerator fuel consumption",round(ref_consum/1000,2),'kg')
           weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
           st.markdown(":red[Warning: Only fill one of the below 2]")
           speed=st.text_input("Enter speed in knots ")
@@ -131,7 +124,9 @@ if choice=='1':
             speed=float(speed)
             days=distance/(speed*1.852)/24
             st.write('Days',days)
-            co2=weight*distance*ef2*(speed/21)**2/1000+ref_consum/1000*3.15
+            ref_consum=ref_teu*0.75*days*24
+            st.write("Refrigerator fuel consumption",round(ref_consum*0.9,2),'kg')
+            co2=weight*distance*ef2*(speed/21)**2/1000+ref_consum*3.15
             st.write("CO2 Emission:",round(co2,1),"kg")
             st.write("This is equivalent to:")
             co2/=1000
@@ -146,9 +141,10 @@ if choice=='1':
           elif days:
             days=float(days)
             speed=distance/(days*24)/1.852
-            st.write("Speed",speed)
-            speed=distance/(days*24)/1.852
-            co2=weight*distance*ef2*(speed/21)**2/1000+ref_consum/1000*3.15
+            st.write("Speed",speed,"knots")
+            ref_consum=ref_teu*0.75*days*24#ref_teu*1.9*1914/365*days_operated
+            st.write("Refrigerator fuel consumption",round(ref_consum*0.9,2),'kg')
+            co2=weight*distance*ef2*(speed/21)**2/1000+ref_consum*3.15
             st.write("CO2 Emission:",round(co2,1),"kg")
             st.write("This is equivalent to:")
             co2/=1000
@@ -159,8 +155,7 @@ if choice=='1':
             dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
             st.write("Dry Container Emission Intensity:",dry_intensity)
             ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
-            st.write("Refrigerated Container Emission Intensity",ref_intensity) 
-            
+            st.write("Refrigerated Container Emission Intensity",ref_intensity)     
   else:
     lat1=st.text_input("Latitude 1 (-90 to 90): ")
     long1=st.text_input("Longitude 1 (-180 to 180):")
@@ -200,13 +195,6 @@ if choice=='1':
         except:
           ref_teu=800
         ref_teu=min(ref_teu,teu)
-        try:
-          days_operated=int(st.text_input("Enter days operated out of 365: (Default 276) "))
-        except:
-          days_operated=276
-        days_operated=min(days_operated,365)
-        ref_consum=ref_teu*1.9*1914/365*days_operated
-        st.write("Refrigerator fuel consumption",round(ref_consum/1000,2),'kg')
         weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
         st.markdown(":red[Warning: Only fill one of the below 2]")
         speed=st.text_input("Enter speed in knots ")
@@ -217,7 +205,27 @@ if choice=='1':
           speed=float(speed)
           days=distance/(speed*1.852)/24
           st.write('Days',days)
-          co2=weight*distance*ef2*(speed/21)**2/1000+ref_consum/1000*3.15
+          ref_consum=ref_teu*0.75*days*24#ref_teu*1.9*1914/365*days_operated
+          st.write("Refrigerator fuel consumption",round(ref_consum*0.9,2),'kg')
+          co2=weight*distance*ef2*(speed/21)**2/1000+ref_consum*3.15
+          st.write("CO2 Emission:",round(co2,1),"kg")
+          st.write("This is equivalent to:")
+          co2/=1000
+          st.write(round(co2*370.37,1),"kg of rice")
+          st.write(round(co2*16.67,2),"kg of beef")
+          st.write(round(co2*833.33,1),"liters of milk")
+          st.write(round(co2*0.8,4),"hectares of cropland of fertilizer")
+          dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
+          st.write("Dry Container Emission Intensity:",dry_intensity)
+          ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
+          st.write("Refrigerated Container Emission Intensity",ref_intensity)
+        elif days:
+          days=float(days)
+          speed=distance/(days*24)/1.852
+          st.write("Speed",speed,"knots")
+          ref_consum=ref_teu*0.75*days*24#ref_teu*1.9*1914/365*days_operated
+          st.write("Refrigerator fuel consumption",round(ref_consum*0.9,2),'kg')
+          co2=weight*distance*ef2*(speed/21)**2/1000+ref_consum*3.15
           st.write("CO2 Emission:",round(co2,1),"kg")
           st.write("This is equivalent to:")
           co2/=1000
@@ -275,7 +283,7 @@ else:
     else:
       st.write("Available Airport codes:")
       st.write(target.drop_duplicates(subset=['Distance'])[["Codes_Starting","Codes_Ending"]])
-      if len(target)==1:
+      if len(target.drop_duplicates(subset=['Distance'])[["Codes_Starting","Codes_Ending"]])==1:
         st.write("only one entry exists, using this entry")
         code1=target.iloc[0][6]
         code2=target.iloc[0][7]
@@ -298,10 +306,10 @@ else:
         else:ef1=ef.iloc[2][5]
     else:
       if code1=="" or code2=="":
-        code1=st.text_input("Enter port code 1: ")
-        code2=st.text_input("Enter port code 2: ")
-      airport_code1 = code1.strip().upper()
-      airport_code2 = code2.strip().upper()
+        code1=st.text_input("Enter port code 1:")
+        code2=st.text_input("Enter port code 2:")
+      airport_code1=code1.strip().upper()
+      airport_code2=code2.strip().upper()
       try:
         distance=calculate_distance(airport_code1, airport_code2)
         if check_same_country(airport_code1,airport_code2):
@@ -312,7 +320,7 @@ else:
       except:
         st.write("Timed out or error extracting data of one or both airports, or airport doesn't exist")
     aircraft1=pandas.DataFrame()
-    aircraft=st.text_input("Enter the aircraft, please enter the company name e.g. Airbus A340-500, Antonov An-225, Boeing 747-400 ")
+    aircraft=st.text_input("Enter the aircraft, please enter the company name e.g. Airbus A340-500, Antonov An-225, Boeing 747-400")
     if aircraft:
       aircraft1=w[w["Type"].str.lower()==aircraft.lower().strip()]
     if aircraft1.empty:
