@@ -1,7 +1,3 @@
-# create a streamlit account and make a blank app then paste the code
-# before running the program make sure that you have run
-# `pip install searoute` and `pip install geopy`
-# on the terminal
 import streamlit as st
 import searoute as sr
 import pandas
@@ -18,42 +14,42 @@ import searoute as sr
 from geopy.distance import geodesic
 from geopy.geocoders import Nominatim
 def get_airport_coordinates(airport_code):
-  geolocator = Nominatim(user_agent="airport_distance_calculator")
+  geolocator=Nominatim(user_agent="airport_distance_calculator")
   try:
-    location = geolocator.geocode(f"{airport_code} airport")
+    location=geolocator.geocode(f"{airport_code} airport")
     if location:
-      return (location.latitude, location.longitude)
+      return(location.latitude,location.longitude)
     else:
       return None
   except:
     return None
 def get_airport_country(airport_code):
-  geolocator = Nominatim(user_agent="airport_country_checker")
+  geolocator=Nominatim(user_agent="airport_country_checker")
   try:
-    location = geolocator.geocode(f"{airport_code} airport")
+    location=geolocator.geocode(f"{airport_code} airport")
     if location:
-      address = location.raw.get('display_name', '')
+      address=location.raw.get('display_name','')
       return address.split(",")[-1].strip()
     else:
       return None
   except:
     return None
 def calculate_distance(airport_code1, airport_code2):
-  coords1 = get_airport_coordinates(airport_code1)
-  coords2 = get_airport_coordinates(airport_code2)
+  coords1=get_airport_coordinates(airport_code1)
+  coords2=get_airport_coordinates(airport_code2)
   if coords1 and coords2:
-    distance = geodesic(coords1, coords2).kilometers
+    distance=geodesic(coords1, coords2).kilometers
     st.write("Distance:",round(distance),'km')
     return distance
 def check_same_country(airport_code1, airport_code2):
-  country1 = get_airport_country(airport_code1)
-  country2 = get_airport_country(airport_code2)
+  country1=get_airport_country(airport_code1)
+  country2=get_airport_country(airport_code2)
   return (country1 and country2) and country1==country2
 st.header("Carbon Emission Calculator")
 choice=st.text_input("Enter 0 for air(Default) and 1 for sea: ")
 if choice=='1':
   st.write("Current mode: Sea")
-  database=st.text_input("Enter mode:\n0: Database (Default, only supports Vietnam as end)\n1: Coordinates\n")  
+  database=st.text_input("Enter mode: 0: Database (Default, only supports Vietnam as end) 1: Coordinates")  
   if database=='0' or not database:
   #sea route if data in csv
     seaports0=y[y.columns[2]].values.tolist()
@@ -62,7 +58,7 @@ if choice=='1':
     seaports1=[str(i[8:]) for i in seaports1]
     y["Codes_Starting"]=seaports0
     y["Codes_Ending"]=seaports1
-    start=st.text_input("Enter start country ")
+    start=st.text_input("Enter start country")
     ef1=0
     target=y[y["Starting_Point"].str.lower()==start.lower().strip()]
     if target.empty:
@@ -76,8 +72,8 @@ if choice=='1':
         code1=target.iloc[0][9]
         code2=target.iloc[0][10]
       else:
-        code1=st.text_input("Enter port code 1: ")
-        code2=st.text_input("Enter port code 2: ")
+        code1=st.text_input("Enter port code 1:")
+        code2=st.text_input("Enter port code 2:")
       if code1 and code2:
         target=target[target["Codes_Starting"].str.lower()==code1.lower().strip()]
         target=target[target["Codes_Ending"].str.lower()==code2.lower().strip()]
@@ -87,11 +83,11 @@ if choice=='1':
           distance=target.iloc[0][8]
           st.write("Distance:",round(distance),'km')
           try:
-            teu=int(st.text_input("Enter TEU capacity: "))
+            teu=int(st.text_input("Enter TEU capacity:"))
           except:
             teu=24000
           try:
-            percent=float(st.text_input("Enter % of capacity, do not include % sign: Default 70: "))
+            percent=float(st.text_input("Enter % of teu capacity: Default 70: "))
           except:
             percent=70
           if teu<1000:
@@ -105,13 +101,13 @@ if choice=='1':
           else:
             ef2=0.0125
           try:
-            ref_teu=int(st.text_input("Enter refrigerated teu capacity, default 800: "))
+            ref_teu=int(st.text_input("Enter refrigerated teu capacity, default 800:"))
           except:
             ref_teu=800
           ref_teu=min(ref_teu,teu)
           weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
           st.markdown(":red[Warning: Only fill one of the below 2]")
-          speed=st.text_input("Enter speed in knots ")
+          speed=st.text_input("Enter speed in knots")
           days=st.text_input("enter number of days you expect your shipment to arrive")
           if speed and days:
             st.write("You entered both speed and days, it is impossible to calculate it")
@@ -168,11 +164,11 @@ if choice=='1':
       else:
         st.write("Distance:",round(distance),'km')
         try:
-          teu=int(st.text_input("Enter TEU capacity: "))
+          teu=int(st.text_input("Enter TEU capacity:"))
         except:
           teu=24000
         try:
-          percent=float(st.text_input("Enter % of capacity, do not include % sign: Default 70: "))
+          percent=float(st.text_input("Enter % of teu capacity: Default 70:"))
         except:
           percent=70
         if teu<1000:
@@ -186,13 +182,13 @@ if choice=='1':
         else:
           ef2=0.0125
         try:
-          ref_teu=int(st.text_input("Enter refrigerated teu capacity, default 800: "))
+          ref_teu=int(st.text_input("Enter refrigerated teu capacity, default 800:"))
         except:
           ref_teu=800
         ref_teu=min(ref_teu,teu)
         weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
         st.markdown(":red[Warning: Only fill one of the below 2]")
-        speed=st.text_input("Enter speed in knots ")
+        speed=st.text_input("Enter speed in knots")
         days=st.text_input("enter number of days you expect your shipment to arrive")
         if speed and days:
           st.write("You entered both speed and days, it is impossible to calculate it")
