@@ -2,8 +2,6 @@ import streamlit as st
 import searoute as sr
 import pandas
 import csv
-import warnings
-warnings.simplefilter(action='ignore', category=FutureWarning)# remove iloc warnings when getting distance
 pandas.set_option('display.max_rows', None)
 x=pandas.read_csv("https://raw.githubusercontent.com/wongethan199/carbon_emission_1/main/ESG%20-%20Data%20sheet%20air%20freight%20shipping%20hubs.xlsx%20-%20Main%20-%20Air%20shipping.csv")#distance
 y=pandas.read_csv("https://raw.githubusercontent.com/wongethan199/carbon_emission_1/refs/heads/main/ESG%20-%20Data%20sheet%20sea%20freight.xlsx%20-%20Carbon%20footprints%20counting.csv")
@@ -187,7 +185,7 @@ if choice=='1':
           speed=float(speed)
           days=distance/(speed*1.852)/24
           st.write('Days',days)
-          ref_consum=ref_teu*0.75*days*24#ref_teu*1.9*1914/365*days_operated
+          ref_consum=ref_teu*0.75*days*24
           st.write("Refrigerator fuel consumption",round(ref_consum*0.9,2),'kg')
           co2=weight*distance*ef2*(speed/21)**2/1000+ref_consum*3.15
           st.write("CO2 Emission:",round(co2,1),"kg")
