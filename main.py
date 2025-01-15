@@ -25,7 +25,7 @@ def get_airport_coordinates(airport_code):
       return (location.latitude, location.longitude)
     else:
       return None
-  except Exception as e:
+  except:
     return None
 def get_airport_country(airport_code):
   geolocator = Nominatim(user_agent="airport_country_checker")
@@ -36,7 +36,7 @@ def get_airport_country(airport_code):
       return address.split(",")[-1].strip()
     else:
       return None
-  except Exception as e:
+  except:
     return None
 def calculate_distance(airport_code1, airport_code2):
   coords1 = get_airport_coordinates(airport_code1)
@@ -45,15 +45,10 @@ def calculate_distance(airport_code1, airport_code2):
     distance = geodesic(coords1, coords2).kilometers
     st.write("Distance:",round(distance),'km')
     return distance
-  else:
-    st.write("Unable to calculate distance due to missing coordinates.")
 def check_same_country(airport_code1, airport_code2):
   country1 = get_airport_country(airport_code1)
   country2 = get_airport_country(airport_code2)
-  if country1 and country2:
-    return country1==country2
-  else:
-    return 0
+  return (country1 and country2) and country1==country2
 st.header("Carbon Emission Calculator")
 choice=st.text_input("Enter 0 for air(Default) and 1 for sea: ")
 if choice=='1':
