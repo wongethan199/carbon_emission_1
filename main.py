@@ -119,12 +119,8 @@ if choice=='1':
             st.write("Refrigerator fuel consumption",round(ref_consum*0.9,2),'kg')
             co2=weight*distance*ef2*(speed/21)**2/1000+ref_consum*3.15
             st.write("CO2 Emission:",round(co2,1),"kg")
-            st.write("This is equivalent to:")
             co2/=1000
-            st.write(round(co2*370.37,1),"kg of rice")
-            st.write(round(co2*16.67,2),"kg of beef")
-            st.write(round(co2*833.33,1),"liters of milk")
-            st.write(round(co2*0.8,4),"hectares of cropland of fertilizer")
+            st.write("This is equivalent to:",round(co2*370.37,1),"kg of rice,",round(co2*16.67,2),"kg of beef,",round(co2*833.33,1),"liters of milk, or",round(co2*0.8,4),"hectares of cropland of fertilizer")
             dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
             st.write("Dry Container Emission Intensity:",dry_intensity)
             ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
@@ -137,12 +133,8 @@ if choice=='1':
             st.write("Refrigerator fuel consumption",round(ref_consum*0.9,2),'kg')
             co2=weight*distance*ef2*(speed/21)**2/1000+ref_consum*3.15
             st.write("CO2 Emission:",round(co2,1),"kg")
-            st.write("This is equivalent to:")
             co2/=1000
-            st.write(round(co2*370.37,1),"kg of rice")
-            st.write(round(co2*16.67,2),"kg of beef")
-            st.write(round(co2*833.33,1),"liters of milk")
-            st.write(round(co2*0.8,4),"hectares of cropland of fertilizer")
+            st.write("This is equivalent to:",round(co2*370.37,1),"kg of rice,",round(co2*16.67,2),"kg of beef,",round(co2*833.33,1),"liters of milk, or",round(co2*0.8,4),"hectares of cropland of fertilizer")
             dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
             st.write("Dry Container Emission Intensity:",dry_intensity)
             ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
