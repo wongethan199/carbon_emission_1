@@ -179,7 +179,7 @@ if choice=='1':
           ref_teu=800
         ref_teu=min(ref_teu,teu)
         weight=teu*24000*percent/100 
-        st.write("weight of cargo ship is",weight,"kg")
+        st.write("weight of cargo ship is",int(weight),"kg")
         st.markdown(":red[Warning: Only fill one of the below 2]")
         speed=st.text_input("Enter speed in knots")
         days=st.text_input("enter expected number of days")
