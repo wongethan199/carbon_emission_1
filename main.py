@@ -120,7 +120,7 @@ if choice=='1':
             st.write("This is equivalent to:",round(co2*370.37,1),"kg of rice,",round(co2*16.67,2),"kg of beef,",round(co2*833.33,1),"liters of milk, or",round(co2*0.8,4),"hectares of cropland of fertilizer")
             dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
             st.write("Dry Container Emission Intensity:",dry_intensity)
-            ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
+            ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/ref_teu
             st.write("Refrigerated Container Emission Intensity",ref_intensity)
           elif days:
             days=float(days)
@@ -134,7 +134,7 @@ if choice=='1':
             st.write("This is equivalent to:",round(co2*370.37,1),"kg of rice,",round(co2*16.67,2),"kg of beef,",round(co2*833.33,1),"liters of milk, or",round(co2*0.8,4),"hectares of cropland of fertilizer")
             dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
             st.write("Dry Container Emission Intensity:",dry_intensity)
-            ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
+            ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/ref_teu
             st.write("Refrigerated Container Emission Intensity",ref_intensity)     
   else:
     lat1=st.text_input("Latitude 1 (-90 to 90): ")
@@ -193,7 +193,7 @@ if choice=='1':
           st.write("This is equivalent to:",round(co2*370.37,1),"kg of rice,",round(co2*16.67,2),"kg of beef,",round(co2*833.33,1),"liters of milk, or",round(co2*0.8,4),"hectares of cropland of fertilizer")
           dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
           st.write("Dry Container Emission Intensity:",dry_intensity)
-          ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
+          ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/ref_teu
           st.write("Refrigerated Container Emission Intensity",ref_intensity)
         elif days:
           days=float(days)
@@ -207,7 +207,7 @@ if choice=='1':
           st.write("This is equivalent to:",round(co2*370.37,1),"kg of rice,",round(co2*16.67,2),"kg of beef,",round(co2*833.33,1),"liters of milk, or",round(co2*0.8,4),"hectares of cropland of fertilizer")
           dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
           st.write("Dry Container Emission Intensity:",dry_intensity)
-          ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/teu
+          ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/ref_teu
           st.write("Refrigerated Container Emission Intensity",ref_intensity)
 else:
   st.write("Current mode: Air")
@@ -284,10 +284,13 @@ else:
     else:
       percent=st.text_input("enter % of maximum takeoff weight (Minimum 40)")
       if percent:
-        percent=max(min(float(percent),100),40)
-        weight=aircraft1.iloc[0][1]*percent/100
-        st.write("the weight of the aircraft is",round(weight,1),"kg")
-        co2=weight*distance*ef1
-        st.write("CO2 Emission:",round(co2/1000,1),"kg")
-        co2/=1000000
-        st.write("This is equivalent to:",round(co2*370.37,1),"kg of rice,",round(co2*16.67,2),"kg of beef,",round(co2*833.33,1),"liters of milk, or",round(co2*0.8,4),"hectares of cropland of fertilizer")
+        speed=st.text_input("enter % of max speed")
+        if speed:
+          speed=min(100,float(speed))
+          percent=max(min(float(percent),100),40)
+          weight=aircraft1.iloc[0][1]*percent/100
+          st.write("the weight of the aircraft is",round(weight,1),"kg")
+          co2=weight*distance*ef1*(speed/100)**2
+          st.write("CO2 Emission:",round(co2/1000,1),"kg")
+          co2/=1000000
+          st.write("This is equivalent to:",round(co2*370.37,1),"kg of rice,",round(co2*16.67,2),"kg of beef,",round(co2*833.33,1),"liters of milk, or",round(co2*0.8,4),"hectares of cropland of fertilizer")
