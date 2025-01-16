@@ -87,6 +87,7 @@ if choice=='1':
             percent=float(st.text_input("Enter % of teu capacity: Default 70: "))
           except:
             percent=70
+          percent=min(100,percent)
           if teu<1000:
             ef2=0.0363
           elif teu<2000:
@@ -98,11 +99,12 @@ if choice=='1':
           else:
             ef2=0.0125
           try:
-            ref_teu=int(st.text_input("Enter refrigerated teu capacity, default 800:"))
+            ref_teu=int(st.text_input("Enter refrigerated plug capacity, default 800:"))
           except:
             ref_teu=800
           ref_teu=min(ref_teu,teu)
-          weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
+          weight=teu*24000*percent/100
+          st.write("weight of cargo ship is",int(weight),"kg")
           st.markdown(":red[Warning: Only fill one of the below 2]")
           speed=st.text_input("Enter speed in knots")
           days=st.text_input("enter expected number of days")
@@ -120,7 +122,7 @@ if choice=='1':
             st.write("This is equivalent to:",round(co2*370.37,1),"kg of rice,",round(co2*16.67,2),"kg of beef,",round(co2*833.33,1),"liters of milk, or",round(co2*0.8,4),"hectares of cropland of fertilizer")
             dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
             st.write("Dry Container Emission Intensity:",dry_intensity)
-            ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/ref_teu
+            ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/ref_teu/1.9
             st.write("Refrigerated Container Emission Intensity",ref_intensity)
           elif days:
             days=float(days)
@@ -134,7 +136,7 @@ if choice=='1':
             st.write("This is equivalent to:",round(co2*370.37,1),"kg of rice,",round(co2*16.67,2),"kg of beef,",round(co2*833.33,1),"liters of milk, or",round(co2*0.8,4),"hectares of cropland of fertilizer")
             dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
             st.write("Dry Container Emission Intensity:",dry_intensity)
-            ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/ref_teu
+            ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/ref_teu/1.9
             st.write("Refrigerated Container Emission Intensity",ref_intensity)     
   else:
     lst=[st.text_input("Latitude 1 (-90 to 90): "),st.text_input("Longitude 1 (-180 to 180):"),st.text_input("Latitude 2 (-90 to 90):"),st.text_input("Longitude 2 (-180 to 180): ")]
@@ -156,6 +158,7 @@ if choice=='1':
           percent=float(st.text_input("Enter % of teu capacity: Default 70:"))
         except:
           percent=70
+        percent=min(100,percent)
         if teu<1000:
           ef2=0.0363
         elif teu<2000:
@@ -167,11 +170,12 @@ if choice=='1':
         else:
           ef2=0.0125
         try:
-          ref_teu=int(st.text_input("Enter refrigerated teu capacity, default 800:"))
+          ref_teu=int(st.text_input("Enter refrigerated plug capacity, default 800:"))
         except:
           ref_teu=800
         ref_teu=min(ref_teu,teu)
-        weight=teu*24*percent/100 
+        weight=teu*24000*percent/100 
+        st.write("weight of cargo ship is",weight,"kg")
         st.markdown(":red[Warning: Only fill one of the below 2]")
         speed=st.text_input("Enter speed in knots")
         days=st.text_input("enter expected number of days")
@@ -189,7 +193,7 @@ if choice=='1':
           st.write("This is equivalent to:",round(co2*370.37,1),"kg of rice,",round(co2*16.67,2),"kg of beef,",round(co2*833.33,1),"liters of milk, or",round(co2*0.8,4),"hectares of cropland of fertilizer")
           dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
           st.write("Dry Container Emission Intensity:",dry_intensity)
-          ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/ref_teu
+          ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/ref_teu/1.9
           st.write("Refrigerated Container Emission Intensity",ref_intensity)
         elif days:
           days=float(days)
@@ -203,7 +207,7 @@ if choice=='1':
           st.write("This is equivalent to:",round(co2*370.37,1),"kg of rice,",round(co2*16.67,2),"kg of beef,",round(co2*833.33,1),"liters of milk, or",round(co2*0.8,4),"hectares of cropland of fertilizer")
           dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
           st.write("Dry Container Emission Intensity:",dry_intensity)
-          ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/ref_teu
+          ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/ref_teu/1.9
           st.write("Refrigerated Container Emission Intensity",ref_intensity)
 else:
   st.write("Current mode: Air")
