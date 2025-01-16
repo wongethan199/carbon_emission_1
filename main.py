@@ -140,8 +140,8 @@ if choice=='1':
     lst=[st.text_input("Latitude 1 (-90 to 90): "),st.text_input("Longitude 1 (-180 to 180):"),st.text_input("Latitude 2 (-90 to 90):"),st.text_input("Longitude 2 (-180 to 180): ")]
     if all(lst):
       lst=[float(i)for i in lst]
-      orig=lst[:2]
-      dest=lst[2:]
+      orig=lst[:2][::-1]
+      dest=lst[2:][::-1]
       route=sr.searoute(orig,dest)
       distance=route.properties['length']
       if distance==0:
