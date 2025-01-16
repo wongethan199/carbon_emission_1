@@ -105,9 +105,9 @@ if choice=='1':
           weight=teu*24*percent/100 #using 24000kg per teu: https://oneworldcourier.com.au/what-is-a-teu-shipping-container/
           st.markdown(":red[Warning: Only fill one of the below 2]")
           speed=st.text_input("Enter speed in knots")
-          days=st.text_input("enter number of days you expect your shipment to arrive")
+          days=st.text_input("enter expected number of days")
           if speed and days:
-            st.write("You entered both speed and days, it is impossible to calculate it")
+            st.write("You entered both speed and days")
           elif speed:
             speed=float(speed)
             days=distance/(speed*1.852)/24
@@ -178,9 +178,9 @@ if choice=='1':
         weight=teu*24*percent/100 
         st.markdown(":red[Warning: Only fill one of the below 2]")
         speed=st.text_input("Enter speed in knots")
-        days=st.text_input("enter number of days you expect your shipment to arrive")
+        days=st.text_input("enter expected number of days")
         if speed and days:
-          st.write("You entered both speed and days, it is impossible to calculate it")
+          st.write("You entered both speed and days")
         elif speed:
           speed=float(speed)
           days=distance/(speed*1.852)/24
@@ -211,7 +211,6 @@ if choice=='1':
           st.write("Refrigerated Container Emission Intensity",ref_intensity)
 else:
   st.write("Current mode: Air")
-  target=pandas.DataFrame()
   code1=code2=""
   not_found=0
   airports0=x[x.columns[2]].values.tolist()
@@ -274,9 +273,9 @@ else:
           ef1=ef.iloc[1][5]#short haul
         else:ef1=ef.iloc[2][5]#long haul
       except:
-        st.write("Timed out or error extracting data of one or both airports, or airport doesn't exist")
-    aircraft1=pandas.DataFrame()
+        st.write("Timed out, please try again")
     aircraft=st.text_input("Enter the aircraft, please enter the company name e.g. Airbus A340-500, Antonov An-225, Boeing 747-400")
+    aircraft1=pandas.DataFrame()
     if aircraft:
       aircraft1=w[w["Type"].str.lower()==aircraft.lower().strip()]
     if aircraft1.empty:
