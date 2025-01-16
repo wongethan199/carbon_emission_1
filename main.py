@@ -137,11 +137,7 @@ if choice=='1':
             ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/ref_teu
             st.write("Refrigerated Container Emission Intensity",ref_intensity)     
   else:
-    lat1=st.text_input("Latitude 1 (-90 to 90): ")
-    long1=st.text_input("Longitude 1 (-180 to 180):")
-    lat2=st.text_input("Latitude 2 (-90 to 90):")
-    long2=st.text_input("Longitude 2 (-180 to 180): ")
-    lst=[long1,lat1,long2,lat2]
+    lst=[st.text_input("Latitude 1 (-90 to 90): "),st.text_input("Longitude 1 (-180 to 180):"),st.text_input("Latitude 2 (-90 to 90):"),st.text_input("Longitude 2 (-180 to 180): ")]
     if all(lst):
       lst=[float(i)for i in lst]
       orig=lst[:2]
@@ -275,21 +271,20 @@ else:
       except:
         st.write("Timed out, please try again")
     aircraft=st.text_input("Enter the aircraft, please enter the company name e.g. Airbus A340-500, Antonov An-225, Boeing 747-400")
-    aircraft1=pandas.DataFrame()
     if aircraft:
       aircraft1=w[w["Type"].str.lower()==aircraft.lower().strip()]
-    if aircraft1.empty:
-      st.write("No aircraft found")
-    else:
-      percent=st.text_input("enter % of maximum takeoff weight (Minimum 40)")
-      if percent:
-        speed=st.text_input("enter % of max speed")
-        if speed:
-          speed=min(100,float(speed))
-          percent=max(min(float(percent),100),40)
-          weight=aircraft1.iloc[0][1]*percent/100
-          st.write("the weight of the aircraft is",round(weight,1),"kg")
-          co2=weight*distance*ef1*(speed/100)**2
-          st.write("CO2 Emission:",round(co2/1000,1),"kg")
-          co2/=1000000
-          st.write("This is equivalent to:",round(co2*370.37,1),"kg of rice,",round(co2*16.67,2),"kg of beef,",round(co2*833.33,1),"liters of milk, or",round(co2*0.8,4),"hectares of cropland of fertilizer")
+      if aircraft1.empty:
+        st.write("No aircraft found")
+      else:
+        percent=st.text_input("enter % of maximum takeoff weight (Minimum 40)")
+        if percent:
+          speed=st.text_input("enter % of max speed")
+          if speed:
+            speed=min(100,float(speed))
+            percent=max(min(float(percent),100),40)
+            weight=aircraft1.iloc[0][1]*percent/100
+            st.write("the weight of the aircraft is",round(weight,1),"kg")
+            co2=weight*distance*ef1*(speed/100)**2
+            st.write("CO2 Emission:",round(co2/1000,1),"kg")
+            co2/=1000000
+            st.write("This is equivalent to:",round(co2*370.37,1),"kg of rice,",round(co2*16.67,2),"kg of beef,",round(co2*833.33,1),"liters of milk, or",round(co2*0.8,4),"hectares of cropland of fertilizer")
