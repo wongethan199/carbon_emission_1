@@ -1,5 +1,4 @@
 import streamlit as st
-import searoute as sr
 import pandas
 import csv
 pandas.set_option('display.max_rows', None)
