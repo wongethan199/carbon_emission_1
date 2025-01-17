@@ -122,6 +122,7 @@ if choice=='1':
             st.write("CO2 Emission to load ratio per km:",co2/weight/distance)
             co2/=1000
             st.write("This is equivalent to:",round(co2*370.37,1),"kg of rice,",round(co2*16.67,2),"kg of beef,",round(co2*833.33,1),"liters of milk, or",round(co2*0.8,4),"hectares of cropland of fertilizer")
+            st.write("Also equivalent to:",round(co2/4.6,3),"years of carbon footprint for an average car,",round(co2/1.5,3),"flights of 10000km, or the average carbon footprint of",round(co2/4.8),"people in a year")
             dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
             st.write("Dry Container Emission Intensity:",dry_intensity)
             ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/ref_teu/1.9
@@ -138,6 +139,7 @@ if choice=='1':
             st.write("CO2 Emission to load ratio per km:",co2/weight/distance)
             co2/=1000
             st.write("This is equivalent to:",round(co2*370.37,1),"kg of rice,",round(co2*16.67,2),"kg of beef,",round(co2*833.33,1),"liters of milk, or",round(co2*0.8,4),"hectares of cropland of fertilizer")
+            st.write("Also equivalent to:",round(co2/4.6,3),"years of carbon footprint for an average car,",round(co2/1.5,3),"flights of 10000km, or the average carbon footprint of",round(co2/4.8),"people in a year")
             dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
             st.write("Dry Container Emission Intensity:",dry_intensity)
             ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/ref_teu/1.9
@@ -197,6 +199,7 @@ if choice=='1':
           st.write("CO2 Emission to load ratio per km:",co2/weight/distance)
           co2/=1000
           st.write("This is equivalent to:",round(co2*370.37,1),"kg of rice,",round(co2*16.67,2),"kg of beef,",round(co2*833.33,1),"liters of milk, or",round(co2*0.8,4),"hectares of cropland of fertilizer")
+          st.write("Also equivalent to:",round(co2/4.6,3),"years of carbon footprint for an average car,",round(co2/1.5,3),"flights of 10000km, or the average carbon footprint of",round(co2/4.8),"people in a year")
           dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
           st.write("Dry Container Emission Intensity:",dry_intensity)
           ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/ref_teu/1.9
@@ -213,6 +216,7 @@ if choice=='1':
           st.write("CO2 Emission to load ratio per km:",co2/weight/distance)
           co2/=1000
           st.write("This is equivalent to:",round(co2*370.37,1),"kg of rice,",round(co2*16.67,2),"kg of beef,",round(co2*833.33,1),"liters of milk, or",round(co2*0.8,4),"hectares of cropland of fertilizer")
+          st.write("Also equivalent to:",round(co2/4.6,3),"years of carbon footprint for an average car,",round(co2/1.5,3),"flights of 10000km, or the average carbon footprint of",round(co2/4.8),"people in a year")
           dry_intensity=ef2/126.85*(speed/21)**2/teu/(percent/100)*1000000
           st.write("Dry Container Emission Intensity:",dry_intensity)
           ref_intensity=dry_intensity+ef2*ref_consum/distance/(percent/100)/ref_teu/1.9
@@ -302,3 +306,4 @@ else:
             st.write("CO2 Emission to load ratio per km:",co2/weight/distance)
             co2/=1000
             st.write("This is equivalent to:",round(co2*370.37,1),"kg of rice,",round(co2*16.67,2),"kg of beef,",round(co2*833.33,1),"liters of milk, or",round(co2*0.8,4),"hectares of cropland of fertilizer")
+            st.write("Also equivalent to:",round(co2/4.6,3),"years of carbon footprint for an average car,",round(co2/1.5,3),"flights of 10000km, or the average carbon footprint of",round(co2/4.8),"people in a year")
