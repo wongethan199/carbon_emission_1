@@ -266,10 +266,9 @@ else:
       st.write("Distance:",distance,'km')
       if start==end:
         ef1=ef.iloc[0][5]
-      else:
-        if distance<3700:
-          ef1=ef.iloc[1][5]
-        else:ef1=ef.iloc[2][5]
+      elif distance<3700:
+        ef1=ef.iloc[1][5]
+      else:ef1=ef.iloc[2][5]
     else:
       if not(code1 and code2):
         code1=st.text_input("Enter port code 1:")
@@ -277,7 +276,7 @@ else:
       airport_code1=code1.strip().upper()
       airport_code2=code2.strip().upper()
       try:
-        distance=calculate_distance(airport_code1, airport_code2)
+        distance=calculate_distance(airport_code1,airport_code2)
         if check_same_country(airport_code1,airport_code2):
           ef1=ef.iloc[0][5]#domestic
         elif distance<3700:
@@ -295,14 +294,17 @@ else:
         if percent:
           speed=st.text_input("enter % of max speed")
           if speed:
-            speed=min(100,float(speed))
-            percent=max(min(float(percent),100),40)
-            weight=aircraft1.iloc[0][1]*percent/100
-            st.write("the weight of the aircraft is",round(weight,1),"kg")
-            co2=weight*distance*ef1*(speed/100)**2/1000
-            st.write("CO2 Emission:",round(co2,1),"kg")
-            st.write("CO2 Emission to load ratio:",co2/weight)
-            st.write("CO2 Emission to load ratio per km:",co2/weight/distance)
-            co2/=1000
-            st.write("This is equivalent to:",round(co2*370.37,1),"kg of rice,",round(co2*16.67,2),"kg of beef,",round(co2*833.33,1),"liters of milk, or",round(co2*0.8,4),"hectares of cropland of fertilizer")
-            st.write("Also equivalent to:",round(co2/4.6,3),"years of carbon footprint for an average car,",round(co2/1.5,3),"flights of 10000km, or the average carbon footprint of",round(co2/4.8),"people in a year")
+            try:
+              speed=min(100,float(speed))
+              percent=max(min(float(percent),100),40)
+              weight=aircraft1.iloc[0][1]*percent/100
+              st.write("the weight of the aircraft is",round(weight,1),"kg")
+              co2=weight*distance*ef1*(speed/100)**2/1000
+              st.write("CO2 Emission:",round(co2,1),"kg")
+              st.write("CO2 Emission to load ratio:",co2/weight)
+              st.write("CO2 Emission to load ratio per km:",co2/weight/distance)
+              co2/=1000
+              st.write("This is equivalent to:",round(co2*370.37,1),"kg of rice,",round(co2*16.67,2),"kg of beef,",round(co2*833.33,1),"liters of milk, or",round(co2*0.8,4),"hectares of cropland of fertilizer")
+              st.write("Also equivalent to:",round(co2/4.6,3),"years of carbon footprint for an average car,",round(co2/1.5,3),"flights of 10000km, or the average carbon footprint of",round(co2/4.8),"people in a year")
+            except:
+              st.write("Unable to calculate because of timeout")
